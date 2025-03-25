@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d3f4nnfm8sk28"]
+
+[ext_resource type="Texture2D" uid="uid://te1gjrt06jrm" path="res://textures/metal.png" id="1_7qidd"]
+
+[resource]
+resource_name = "Metal"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+albedo_texture = ExtResource("1_7qidd")
+metallic = 0.55
+metallic_specular = 0.92
+roughness = 0.5

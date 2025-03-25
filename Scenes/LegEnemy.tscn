@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://s4hjw4ejsjjw"]
+
+[ext_resource type="Script" uid="uid://14207km0lp4m" path="res://scripts/LegEnemy.cs" id="1_phppw"]
+[ext_resource type="Material" uid="uid://dxa0hfe3787po" path="res://materials/acid.tres" id="2_tmv05"]
+[ext_resource type="PackedScene" uid="uid://b2tv3xbfy1jmn" path="res://blend/legenemy.blend" id="2_u2aog"]
+[ext_resource type="AudioStream" uid="uid://cbmc7etndxr1o" path="res://audio/sfx/MonsterSlapped.ogg" id="3_qqro5"]
+[ext_resource type="PackedScene" uid="uid://d1buql6qmxtdc" path="res://Scenes/acid_fall_particles.tscn" id="4_dcupi"]
+[ext_resource type="AudioStream" uid="uid://b5u2ttf8866rm" path="res://audio/sfx/acidDeath.ogg" id="4_lps0i"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0mi7d"]
+radius = 0.44658
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_om4b2"]
+radius = 0.949318
+
+[node name="LegEnemy" type="Node3D" groups=["Enemy", "Entity"]]
+
+[node name="LegEnemy" type="CharacterBody3D" parent="." node_paths=PackedStringArray("animationPlayer", "CollisionShape3D", "mesh", "acidFallParticles") groups=["Enemy", "Entity"]]
+top_level = true
+slide_on_ceiling = false
+wall_min_slide_angle = 0.959931
+floor_constant_speed = true
+floor_max_angle = 0.959931
+script = ExtResource("1_phppw")
+animationPlayer = NodePath("LegEnemy/legenemy/AnimationPlayer")
+CollisionShape3D = NodePath("CollisionShape3D(LEGENEMY)")
+mesh = NodePath("LegEnemy/legenemy/Armature/Skeleton3D/Main")
+acidicMaterial = ExtResource("2_tmv05")
+acidFallParticles = NodePath("GPUParticles3D")
+deathSound = ExtResource("3_qqro5")
+acidDeathSound = ExtResource("4_lps0i")
+
+[node name="CollisionShape3D(LEGENEMY)" type="CollisionShape3D" parent="LegEnemy" groups=["Enemy", "Entity"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.361707)
+shape = SubResource("CapsuleShape3D_0mi7d")
+
+[node name="LegEnemy" type="Node3D" parent="LegEnemy" groups=["Enemy", "Entity"]]
+
+[node name="legenemy" parent="LegEnemy/LegEnemy" groups=["Enemy", "Entity"] instance=ExtResource("2_u2aog")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="Armature" parent="LegEnemy/LegEnemy/legenemy" index="0" groups=["Enemy", "Entity"]]
+
+[node name="Skeleton3D" parent="LegEnemy/LegEnemy/legenemy/Armature" index="0" groups=["Enemy", "Entity"]]
+bones/0/rotation = Quaternion(-0.113306, -0.760785, 0.0941354, 0.632066)
+bones/2/rotation = Quaternion(0.598328, 0.477256, 0.599902, -0.233129)
+bones/3/rotation = Quaternion(-0.403437, 0.223137, 0.137075, 0.876732)
+bones/4/rotation = Quaternion(0.0806047, 0.210491, 0.833509, 0.50444)
+bones/5/rotation = Quaternion(0.0302202, 0.0192355, 0.793349, 0.607712)
+bones/7/rotation = Quaternion(2.19444e-08, 6.91265e-07, -0.846046, 0.53311)
+bones/9/rotation = Quaternion(0.451248, -0.361513, 0.67599, 0.45686)
+bones/10/rotation = Quaternion(0.294198, 0.478743, -0.510894, 0.650569)
+bones/11/rotation = Quaternion(-0.0615291, -0.0584602, 0.91042, 0.404886)
+bones/12/rotation = Quaternion(0.0892302, 0.714036, 0.0362657, 0.693452)
+bones/14/rotation = Quaternion(0.0637615, -0.0634109, 0.784836, 0.613145)
+
+[node name="Main" parent="LegEnemy/LegEnemy/legenemy/Armature/Skeleton3D" index="0" groups=["Enemy", "Entity"]]
+
+[node name="AnimationPlayer" parent="LegEnemy/LegEnemy/legenemy" index="1" groups=["Enemy", "Entity"]]
+
+[node name="Area3D" type="Area3D" parent="LegEnemy" groups=["Enemy", "Entity"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LegEnemy/Area3D" groups=["Enemy", "Entity"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32066, -0.359905)
+shape = SubResource("SphereShape3D_om4b2")
+
+[node name="GPUParticles3D" parent="LegEnemy" instance=ExtResource("4_dcupi")]
+
+[connection signal="area_entered" from="LegEnemy/Area3D" to="LegEnemy" method="PlayerLandOnHead"]
+
+[editable path="LegEnemy/LegEnemy/legenemy"]

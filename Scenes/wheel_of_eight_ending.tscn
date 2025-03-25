@@ -1,0 +1,103 @@
+[gd_scene load_steps=7 format=3 uid="uid://iwiw44yqf87f"]
+
+[ext_resource type="Script" uid="uid://cqdt250waf1rk" path="res://scripts/cutscene.cs" id="3_mxsry"]
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="4_s72o3"]
+[ext_resource type="AudioStream" uid="uid://ujhr51egnac4" path="res://audio/music/rhodesChopin.ogg" id="5_6h4rw"]
+[ext_resource type="PackedScene" uid="uid://bst5043hive0r" path="res://Scenes/unlock_achievement.tscn" id="5_7jygu"]
+[ext_resource type="VideoStream" uid="uid://dgavhu4n4o6un" path="res://video/ending1.ogv" id="5_s35mu"]
+
+[sub_resource type="Environment" id="Environment_ixj4k"]
+background_mode = 1
+ambient_light_color = Color(0, 0.320056, 0.153221, 1)
+
+[node name="wheel_of_eight_ending" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2.03733, -6.72797)
+current = true
+
+[node name="cutscene" type="Node" parent="."]
+script = ExtResource("3_mxsry")
+length = 64.0
+nextScene = "main_menu"
+gameplayScene = false
+
+[node name="music_player" parent="." instance=ExtResource("4_s72o3")]
+song = ExtResource("5_6h4rw")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.046
+anchor_right = 0.5
+anchor_bottom = 0.963
+offset_left = 0.440002
+offset_top = 0.191998
+offset_bottom = -0.0239868
+text = "-logged in as root via USB
+root@haroldhost:/$override
+permission not granted
+root@haroldhost:/$override --crowns 32
+configure your crown dir
+root@haroldhost:/$crowntool --dir ./savedata
+root@haroldhost:/$override --crowns 32
+dir does not contain the required crownnum
+consider increasing the crown count and running the program again.
+root@haroldhost:/$logout
+disconnected
+session ended
+"
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.516
+anchor_top = 0.963
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.432007
+offset_top = -0.0240479
+offset_right = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "~END~                                                Game by Luke Vincent 2024"
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.516
+anchor_right = 0.99
+anchor_bottom = 0.478
+offset_left = -0.432007
+offset_right = 0.519897
+offset_bottom = 0.255981
+stream = ExtResource("5_s35mu")
+autoplay = true
+expand = true
+loop = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ixj4k")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.999854, -0.0170684, 0, 0.0170684, -0.999854, 0, 0, 0)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.945972, -0.324248, 0, 0.324248, 0.945972, 0, 0, 0)
+
+[node name="UnlockAchievement" parent="." instance=ExtResource("5_7jygu")]

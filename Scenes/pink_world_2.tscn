@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://cc76ir7ak1xhm"]
+
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="2_754iu"]
+[ext_resource type="AudioStream" uid="uid://b8irbwnpman8t" path="res://audio/music/challenge_stage_02.ogg" id="3_a5y0j"]
+[ext_resource type="PackedScene" uid="uid://4h1osc28min3" path="res://Scenes/pink_world_2_geometry.tscn" id="3_gsbab"]
+[ext_resource type="PackedScene" uid="uid://b4mb2m1w87fcl" path="res://Scenes/pink_world_environment.tscn" id="5_6yccf"]
+[ext_resource type="PackedScene" uid="uid://dthaqic75rdiw" path="res://Scenes/RedTrampoline.tscn" id="5_kmboe"]
+
+[node name="pink_world2" type="Node3D"]
+
+[node name="pink_world_2_geometry" parent="." instance=ExtResource("3_gsbab")]
+
+[node name="music_player" parent="." instance=ExtResource("2_754iu")]
+song = ExtResource("3_a5y0j")
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("5_6yccf")]
+
+[node name="Trampoline2" parent="." instance=ExtResource("5_kmboe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.7946, -19.3654, 19.7599)
+
+[node name="Trampoline3" parent="." instance=ExtResource("5_kmboe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.4821, -23.5028, -11.9755)
+
+[node name="Trampoline4" parent="." instance=ExtResource("5_kmboe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.8878, -25.4059, -27.8304)
+
+[node name="Trampoline5" parent="." instance=ExtResource("5_kmboe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.5211, 3.03322, 45.9278)

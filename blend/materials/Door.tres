@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dbbyh28yc0n4x"]
+
+[ext_resource type="Texture2D" uid="uid://bv8vqiiaqvhve" path="res://blend/textures/Door.png" id="1_1dcj1"]
+
+[resource]
+resource_name = "Door"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_1dcj1")
+roughness = 0.5

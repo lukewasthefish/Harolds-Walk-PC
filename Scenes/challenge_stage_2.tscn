@@ -1,0 +1,229 @@
+[gd_scene load_steps=11 format=3 uid="uid://bl52v8p2rg8qg"]
+
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="2_fqcpt"]
+[ext_resource type="AudioStream" uid="uid://mjtb0pidwgyp" path="res://audio/music/challenge_stage_01.ogg" id="3_egubw"]
+[ext_resource type="PackedScene" uid="uid://wbkwsd6tfe44" path="res://Scenes/world_environment(challengestages).tscn" id="4_1tx8d"]
+[ext_resource type="PackedScene" uid="uid://cwggdkga1gk37" path="res://Scenes/octoplatform.tscn" id="4_vg3dq"]
+[ext_resource type="PackedScene" uid="uid://bqbqjfox4mqqo" path="res://Scenes/PlayerStart.tscn" id="5_oc4fm"]
+[ext_resource type="PackedScene" uid="uid://djnotrdxwhxj0" path="res://Scenes/Portal.tscn" id="6_5bikr"]
+[ext_resource type="PackedScene" uid="uid://buoa3j0nv6gk6" path="res://Scenes/dash_panel.tscn" id="6_jq86j"]
+[ext_resource type="PackedScene" uid="uid://dthaqic75rdiw" path="res://Scenes/RedTrampoline.tscn" id="7_f6v4f"]
+[ext_resource type="PackedScene" uid="uid://ohjil5u56gdg" path="res://Scenes/CrownPickup.tscn" id="7_xipig"]
+[ext_resource type="PackedScene" uid="uid://or6kwbrrr2s5" path="res://Scenes/Donut.tscn" id="9_gqd6r"]
+
+[node name="challenge_stage_2" type="Node3D"]
+
+[node name="music_player" parent="." instance=ExtResource("2_fqcpt")]
+song = ExtResource("3_egubw")
+
+[node name="WorldEnvironment(challengestages)" parent="." instance=ExtResource("4_1tx8d")]
+
+[node name="octoplatform" parent="." instance=ExtResource("4_vg3dq")]
+
+[node name="octoplatform2" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 8)
+
+[node name="octoplatform13" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -452.23)
+
+[node name="octoplatform14" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -460.23)
+
+[node name="octoplatform15" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -460.23)
+
+[node name="octoplatform16" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -460.23)
+
+[node name="octoplatform17" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -468.23)
+
+[node name="octoplatform18" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.1016, 113.892, -378.56)
+
+[node name="octoplatform23" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.1016, 113.892, -386.56)
+
+[node name="octoplatform19" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.1016, 113.892, -394.56)
+
+[node name="octoplatform20" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.1016, 113.892, -394.56)
+
+[node name="octoplatform21" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.1016, 113.892, -227.56)
+
+[node name="octoplatform27" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.1016, 113.892, -235.56)
+
+[node name="octoplatform29" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.1016, 113.892, -243.56)
+
+[node name="octoplatform28" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.1016, 113.892, -235.56)
+
+[node name="octoplatform33" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.1016, 173.857, -351.224)
+
+[node name="octoplatform37" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.1016, 173.857, -323.317)
+
+[node name="octoplatform36" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.1016, 173.857, -302.18)
+
+[node name="octoplatform35" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.1016, 173.857, -280.697)
+
+[node name="octoplatform34" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.1016, 173.857, -258.224)
+
+[node name="octoplatform26" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.1016, 113.892, -394.56)
+
+[node name="octoplatform22" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.1016, 113.892, -402.56)
+
+[node name="octoplatform30" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4522, 113.892, -425.788)
+
+[node name="octoplatform32" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.82258, 113.892, -430.256)
+
+[node name="octoplatform31" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.9886, 113.892, -413.294)
+
+[node name="octoplatform3" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16)
+
+[node name="octoplatform4" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="octoplatform5" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -32)
+
+[node name="octoplatform6" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24)
+
+[node name="octoplatform7" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -140)
+
+[node name="octoplatform8" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -132)
+
+[node name="PlayerStart" parent="." instance=ExtResource("5_oc4fm")]
+transform = Transform3D(-1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, 0.290437, 1, 1.15544)
+
+[node name="dashPanel" parent="." instance=ExtResource("6_jq86j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.199171, 0.5, -25.4892)
+
+[node name="Trampoline2" parent="." instance=ExtResource("7_f6v4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.177135, 0.5, -31.5401)
+
+[node name="Trampoline6" parent="." instance=ExtResource("7_f6v4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.177135, -1.5, 8.45993)
+
+[node name="dashPanel2" parent="." instance=ExtResource("6_jq86j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.199171, 0.5, -134.489)
+
+[node name="Trampoline3" parent="." instance=ExtResource("7_f6v4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.177135, 0.5, -140.54)
+
+[node name="octoplatform9" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -232)
+
+[node name="octoplatform10" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -224)
+
+[node name="octoplatform11" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -340)
+
+[node name="octoplatform12" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -46.3822, 113.81, -349.839)
+
+[node name="dashPanel3" parent="." instance=ExtResource("6_jq86j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.199171, 0.5, -225.489)
+
+[node name="Trampoline4" parent="." instance=ExtResource("7_f6v4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.177135, 0.5, -231.54)
+
+[node name="dashPanel4" parent="." instance=ExtResource("6_jq86j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.199171, 0.5, -334.489)
+
+[node name="Trampoline5" parent="." instance=ExtResource("7_f6v4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.177135, 0.5, -340.54)
+
+[node name="octoplatform24" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -46.3822, 113.81, -341.839)
+
+[node name="octoplatform25" parent="." instance=ExtResource("4_vg3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -332)
+
+[node name="dashPanel5" parent="." instance=ExtResource("6_jq86j")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -46.183, 114.31, -347.35)
+
+[node name="Trampoline16" parent="." instance=ExtResource("7_f6v4f")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -46.205, 114.31, -341.299)
+
+[node name="Crown" parent="." instance=ExtResource("7_xipig")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.253292, 34.8645, -12.3035)
+
+[node name="Crown2" parent="." instance=ExtResource("7_xipig")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.34335, 0.5, -460.389)
+
+[node name="Donut" parent="." instance=ExtResource("9_gqd6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0723877, 0.5, -451.84)
+
+[node name="Donut2" parent="." instance=ExtResource("9_gqd6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0107517, 0.499998, -468.853)
+
+[node name="Donut3" parent="." instance=ExtResource("9_gqd6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.79113, 0.5, -459.969)
+
+[node name="Donut4" parent="." instance=ExtResource("9_gqd6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0189619, 0.5, -15.5627)
+
+[node name="Trampoline7" parent="." instance=ExtResource("7_f6v4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00413656, 0.499998, -460.744)
+
+[node name="Trampoline8" parent="." instance=ExtResource("7_f6v4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00413656, 39.4979, -460.744)
+
+[node name="Trampoline9" parent="." instance=ExtResource("7_f6v4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00413656, 71.0852, -460.744)
+
+[node name="Trampoline10" parent="." instance=ExtResource("7_f6v4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00413656, 100.103, -460.744)
+
+[node name="Trampoline11" parent="." instance=ExtResource("7_f6v4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00413656, 128.524, -460.744)
+
+[node name="Trampoline12" parent="." instance=ExtResource("7_f6v4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.385, 114.582, -227.296)
+
+[node name="Trampoline13" parent="." instance=ExtResource("7_f6v4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.385, 155.563, -227.296)
+
+[node name="Trampoline14" parent="." instance=ExtResource("7_f6v4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.385, 193.563, -227.296)
+
+[node name="Trampoline15" parent="." instance=ExtResource("7_f6v4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.385, 232.563, -227.296)
+
+[node name="Trampoline17" parent="." instance=ExtResource("7_f6v4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.385, 271.759, -227.296)
+
+[node name="Portal" parent="." instance=ExtResource("6_5bikr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.249, 116.483, -394.47)
+levelName = "challenge_stage_3"
+
+[node name="Crown3" parent="." instance=ExtResource("7_xipig")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.7167, 114.392, -244.018)
+
+[node name="Donut5" parent="." instance=ExtResource("9_gqd6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.4627, 114.392, -413.438)
+
+[node name="Donut6" parent="." instance=ExtResource("9_gqd6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.8612, 114.392, -426.009)
+
+[node name="Donut7" parent="." instance=ExtResource("9_gqd6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.6209, 174.357, -351.413)

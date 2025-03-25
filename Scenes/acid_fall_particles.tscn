@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1buql6qmxtdc"]
+
+[ext_resource type="Material" uid="uid://fjfa6fadfhx2" path="res://Scenes/acidProcessMaterial.tres" id="1_dp03r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5efs"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_4r7vv"]
+material = SubResource("StandardMaterial3D_u5efs")
+radial_segments = 8
+rings = 4
+
+[node name="acid_fall_particles" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.830656, 0)
+emitting = false
+amount = 32
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = ExtResource("1_dp03r")
+draw_pass_1 = SubResource("SphereMesh_4r7vv")

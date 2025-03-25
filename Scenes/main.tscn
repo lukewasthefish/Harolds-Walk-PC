@@ -1,0 +1,36 @@
+[gd_scene load_steps=10 format=3 uid="uid://capgbhadcjcg3"]
+
+[ext_resource type="PackedScene" uid="uid://c8yr6wcss1ljh" path="res://options_manager.tscn" id="2_nb0vm"]
+[ext_resource type="PackedScene" uid="uid://bjo2wg11f5s2u" path="res://Scenes/GameManager.tscn" id="2_siibk"]
+[ext_resource type="Script" uid="uid://bk1u2ted3xvq5" path="res://scripts/LevelManager.cs" id="3_2jw02"]
+[ext_resource type="Script" uid="uid://dqv5o8124rl75" path="res://scripts/SaveManager.cs" id="3_23klr"]
+[ext_resource type="PackedScene" uid="uid://brtw8qgimsxyl" path="res://Scenes/steam_manager.tscn" id="3_hkvt1"]
+[ext_resource type="PackedScene" uid="uid://t1bwq11bs7vw" path="res://Scenes/sound_manager.tscn" id="3_v0g45"]
+[ext_resource type="PackedScene" uid="uid://bn17fdf0nqiff" path="res://Scenes/save_ack_screen.tscn" id="5_8ns2c"]
+[ext_resource type="PackedScene" uid="uid://b4n1e8sefi1ca" path="res://Scenes/main_menu.tscn" id="5_rboo5"]
+[ext_resource type="PackedScene" uid="uid://b5tdrfax46c4l" path="res://Scenes/music_manager.tscn" id="6_7733o"]
+
+[node name="root" type="Node3D"]
+
+[node name="GameManager" parent="." instance=ExtResource("2_siibk")]
+
+[node name="OptionsManager" parent="." instance=ExtResource("2_nb0vm")]
+
+[node name="SteamManager" parent="." instance=ExtResource("3_hkvt1")]
+
+[node name="music_manager" parent="." instance=ExtResource("6_7733o")]
+volume_db = -2.0
+
+[node name="sound_manager" parent="." instance=ExtResource("3_v0g45")]
+
+[node name="SaveManager" type="Node" parent="." node_paths=PackedStringArray("saveIndicator")]
+script = ExtResource("3_23klr")
+saveIndicator = NodePath("SaveAckScreen")
+
+[node name="SaveAckScreen" parent="SaveManager" instance=ExtResource("5_8ns2c")]
+visible = false
+
+[node name="LevelManager" type="Node3D" parent="."]
+script = ExtResource("3_2jw02")
+
+[node name="MainMenu" parent="LevelManager" instance=ExtResource("5_rboo5")]

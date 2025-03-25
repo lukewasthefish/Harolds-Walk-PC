@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://dahvq74atqhtn"]
+
+[ext_resource type="PackedScene" uid="uid://cjd47pgouh1ss" path="res://Scenes/pink_world_geometry.tscn" id="1_cc4do"]
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="2_l0pi3"]
+[ext_resource type="AudioStream" uid="uid://b8irbwnpman8t" path="res://audio/music/challenge_stage_02.ogg" id="3_8jbbf"]
+[ext_resource type="PackedScene" uid="uid://ohjil5u56gdg" path="res://Scenes/CrownPickup.tscn" id="5_28og5"]
+[ext_resource type="PackedScene" uid="uid://b4mb2m1w87fcl" path="res://Scenes/pink_world_environment.tscn" id="5_sbb00"]
+[ext_resource type="PackedScene" uid="uid://ecau6y2eawar" path="res://Scenes/Portal_red.tscn" id="6_wotah"]
+
+[node name="pink_world2" type="Node3D"]
+
+[node name="pink_world" parent="." instance=ExtResource("1_cc4do")]
+
+[node name="music_player" parent="." instance=ExtResource("2_l0pi3")]
+song = ExtResource("3_8jbbf")
+
+[node name="Crown" parent="." instance=ExtResource("5_28og5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.52282, 5.2863, -118.999)
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("5_sbb00")]
+
+[node name="Crown2" parent="." instance=ExtResource("5_28og5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.0137, -15.5154, 97.5035)
+
+[node name="Crown3" parent="." instance=ExtResource("5_28og5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.9728, 0.142239, -11.0589)
+
+[node name="Portal_red" parent="." instance=ExtResource("6_wotah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.119379, -5.71926, 1.20869)
+levelName = "inverse_gas_station"

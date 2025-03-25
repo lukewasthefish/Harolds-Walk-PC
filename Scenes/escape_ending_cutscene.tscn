@@ -1,0 +1,370 @@
+[gd_scene load_steps=6 format=3 uid="uid://1ygrf2my0c5i"]
+
+[ext_resource type="PackedScene" uid="uid://c3aj7yvokywrq" path="res://blend/Harold.blend" id="1_wfyjl"]
+[ext_resource type="Script" uid="uid://cqdt250waf1rk" path="res://scripts/cutscene.cs" id="2_dyrrd"]
+[ext_resource type="Script" uid="uid://crukgwxs2mmiv" path="res://scripts/Rotate.cs" id="2_edr51"]
+[ext_resource type="PackedScene" uid="uid://bst5043hive0r" path="res://Scenes/unlock_achievement.tscn" id="4_kpsmb"]
+
+[sub_resource type="Environment" id="Environment_m6xtq"]
+background_mode = 1
+background_color = Color(0, 0, 1, 1)
+ambient_light_color = Color(0, 0.320056, 0.153221, 1)
+
+[node name="escape_ending_cutscene" type="Node3D"]
+
+[node name="Harold" parent="." instance=ExtResource("1_wfyjl")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -3.31013, -1.4953, -1.34619)
+
+[node name="Armature" parent="Harold" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Harold/Armature" index="2"]
+bones/0/rotation = Quaternion(0.0559344, 1.19023e-07, 6.6679e-09, 0.998434)
+bones/2/rotation = Quaternion(-0.0132772, -0.706982, -0.0132772, 0.706982)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(-0.0724678, -1.19559e-07, -8.52746e-09, 0.997371)
+bones/4/rotation = Quaternion(6.70552e-08, -7.6484e-15, 3.53204e-15, 1)
+bones/6/rotation = Quaternion(-0.511055, 0.446325, 0.590638, -0.436766)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(-0.0452267, 0.995727, -0.066393, -0.0455348)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(-0.0727733, 0.693742, -0.170499, 0.695957)
+bones/9/rotation = Quaternion(-1.93937e-07, -3.68161e-07, 0.0752467, 0.997165)
+bones/10/rotation = Quaternion(1.13717e-06, 1.04103e-06, 5.21536e-08, 1)
+bones/12/rotation = Quaternion(-0.440582, -0.54466, 0.69176, 0.175216)
+bones/13/rotation = Quaternion(0.0728489, 0.80338, -0.0831676, 0.585113)
+bones/14/rotation = Quaternion(0.0992928, 0.161059, 0.12286, 0.974221)
+bones/15/rotation = Quaternion(0.0438902, 0.705744, -0.0438914, 0.705743)
+bones/15/scale = Vector3(1, 1, 1)
+bones/18/rotation = Quaternion(0.992759, 1.14556e-07, 9.46769e-07, 0.12012)
+bones/19/rotation = Quaternion(0.0284352, -9.53289e-07, 2.71179e-08, 0.999596)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/rotation = Quaternion(-0.0961398, -0.548242, 0.820599, -0.129631)
+bones/21/scale = Vector3(1, 1, 1)
+bones/23/rotation = Quaternion(-3.33507e-08, -2.06097e-07, 7.45059e-08, 1)
+bones/25/rotation = Quaternion(0.0284352, -8.10721e-06, 0.000254836, 0.999596)
+bones/26/rotation = Quaternion(0.0823974, 0.037718, -0.0497631, 0.994641)
+bones/26/scale = Vector3(1, 1, 1)
+bones/27/rotation = Quaternion(-0.118164, 0.702558, -0.700465, -0.0424178)
+bones/29/rotation = Quaternion(4.63958e-08, -2.73728e-07, -2.23517e-08, 1)
+
+[node name="pCube2_003" parent="Harold/Armature/Skeleton3D" index="1"]
+visible = false
+
+[node name="Harold2" parent="." instance=ExtResource("1_wfyjl")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -4.23067, -1.4953, -1.34619)
+
+[node name="Armature" parent="Harold2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Harold2/Armature" index="2"]
+bones/0/rotation = Quaternion(0.0559344, 1.19023e-07, 6.6679e-09, 0.998434)
+bones/2/rotation = Quaternion(-0.0132772, -0.706982, -0.0132772, 0.706982)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(-0.0724678, -1.19559e-07, -8.52746e-09, 0.997371)
+bones/4/rotation = Quaternion(6.70552e-08, -7.6484e-15, 3.53204e-15, 1)
+bones/6/rotation = Quaternion(-0.511055, 0.446325, 0.590638, -0.436766)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(-0.0452267, 0.995727, -0.066393, -0.0455348)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(-0.0727733, 0.693742, -0.170499, 0.695957)
+bones/9/rotation = Quaternion(-1.93937e-07, -3.68161e-07, 0.0752467, 0.997165)
+bones/10/rotation = Quaternion(1.13717e-06, 1.04103e-06, 5.21536e-08, 1)
+bones/12/rotation = Quaternion(-0.440582, -0.54466, 0.69176, 0.175216)
+bones/13/rotation = Quaternion(0.0728489, 0.80338, -0.0831676, 0.585113)
+bones/14/rotation = Quaternion(0.0992928, 0.161059, 0.12286, 0.974221)
+bones/15/rotation = Quaternion(0.0438902, 0.705744, -0.0438914, 0.705743)
+bones/15/scale = Vector3(1, 1, 1)
+bones/18/rotation = Quaternion(0.992759, 1.14556e-07, 9.46769e-07, 0.12012)
+bones/19/rotation = Quaternion(0.0284352, -9.53289e-07, 2.71179e-08, 0.999596)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/rotation = Quaternion(-0.0961398, -0.548242, 0.820599, -0.129631)
+bones/21/scale = Vector3(1, 1, 1)
+bones/23/rotation = Quaternion(-3.33507e-08, -2.06097e-07, 7.45059e-08, 1)
+bones/25/rotation = Quaternion(0.0284352, -8.10721e-06, 0.000254836, 0.999596)
+bones/26/rotation = Quaternion(0.0823974, 0.037718, -0.0497631, 0.994641)
+bones/26/scale = Vector3(1, 1, 1)
+bones/27/rotation = Quaternion(-0.118164, 0.702558, -0.700465, -0.0424178)
+bones/29/rotation = Quaternion(4.63958e-08, -2.73728e-07, -2.23517e-08, 1)
+
+[node name="pCube2_003" parent="Harold2/Armature/Skeleton3D" index="1"]
+visible = false
+
+[node name="Harold3" parent="." instance=ExtResource("1_wfyjl")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -5.22497, -1.4953, -1.34619)
+script = ExtResource("2_edr51")
+
+[node name="Armature" parent="Harold3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Harold3/Armature" index="2"]
+bones/0/rotation = Quaternion(0.0559344, 1.19023e-07, 6.6679e-09, 0.998434)
+bones/2/rotation = Quaternion(-0.0132772, -0.706982, -0.0132772, 0.706982)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(-0.0724678, -1.19559e-07, -8.52746e-09, 0.997371)
+bones/4/rotation = Quaternion(6.70552e-08, -7.6484e-15, 3.53204e-15, 1)
+bones/6/rotation = Quaternion(-0.511055, 0.446325, 0.590638, -0.436766)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(-0.0452267, 0.995727, -0.066393, -0.0455348)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(-0.0727733, 0.693742, -0.170499, 0.695957)
+bones/9/rotation = Quaternion(-1.93937e-07, -3.68161e-07, 0.0752467, 0.997165)
+bones/10/rotation = Quaternion(1.13717e-06, 1.04103e-06, 5.21536e-08, 1)
+bones/12/rotation = Quaternion(-0.440582, -0.54466, 0.69176, 0.175216)
+bones/13/rotation = Quaternion(0.0728489, 0.80338, -0.0831676, 0.585113)
+bones/14/rotation = Quaternion(0.0992928, 0.161059, 0.12286, 0.974221)
+bones/15/rotation = Quaternion(0.0438902, 0.705744, -0.0438914, 0.705743)
+bones/15/scale = Vector3(1, 1, 1)
+bones/18/rotation = Quaternion(0.992759, 1.14556e-07, 9.46769e-07, 0.12012)
+bones/19/rotation = Quaternion(0.0284352, -9.53289e-07, 2.71179e-08, 0.999596)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/rotation = Quaternion(-0.0961398, -0.548242, 0.820599, -0.129631)
+bones/21/scale = Vector3(1, 1, 1)
+bones/23/rotation = Quaternion(-3.33507e-08, -2.06097e-07, 7.45059e-08, 1)
+bones/25/rotation = Quaternion(0.0284352, -8.10721e-06, 0.000254836, 0.999596)
+bones/26/rotation = Quaternion(0.0823974, 0.037718, -0.0497631, 0.994641)
+bones/26/scale = Vector3(1, 1, 1)
+bones/27/rotation = Quaternion(-0.118164, 0.702558, -0.700465, -0.0424178)
+bones/29/rotation = Quaternion(4.63958e-08, -2.73728e-07, -2.23517e-08, 1)
+
+[node name="pCube2_003" parent="Harold3/Armature/Skeleton3D" index="1"]
+visible = false
+
+[node name="Harold4" parent="." instance=ExtResource("1_wfyjl")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -6.27143, -1.4953, -1.34619)
+
+[node name="Armature" parent="Harold4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Harold4/Armature" index="2"]
+bones/0/rotation = Quaternion(0.0559344, 1.19023e-07, 6.6679e-09, 0.998434)
+bones/2/rotation = Quaternion(-0.0132772, -0.706982, -0.0132772, 0.706982)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(-0.0724678, -1.19559e-07, -8.52746e-09, 0.997371)
+bones/4/rotation = Quaternion(6.70552e-08, -7.6484e-15, 3.53204e-15, 1)
+bones/6/rotation = Quaternion(-0.511055, 0.446325, 0.590638, -0.436766)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(-0.0452267, 0.995727, -0.066393, -0.0455348)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(-0.0727733, 0.693742, -0.170499, 0.695957)
+bones/9/rotation = Quaternion(-1.93937e-07, -3.68161e-07, 0.0752467, 0.997165)
+bones/10/rotation = Quaternion(1.13717e-06, 1.04103e-06, 5.21536e-08, 1)
+bones/12/rotation = Quaternion(-0.440582, -0.54466, 0.69176, 0.175216)
+bones/13/rotation = Quaternion(0.0728489, 0.80338, -0.0831676, 0.585113)
+bones/14/rotation = Quaternion(0.0992928, 0.161059, 0.12286, 0.974221)
+bones/15/rotation = Quaternion(0.0438902, 0.705744, -0.0438914, 0.705743)
+bones/15/scale = Vector3(1, 1, 1)
+bones/18/rotation = Quaternion(0.992759, 1.14556e-07, 9.46769e-07, 0.12012)
+bones/19/rotation = Quaternion(0.0284352, -9.53289e-07, 2.71179e-08, 0.999596)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/rotation = Quaternion(-0.0961398, -0.548242, 0.820599, -0.129631)
+bones/21/scale = Vector3(1, 1, 1)
+bones/23/rotation = Quaternion(-3.33507e-08, -2.06097e-07, 7.45059e-08, 1)
+bones/25/rotation = Quaternion(0.0284352, -8.10721e-06, 0.000254836, 0.999596)
+bones/26/rotation = Quaternion(0.0823974, 0.037718, -0.0497631, 0.994641)
+bones/26/scale = Vector3(1, 1, 1)
+bones/27/rotation = Quaternion(-0.118164, 0.702558, -0.700465, -0.0424178)
+bones/29/rotation = Quaternion(4.63958e-08, -2.73728e-07, -2.23517e-08, 1)
+
+[node name="pCube2_003" parent="Harold4/Armature/Skeleton3D" index="1"]
+visible = false
+
+[node name="Harold5" parent="." instance=ExtResource("1_wfyjl")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -7.34976, -1.4953, -1.34619)
+
+[node name="Armature" parent="Harold5" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Harold5/Armature" index="2"]
+bones/0/rotation = Quaternion(0.0559344, 1.19023e-07, 6.6679e-09, 0.998434)
+bones/2/rotation = Quaternion(-0.0132772, -0.706982, -0.0132772, 0.706982)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(-0.0724678, -1.19559e-07, -8.52746e-09, 0.997371)
+bones/4/rotation = Quaternion(6.70552e-08, -7.6484e-15, 3.53204e-15, 1)
+bones/6/rotation = Quaternion(-0.511055, 0.446325, 0.590638, -0.436766)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(-0.0452267, 0.995727, -0.066393, -0.0455348)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(-0.0727733, 0.693742, -0.170499, 0.695957)
+bones/9/rotation = Quaternion(-1.93937e-07, -3.68161e-07, 0.0752467, 0.997165)
+bones/10/rotation = Quaternion(1.13717e-06, 1.04103e-06, 5.21536e-08, 1)
+bones/12/rotation = Quaternion(-0.440582, -0.54466, 0.69176, 0.175216)
+bones/13/rotation = Quaternion(0.0728489, 0.80338, -0.0831676, 0.585113)
+bones/14/rotation = Quaternion(0.0992928, 0.161059, 0.12286, 0.974221)
+bones/15/rotation = Quaternion(0.0438902, 0.705744, -0.0438914, 0.705743)
+bones/15/scale = Vector3(1, 1, 1)
+bones/18/rotation = Quaternion(0.992759, 1.14556e-07, 9.46769e-07, 0.12012)
+bones/19/rotation = Quaternion(0.0284352, -9.53289e-07, 2.71179e-08, 0.999596)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/rotation = Quaternion(-0.0961398, -0.548242, 0.820599, -0.129631)
+bones/21/scale = Vector3(1, 1, 1)
+bones/23/rotation = Quaternion(-3.33507e-08, -2.06097e-07, 7.45059e-08, 1)
+bones/25/rotation = Quaternion(0.0284352, -8.10721e-06, 0.000254836, 0.999596)
+bones/26/rotation = Quaternion(0.0823974, 0.037718, -0.0497631, 0.994641)
+bones/26/scale = Vector3(1, 1, 1)
+bones/27/rotation = Quaternion(-0.118164, 0.702558, -0.700465, -0.0424178)
+bones/29/rotation = Quaternion(4.63958e-08, -2.73728e-07, -2.23517e-08, 1)
+
+[node name="pCube2_003" parent="Harold5/Armature/Skeleton3D" index="1"]
+visible = false
+
+[node name="Harold6" parent="." instance=ExtResource("1_wfyjl")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -8.30996, -1.4953, -1.34619)
+
+[node name="Armature" parent="Harold6" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Harold6/Armature" index="2"]
+bones/0/rotation = Quaternion(0.0559344, 1.19023e-07, 6.6679e-09, 0.998434)
+bones/2/rotation = Quaternion(-0.0132772, -0.706982, -0.0132772, 0.706982)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(-0.0724678, -1.19559e-07, -8.52746e-09, 0.997371)
+bones/4/rotation = Quaternion(6.70552e-08, -7.6484e-15, 3.53204e-15, 1)
+bones/6/rotation = Quaternion(-0.511055, 0.446325, 0.590638, -0.436766)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(-0.0452267, 0.995727, -0.066393, -0.0455348)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(-0.0727733, 0.693742, -0.170499, 0.695957)
+bones/9/rotation = Quaternion(-1.93937e-07, -3.68161e-07, 0.0752467, 0.997165)
+bones/10/rotation = Quaternion(1.13717e-06, 1.04103e-06, 5.21536e-08, 1)
+bones/12/rotation = Quaternion(-0.440582, -0.54466, 0.69176, 0.175216)
+bones/13/rotation = Quaternion(0.0728489, 0.80338, -0.0831676, 0.585113)
+bones/14/rotation = Quaternion(0.0992928, 0.161059, 0.12286, 0.974221)
+bones/15/rotation = Quaternion(0.0438902, 0.705744, -0.0438914, 0.705743)
+bones/15/scale = Vector3(1, 1, 1)
+bones/18/rotation = Quaternion(0.992759, 1.14556e-07, 9.46769e-07, 0.12012)
+bones/19/rotation = Quaternion(0.0284352, -9.53289e-07, 2.71179e-08, 0.999596)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/rotation = Quaternion(-0.0961398, -0.548242, 0.820599, -0.129631)
+bones/21/scale = Vector3(1, 1, 1)
+bones/23/rotation = Quaternion(-3.33507e-08, -2.06097e-07, 7.45059e-08, 1)
+bones/25/rotation = Quaternion(0.0284352, -8.10721e-06, 0.000254836, 0.999596)
+bones/26/rotation = Quaternion(0.0823974, 0.037718, -0.0497631, 0.994641)
+bones/26/scale = Vector3(1, 1, 1)
+bones/27/rotation = Quaternion(-0.118164, 0.702558, -0.700465, -0.0424178)
+bones/29/rotation = Quaternion(4.63958e-08, -2.73728e-07, -2.23517e-08, 1)
+
+[node name="pCube2_003" parent="Harold6/Armature/Skeleton3D" index="1"]
+visible = false
+
+[node name="Harold7" parent="." instance=ExtResource("1_wfyjl")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.25434, -1.4953, -1.34619)
+
+[node name="Armature" parent="Harold7" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Harold7/Armature" index="2"]
+bones/0/rotation = Quaternion(0.0559344, 1.19023e-07, 6.6679e-09, 0.998434)
+bones/2/rotation = Quaternion(-0.0132772, -0.706982, -0.0132772, 0.706982)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(-0.0724678, -1.19559e-07, -8.52746e-09, 0.997371)
+bones/4/rotation = Quaternion(6.70552e-08, -7.6484e-15, 3.53204e-15, 1)
+bones/6/rotation = Quaternion(-0.511055, 0.446325, 0.590638, -0.436766)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(-0.0452267, 0.995727, -0.066393, -0.0455348)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(-0.0727733, 0.693742, -0.170499, 0.695957)
+bones/9/rotation = Quaternion(-1.93937e-07, -3.68161e-07, 0.0752467, 0.997165)
+bones/10/rotation = Quaternion(1.13717e-06, 1.04103e-06, 5.21536e-08, 1)
+bones/12/rotation = Quaternion(-0.440582, -0.54466, 0.69176, 0.175216)
+bones/13/rotation = Quaternion(0.0728489, 0.80338, -0.0831676, 0.585113)
+bones/14/rotation = Quaternion(0.0992928, 0.161059, 0.12286, 0.974221)
+bones/15/rotation = Quaternion(0.0438902, 0.705744, -0.0438914, 0.705743)
+bones/15/scale = Vector3(1, 1, 1)
+bones/18/rotation = Quaternion(0.992759, 1.14556e-07, 9.46769e-07, 0.12012)
+bones/19/rotation = Quaternion(0.0284352, -9.53289e-07, 2.71179e-08, 0.999596)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/rotation = Quaternion(-0.0961398, -0.548242, 0.820599, -0.129631)
+bones/21/scale = Vector3(1, 1, 1)
+bones/23/rotation = Quaternion(-3.33507e-08, -2.06097e-07, 7.45059e-08, 1)
+bones/25/rotation = Quaternion(0.0284352, -8.10721e-06, 0.000254836, 0.999596)
+bones/26/rotation = Quaternion(0.0823974, 0.037718, -0.0497631, 0.994641)
+bones/26/scale = Vector3(1, 1, 1)
+bones/27/rotation = Quaternion(-0.118164, 0.702558, -0.700465, -0.0424178)
+bones/29/rotation = Quaternion(4.63958e-08, -2.73728e-07, -2.23517e-08, 1)
+
+[node name="pCube2" parent="Harold7/Armature/Skeleton3D" index="0"]
+script = ExtResource("2_edr51")
+
+[node name="pCube2_003" parent="Harold7/Armature/Skeleton3D" index="1"]
+visible = false
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2.03733, -6.72797)
+
+[node name="cutscene" type="Node" parent="."]
+script = ExtResource("2_dyrrd")
+length = 6.0
+nextScene = "challenge_stage_1"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.574
+anchor_bottom = 1.0
+offset_right = -0.247986
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.046
+anchor_right = 0.544
+anchor_bottom = 0.963
+offset_left = 0.439999
+offset_top = 0.191998
+offset_right = 0.311951
+offset_bottom = 26.976
+text = "-logged in as root via USB
+root@haroldhost:/$override
+permission not granted
+root@haroldhost:/$override --crowns 32
+configure your crown dir
+root@haroldhost:/$crowntool --dir ./savedata
+root@haroldhost:/$override --crowns 32
+dir does not contain the required crownnum
+root@haroldhost:/$haroldgrep -nr /documents/private/ 'crown' ../crowns
+root@haroldhost:/$mv ../crowns ./savedata
+root@haroldhost:/$override --crowns 32
+WARNING : accessing volatile memory
+results may be unpredictable
+results may be unpredictable
+results may be unpredictable
+results may be unpredictable
+results may be unpredictable
+results may be unpredictable
+results may be unpredictable
+results harold unpredictableresults may be unpredictable a
+results may beviruse dictableresults may be unpredictable is
+results may be unpredictableresults may be unpredictable
+results may be vnpredictable
+results may be unprele
+"
+
+[node name="UnlockAchievement" parent="." instance=ExtResource("4_kpsmb")]
+achievmentNameInAPI = "bsod"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_m6xtq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.999854, -0.0170684, 0, 0.0170684, -0.999854, 0, 0, 0)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.945972, -0.324248, 0, 0.324248, 0.945972, 0, 0, 0)
+
+[editable path="Harold"]
+[editable path="Harold2"]
+[editable path="Harold3"]
+[editable path="Harold4"]
+[editable path="Harold5"]
+[editable path="Harold6"]
+[editable path="Harold7"]

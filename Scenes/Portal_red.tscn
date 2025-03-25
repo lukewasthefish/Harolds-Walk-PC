@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ecau6y2eawar"]
+
+[ext_resource type="PackedScene" uid="uid://djnotrdxwhxj0" path="res://Scenes/Portal.tscn" id="1_75ycm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g8prw"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8hvev"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="Portal_red" instance=ExtResource("1_75ycm")]
+flashColor = Color(1, 0, 0, 1)
+
+[node name="ringandorbs" parent="Portal/portal" index="0"]
+material_override = SubResource("StandardMaterial3D_g8prw")
+
+[node name="innerrectangle" parent="Portal/portal" index="1"]
+material_override = SubResource("StandardMaterial3D_8hvev")
+
+[node name="OmniLight3D" parent="Portal" index="1"]
+light_color = Color(0.835294, 0, 0.0745098, 1)
+
+[editable path="Portal/portal"]

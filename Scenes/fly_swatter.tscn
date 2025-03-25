@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=3 uid="uid://mn6nwrhr0f3e"]
+
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="2_1hmoe"]
+[ext_resource type="PackedScene" uid="uid://but44tt3e2wql" path="res://Scenes/fly_swatter_geometry.tscn" id="2_3nxbk"]
+[ext_resource type="AudioStream" uid="uid://bggvpklo8hfw6" path="res://audio/music/challenge_stage_03.ogg" id="3_77fxn"]
+[ext_resource type="PackedScene" uid="uid://bfhrca8wjistb" path="res://Scenes/default_world_environment.tscn" id="4_adw5f"]
+[ext_resource type="PackedScene" uid="uid://ohjil5u56gdg" path="res://Scenes/CrownPickup.tscn" id="5_ymc1c"]
+[ext_resource type="PackedScene" uid="uid://djnotrdxwhxj0" path="res://Scenes/Portal.tscn" id="6_pht20"]
+[ext_resource type="PackedScene" uid="uid://or6kwbrrr2s5" path="res://Scenes/Donut.tscn" id="7_023xv"]
+[ext_resource type="PackedScene" uid="uid://bmouwn70obuky" path="res://Scenes/YellowTrampoline.tscn" id="8_reogo"]
+
+[node name="fly_swatter" type="Node3D"]
+
+[node name="fly_swatter" parent="." instance=ExtResource("2_3nxbk")]
+
+[node name="music_player" parent="." instance=ExtResource("2_1hmoe")]
+song = ExtResource("3_77fxn")
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("4_adw5f")]
+
+[node name="Crown" parent="." instance=ExtResource("5_ymc1c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.6585, -0.326295, -63.6135)
+
+[node name="Crown2" parent="." instance=ExtResource("5_ymc1c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.7428, -0.37236, 63.742)
+
+[node name="Crown3" parent="." instance=ExtResource("5_ymc1c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.2938, 3.36892, -59.1807)
+
+[node name="Portal" parent="." instance=ExtResource("6_pht20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -111.289, 1.96763, -1.86965)
+levelName = "wheel_of_eight"
+
+[node name="Donut" parent="." instance=ExtResource("7_023xv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.767553, 5.04409, -0.184392)
+
+[node name="YellowTrampoline" parent="." instance=ExtResource("8_reogo")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.30218, -4.45977, -0.9194)

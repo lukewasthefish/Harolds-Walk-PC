@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=3 uid="uid://416npqjvoqrk"]
+
+[ext_resource type="PackedScene" uid="uid://bfhrca8wjistb" path="res://Scenes/default_world_environment.tscn" id="1_ow7ts"]
+[ext_resource type="AudioStream" uid="uid://crr5rb66oxr20" path="res://audio/music/March.ogg" id="2_b0ld0"]
+[ext_resource type="Texture2D" uid="uid://drhj02g6dxvhe" path="res://textures/AutomatonLungSky.png" id="2_w052h"]
+[ext_resource type="PackedScene" uid="uid://23bjdv26xjtx" path="res://Scenes/automaton_lung_geometry.tscn" id="3_itd1y"]
+[ext_resource type="PackedScene" uid="uid://dthaqic75rdiw" path="res://Scenes/RedTrampoline.tscn" id="6_111us"]
+[ext_resource type="PackedScene" uid="uid://da2vju4tsmyi7" path="res://Scenes/ALchip.tscn" id="7_tnlb1"]
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="18_log67"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_yud4h"]
+panorama = ExtResource("2_w052h")
+
+[sub_resource type="Sky" id="Sky_7fmlg"]
+sky_material = SubResource("PanoramaSkyMaterial_yud4h")
+
+[sub_resource type="Environment" id="Environment_0hr2m"]
+background_mode = 2
+sky = SubResource("Sky_7fmlg")
+ambient_light_source = 3
+fog_enabled = true
+fog_light_color = Color(0.604565, 0.941425, 0.939696, 1)
+fog_sun_scatter = 0.5
+fog_density = 0.005
+fog_sky_affect = 0.0
+adjustment_enabled = true
+
+[node name="automaton_lung" type="Node3D"]
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("1_ow7ts")]
+environment = SubResource("Environment_0hr2m")
+
+[node name="sun" parent="WorldEnvironment" index="0"]
+transform = Transform3D(0.971623, 0.0427385, -0.232643, 0.0799729, 0.866264, 0.493143, 0.222606, -0.497754, 0.838264, 0, 0, 0)
+light_energy = 2.0
+
+[node name="automaton_lung_geometry" parent="." instance=ExtResource("3_itd1y")]
+
+[node name="music_player" parent="." instance=ExtResource("18_log67")]
+song = ExtResource("2_b0ld0")
+
+[node name="Trampoline2" parent="." instance=ExtResource("6_111us")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.9404, 11.155, -32.176)
+
+[node name="Trampoline3" parent="." instance=ExtResource("6_111us")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.9922, 39.091, -58.0928)
+
+[node name="Trampoline4" parent="." instance=ExtResource("6_111us")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.0051, 59.9001, -40.5173)
+
+[node name="Trampoline5" parent="." instance=ExtResource("6_111us")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.989, 65.7051, 2.46451)
+
+[node name="ALchip" parent="." instance=ExtResource("7_tnlb1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.4521, 62.3207, 90.729)
+
+[editable path="WorldEnvironment"]

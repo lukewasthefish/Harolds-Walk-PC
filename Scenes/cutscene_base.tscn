@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu0rtqw4n46rn"]
+
+[ext_resource type="Script" uid="uid://cqdt250waf1rk" path="res://scripts/cutscene.cs" id="1_lbcuh"]
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="1_v00xa"]
+[ext_resource type="AudioStream" uid="uid://ujhr51egnac4" path="res://audio/music/rhodesChopin.ogg" id="2_qgyo3"]
+
+[node name="CutsceneBase" type="Node3D"]
+
+[node name="cutscene" type="Node" parent="."]
+script = ExtResource("1_lbcuh")
+
+[node name="music_player" parent="." instance=ExtResource("1_v00xa")]
+song = ExtResource("2_qgyo3")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "CUTSCENE GO HERE
+
+BOTTOM TEXT"
+horizontal_alignment = 1
+vertical_alignment = 1

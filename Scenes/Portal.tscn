@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://djnotrdxwhxj0"]
+
+[ext_resource type="PackedScene" uid="uid://yrrwqp0odwgf" path="res://blend/portal.blend" id="1_wuh0k"]
+[ext_resource type="AudioStream" uid="uid://c1xnvlfag4cxk" path="res://audio/sfx/PortalExit.ogg" id="2_22lm8"]
+[ext_resource type="Material" uid="uid://dm1rfun04x32i" path="res://blend/materials/Portal.tres" id="2_lrfyo"]
+[ext_resource type="Script" uid="uid://crukgwxs2mmiv" path="res://scripts/Rotate.cs" id="3_ir2cp"]
+[ext_resource type="Script" uid="uid://cdtrjbnia8rqg" path="res://scripts/SecretExitPickup.cs" id="3_sm2r8"]
+[ext_resource type="Script" uid="uid://bo37sspdkye8j" path="res://scripts/LevelLoadTrigger.cs" id="4_432k6"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jhwjp"]
+radius = 1.9403
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_f5t7m"]
+radius = 2.75235
+
+[node name="Portal" type="Area3D" node_paths=PackedStringArray("secretExitPickup")]
+script = ExtResource("4_432k6")
+sound = ExtResource("2_22lm8")
+secretExitPickup = NodePath("portalPickup")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_jhwjp")
+
+[node name="Portal" type="Node3D" parent="."]
+
+[node name="portal" parent="Portal" instance=ExtResource("1_wuh0k")]
+
+[node name="ringandorbs" parent="Portal/portal" index="0"]
+transform = Transform3D(0.99881, 0, 0, 0, 0.99881, 0, 0, 0, 0.99881, 0, 0, 0)
+material_override = ExtResource("2_lrfyo")
+script = ExtResource("3_ir2cp")
+rotateAmmount = Vector3(0, 0, 3)
+
+[node name="innerrectangle" parent="Portal/portal" index="1"]
+material_override = ExtResource("2_lrfyo")
+script = ExtResource("3_ir2cp")
+rotateAmmount = Vector3(8, 5, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Portal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.460274)
+light_color = Color(0.427451, 0.713726, 0, 1)
+light_energy = 8.0
+light_specular = 1.0
+distance_fade_enabled = true
+omni_range = 4.71702
+
+[node name="portalPickup" type="Area3D" parent="."]
+script = ExtResource("3_sm2r8")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="portalPickup"]
+shape = SubResource("SphereShape3D_f5t7m")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_entered" from="portalPickup" to="portalPickup" method="_on_area_entered"]
+
+[editable path="Portal/portal"]

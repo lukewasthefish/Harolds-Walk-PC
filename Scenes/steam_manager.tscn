@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://brtw8qgimsxyl"]
+
+[ext_resource type="Script" uid="uid://ttvbuae41ve4" path="res://scripts/SteamManager.cs" id="1_tdx7l"]
+
+[node name="SteamManager" type="Node"]
+script = ExtResource("1_tdx7l")

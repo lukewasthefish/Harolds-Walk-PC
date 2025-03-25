@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://b7i48igaw5rm1"]
+
+[ext_resource type="AudioStream" uid="uid://bggvpklo8hfw6" path="res://audio/music/challenge_stage_03.ogg" id="2_q2yok"]
+[ext_resource type="PackedScene" uid="uid://wbkwsd6tfe44" path="res://Scenes/world_environment(challengestages).tscn" id="3_8yrxd"]
+[ext_resource type="PackedScene" uid="uid://dvtrrm2cbegpn" path="res://Scenes/challenge_stage_5_geometry.tscn" id="5_t864i"]
+[ext_resource type="PackedScene" uid="uid://cwggdkga1gk37" path="res://Scenes/octoplatform.tscn" id="6_4350s"]
+[ext_resource type="PackedScene" uid="uid://ecau6y2eawar" path="res://Scenes/Portal_red.tscn" id="7_p6qii"]
+[ext_resource type="PackedScene" uid="uid://ohjil5u56gdg" path="res://Scenes/CrownPickup.tscn" id="8_mk2j5"]
+[ext_resource type="PackedScene" uid="uid://or6kwbrrr2s5" path="res://Scenes/Donut.tscn" id="9_ikit6"]
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="12_u8coc"]
+[ext_resource type="PackedScene" uid="uid://bqbqjfox4mqqo" path="res://Scenes/PlayerStart.tscn" id="15_8etc4"]
+
+[node name="challenge_stage_5" type="Node3D"]
+
+[node name="music_player" parent="." instance=ExtResource("12_u8coc")]
+song = ExtResource("2_q2yok")
+
+[node name="WorldEnvironment(challengestages)" parent="." instance=ExtResource("3_8yrxd")]
+
+[node name="PlayerStart" parent="." instance=ExtResource("15_8etc4")]
+transform = Transform3D(-1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, 0.0875942, -5.9948, 0.196366)
+visible = false
+
+[node name="challenge_stage_5_geometry" parent="." instance=ExtResource("5_t864i")]
+
+[node name="octoplatform" parent="." instance=ExtResource("6_4350s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.761, -183.028, 99.1052)
+
+[node name="octoplatform2" parent="." instance=ExtResource("6_4350s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.761, -208.028, 99.1052)
+
+[node name="Portal_red" parent="." instance=ExtResource("7_p6qii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.8109, -205.563, 99.208)
+levelName = "binary_011"
+
+[node name="Crown" parent="." instance=ExtResource("8_mk2j5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1138, -4.96178, 37.2181)
+
+[node name="Crown2" parent="." instance=ExtResource("8_mk2j5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109.065, -119.401, 231.967)
+
+[node name="Crown3" parent="." instance=ExtResource("8_mk2j5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 190.825, -128.313, 346.853)
+
+[node name="Donut" parent="." instance=ExtResource("9_ikit6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.818, -130.348, 397.732)
+
+[node name="Donut2" parent="." instance=ExtResource("9_ikit6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.822, -129.156, 393.958)
+
+[node name="Donut3" parent="." instance=ExtResource("9_ikit6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.11129, -0.159056, 29.6565)
+
+[node name="Donut4" parent="." instance=ExtResource("9_ikit6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.42922, -1.22686, 24.299)
+
+[node name="Donut5" parent="." instance=ExtResource("9_ikit6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.72781, -2.31215, 18.8513)

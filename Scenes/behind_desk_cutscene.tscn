@@ -1,0 +1,156 @@
+[gd_scene load_steps=13 format=3 uid="uid://bj22ptc2mqrn8"]
+
+[ext_resource type="Script" uid="uid://crukgwxs2mmiv" path="res://scripts/Rotate.cs" id="1_3drkc"]
+[ext_resource type="Script" uid="uid://cqdt250waf1rk" path="res://scripts/cutscene.cs" id="1_ax1bm"]
+[ext_resource type="PackedScene" uid="uid://bql86ds8ycr1t" path="res://Scenes/behind_desk_cutscene_geometry.tscn" id="1_s4ob1"]
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="2_cskjg"]
+[ext_resource type="AudioStream" uid="uid://ujhr51egnac4" path="res://audio/music/rhodesChopin.ogg" id="3_kwd76"]
+[ext_resource type="Script" uid="uid://hu1tnxqhmw2c" path="res://scripts/EnsureMenuFocus.cs" id="6_djao4"]
+[ext_resource type="Script" uid="uid://8cokesusv0fr" path="res://scripts/HaroldPasswordReader.cs" id="7_nrogu"]
+[ext_resource type="PackedScene" uid="uid://bst5043hive0r" path="res://Scenes/unlock_achievement.tscn" id="8_qb4d3"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fj7nb"]
+resource_local_to_scene = true
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tsysy"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c020c"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_tsysy")
+
+[sub_resource type="Environment" id="Environment_ixj4k"]
+background_mode = 1
+ambient_light_color = Color(0, 0.320056, 0.153221, 1)
+
+[node name="CutsceneBase2" type="Node3D"]
+
+[node name="Rotationnode" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 35, 64, -140)
+script = ExtResource("1_3drkc")
+rotateAmmount = Vector3(0, 2, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Rotationnode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2254, 0, 41.3318)
+current = true
+
+[node name="behind_desk_cutscene_geometry" parent="." instance=ExtResource("1_s4ob1")]
+
+[node name="cutscene" type="Node" parent="."]
+script = ExtResource("1_ax1bm")
+length = 64.0
+nextScene = "main_menu"
+gameplayScene = false
+
+[node name="music_player" parent="." instance=ExtResource("2_cskjg")]
+song = ExtResource("3_kwd76")
+
+[node name="EnsureMenuFocus" type="Node" parent="." node_paths=PackedStringArray("defaultFocus")]
+script = ExtResource("6_djao4")
+defaultFocus = NodePath("../Control/Label/TextEdit")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.574
+anchor_bottom = 1.0
+offset_right = -0.247986
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.046
+anchor_right = 0.544
+anchor_bottom = 0.963
+offset_left = 0.439999
+offset_top = 0.191998
+offset_right = 0.311951
+offset_bottom = -0.0240479
+text = "-logged in as root via USB
+root@haroldhost:/$override
+permission not granted
+root@haroldhost:/$override --crowns 32
+configure your crown dir
+root@haroldhost:/$crowntool --dir ./savedata
+root@haroldhost:/$override --crowns 32
+dir does not contain the required crownnum
+root@haroldhost:/$haroldgrep -nr /documents/private/ 'crown' ../crowns
+root@haroldhost:/$mv ../crowns ./savedata
+root@haroldhost:/$override --crowns 32
+cannot override file system. HSFS formatted drive auto-locked before access.
+Enter root password to unlock again.
+[PASSWORDTOOL] : harold
+1/4 correct keywords
+[PASSWORDTOOL] : crown
+0/4 correct keywords
+1 ATTEMPT REMAINING
+[PASSWORDTOOL] : 
+"
+
+[node name="TextEdit" type="TextEdit" parent="Control/Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.257
+anchor_top = 0.778
+anchor_right = 0.812
+anchor_bottom = 0.84
+offset_left = -0.143997
+offset_top = -0.132019
+offset_right = 0.29599
+offset_bottom = 0.039978
+context_menu_enabled = false
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.574
+anchor_top = 0.963
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.247986
+offset_top = -0.0240479
+grow_horizontal = 2
+grow_vertical = 2
+text = "~END~                                                Game by Luke Vincent 2024"
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="Rotationnode" type="Node3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 35, 64, -140)
+script = ExtResource("1_3drkc")
+rotateAmmount = Vector3(0, 2, 0)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport/Rotationnode"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 12.6765, 0.358253, -41.2446)
+current = true
+
+[node name="screen" type="CSGMesh3D" parent="."]
+transform = Transform3D(-6.32346, 1.40477, 4.54445e-07, -6.40662e-07, -2.41551e-07, -5.36357, -1.60748, -5.52604, 3.49973e-07, 40.4874, 66.8453, -141.745)
+mesh = SubResource("PlaneMesh_fj7nb")
+material = SubResource("StandardMaterial3D_c020c")
+
+[node name="haroldpasswordreader" type="Node" parent="." node_paths=PackedStringArray("rtl")]
+script = ExtResource("7_nrogu")
+rtl = NodePath("../Control/Label/TextEdit")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ixj4k")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.999854, -0.0170684, 0, 0.0170684, -0.999854, 0, 0, 0)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.945972, -0.324248, 0, 0.324248, 0.945972, 0, 0, 0)
+
+[node name="UnlockAchievement" parent="." instance=ExtResource("8_qb4d3")]
+achievmentNameInAPI = "ending3"

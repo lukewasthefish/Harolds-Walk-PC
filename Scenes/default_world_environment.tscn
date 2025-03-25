@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfhrca8wjistb"]
+
+[ext_resource type="Texture2D" uid="uid://cetg5sxl4ci47" path="res://textures/hilly_terrain_01_1k.exr" id="1_0isc7"]
+[ext_resource type="Script" uid="uid://bxtagon32gnts" path="res://scripts/RotateSky.cs" id="2_4q011"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2iang"]
+panorama = ExtResource("1_0isc7")
+
+[sub_resource type="Sky" id="Sky_tvqq6"]
+sky_material = SubResource("PanoramaSkyMaterial_2iang")
+
+[sub_resource type="Environment" id="Environment_ojav5"]
+background_mode = 2
+sky = SubResource("Sky_tvqq6")
+ambient_light_source = 3
+fog_enabled = true
+fog_light_color = Color(0.784314, 0.894118, 0.92549, 1)
+fog_sun_scatter = 0.5
+fog_density = 0.005
+fog_sky_affect = 0.0
+adjustment_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource("Environment_ojav5")
+script = ExtResource("2_4q011")
+
+[node name="sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.935475, -0.0657716, -0.347219, 0.198198, 0.911103, 0.361399, 0.292582, -0.406898, 0.865349, 0, 0, 0)
+light_color = Color(1, 0.933333, 0.521569, 1)
+shadow_enabled = true
+directional_shadow_mode = 0

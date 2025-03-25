@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://nhhpsiuoy6il"]
+
+[ext_resource type="Texture2D" uid="uid://85jm2amff2pf" path="res://blend/textures/UltraGasLogoLong.png" id="1_dutvi"]
+
+[resource]
+resource_name = "UGlogoLong"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_dutvi")
+roughness = 0.5

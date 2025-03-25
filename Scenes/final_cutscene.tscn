@@ -1,0 +1,105 @@
+[gd_scene load_steps=9 format=3 uid="uid://dec0aivrfatqi"]
+
+[ext_resource type="Script" uid="uid://crukgwxs2mmiv" path="res://scripts/Rotate.cs" id="1_3wn68"]
+[ext_resource type="Script" uid="uid://cqdt250waf1rk" path="res://scripts/cutscene.cs" id="3_v3i82"]
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="4_ideuh"]
+[ext_resource type="AudioStream" uid="uid://ujhr51egnac4" path="res://audio/music/rhodesChopin.ogg" id="5_dgtqt"]
+[ext_resource type="Script" uid="uid://hu1tnxqhmw2c" path="res://scripts/EnsureMenuFocus.cs" id="6_njr5v"]
+[ext_resource type="VideoStream" uid="uid://dc52fhqp5uwfc" path="res://video/output.ogv" id="8_1ruja"]
+[ext_resource type="PackedScene" uid="uid://bst5043hive0r" path="res://Scenes/unlock_achievement.tscn" id="8_cp102"]
+
+[sub_resource type="Environment" id="Environment_ixj4k"]
+background_mode = 1
+ambient_light_color = Color(0, 0.320056, 0.153221, 1)
+
+[node name="CutsceneBase" type="Node3D"]
+
+[node name="Rotationnode" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 35, 64, -140)
+script = ExtResource("1_3wn68")
+rotateAmmount = Vector3(0, 2, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Rotationnode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2254, 0, 41.3318)
+
+[node name="cutscene" type="Node" parent="."]
+script = ExtResource("3_v3i82")
+length = 64.0
+nextScene = "main_menu"
+gameplayScene = false
+
+[node name="music_player" parent="." instance=ExtResource("4_ideuh")]
+song = ExtResource("5_dgtqt")
+
+[node name="EnsureMenuFocus" type="Node" parent="."]
+script = ExtResource("6_njr5v")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.26
+anchor_bottom = 1.0
+offset_right = -0.52002
+
+[node name="s" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.046
+anchor_right = 0.26
+anchor_bottom = 0.963
+offset_left = 0.440002
+offset_top = 0.191998
+offset_right = -0.52002
+offset_bottom = -0.0239868
+text = ">Payload delivered
+>Shutting down"
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.574
+anchor_top = 0.963
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.247986
+offset_top = -0.0240479
+grow_horizontal = 2
+grow_vertical = 2
+text = "~END~                                                Game by Luke Vincent 2024"
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.299
+anchor_top = 0.046
+anchor_right = 0.954
+anchor_bottom = 0.705
+offset_left = 0.551971
+offset_top = 0.191998
+offset_right = -0.00805664
+offset_bottom = 0.159973
+stream = ExtResource("8_1ruja")
+autoplay = true
+expand = true
+loop = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ixj4k")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.999854, -0.0170684, 0, 0.0170684, -0.999854, 0, 0, 0)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.945972, -0.324248, 0, 0.324248, 0.945972, 0, 0, 0)
+
+[node name="UnlockAchievement" parent="." instance=ExtResource("8_cp102")]
+achievmentNameInAPI = "ending4"

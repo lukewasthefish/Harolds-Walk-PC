@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6upj1enper01"]
+
+[ext_resource type="PackedScene" uid="uid://cu0rtqw4n46rn" path="res://Scenes/cutscene_base.tscn" id="1_vi2lr"]
+
+[node name="challenge_stages_cutscene" instance=ExtResource("1_vi2lr")]
+
+[node name="cutscene" parent="." index="0"]
+nextScene = "WaterTower"
+
+[node name="Label" parent="Control" index="0"]
+text = "CUTSCENE GO HERE
+
+(nice job)
+
+BOTTOM TEXT"

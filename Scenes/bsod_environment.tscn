@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cht80xgpec2o6"]
+
+[ext_resource type="Texture2D" uid="uid://c3vp1srf8icrn" path="res://textures/blueblackgradient.png" id="1_3xl60"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bt7n1"]
+panorama = ExtResource("1_3xl60")
+
+[sub_resource type="Sky" id="Sky_bokpw"]
+sky_material = SubResource("PanoramaSkyMaterial_bt7n1")
+
+[sub_resource type="Environment" id="Environment_wufg6"]
+background_mode = 2
+sky = SubResource("Sky_bokpw")
+ambient_light_source = 2
+ambient_light_color = Color(0.81915, 0.834895, 0.828618, 1)
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 0.005
+fog_sky_affect = 0.0
+
+[node name="BSODEnvironment" type="WorldEnvironment"]
+environment = SubResource("Environment_wufg6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.665035, 0.676245, 0.316892, -0.746812, 0.602196, 0.282192, -1.49012e-08, -0.424326, 0.90551, 0, 0, 0)
+light_color = Color(0.0980392, 0.584314, 0.913725, 1)
+light_energy = 3.0
+shadow_enabled = true
+shadow_blur = 3.935
+directional_shadow_mode = 0
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.665035, -0.70059, 0.258656, -0.746812, -0.623874, 0.230332, 5.52005e-09, -0.346346, -0.938107, 0, 0, 0)
+light_color = Color(0.706912, 0.85948, 0.99766, 1)
+directional_shadow_mode = 0

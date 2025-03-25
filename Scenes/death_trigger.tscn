@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://rk1jxwx1lhcs"]
+
+[ext_resource type="Script" uid="uid://cduusuav55yfw" path="res://scripts/DeathTrigger.cs" id="1_dn7lf"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_eworr"]
+radius = 500.0
+
+[node name="death_trigger" type="Area3D"]
+script = ExtResource("1_dn7lf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_eworr")
+
+[connection signal="area_entered" from="." to="." method="Death"]

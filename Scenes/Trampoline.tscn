@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://dk3nojbny4ig1"]
+
+[ext_resource type="PackedScene" uid="uid://ddud4h3hjh26b" path="res://blend/icosphere.blend" id="1_rwhpm"]
+[ext_resource type="Script" uid="uid://cc0n0nymkqm1p" path="res://scripts/Trampoline.cs" id="2_4xc4k"]
+[ext_resource type="AudioStream" uid="uid://dru5bxy74lojv" path="res://audio/sfx/bounce.ogg" id="3_dmhg0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n5n1x"]
+albedo_color = Color(0.721569, 0.72549, 0.698039, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0c1t1"]
+radius = 1.25939
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbccd"]
+albedo_color = Color(1, 0, 0, 1)
+metallic_specular = 0.9
+roughness = 0.35
+
+[node name="Trampoline" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="icosphere" parent="." instance=ExtResource("1_rwhpm")]
+visible = false
+
+[node name="Icosphere" parent="icosphere" index="0"]
+material_override = SubResource("StandardMaterial3D_n5n1x")
+
+[node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("model")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("2_4xc4k")
+force = 45.0
+model = NodePath("../CSGSphere3D")
+sound = ExtResource("3_dmhg0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_0c1t1")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+material_override = SubResource("StandardMaterial3D_xbccd")
+radius = 2.0
+radial_segments = 16
+rings = 16
+
+[connection signal="area_entered" from="Area3D" to="Area3D" method="_on_area_entered"]
+
+[editable path="icosphere"]

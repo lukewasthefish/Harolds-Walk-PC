@@ -1,0 +1,125 @@
+[gd_scene load_steps=9 format=3 uid="uid://bt4na5dqrliqd"]
+
+[ext_resource type="Script" uid="uid://crukgwxs2mmiv" path="res://scripts/Rotate.cs" id="2_ciuf2"]
+[ext_resource type="Script" uid="uid://cqdt250waf1rk" path="res://scripts/cutscene.cs" id="3_00skq"]
+[ext_resource type="VideoStream" uid="uid://c4a4ihaso5gif" path="res://video/challenge_stage_ending.ogv" id="4_5jtet"]
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="4_u4fb3"]
+[ext_resource type="AudioStream" uid="uid://cpipk1aq36u2j" path="res://audio/music/HaroldsEnding.ogg" id="5_nq65i"]
+[ext_resource type="Script" uid="uid://270dvvnaxrpf" path="res://scripts/Credits.cs" id="5_v1uno"]
+[ext_resource type="PackedScene" uid="uid://bst5043hive0r" path="res://Scenes/unlock_achievement.tscn" id="8_o62vo"]
+
+[sub_resource type="Environment" id="Environment_hkyle"]
+background_mode = 1
+ambient_light_color = Color(0, 0.320056, 0.153221, 1)
+
+[node name="challenge_stages_ending" type="Node3D"]
+
+[node name="rotationNode" type="Node3D" parent="."]
+transform = Transform3D(2.34075, 0, 0.851869, 0, 2.49094, 0, -0.851869, 0, 2.34075, -5.21344, -3.89291, 13.0981)
+script = ExtResource("2_ciuf2")
+rotateAmmount = Vector3(0, 0.15, 0)
+
+[node name="Camera3D" type="Camera3D" parent="rotationNode"]
+transform = Transform3D(-0.258061, 0, 0.307524, 0, 0.401455, 0, -0.307524, 0, -0.258061, 7.31357, 2.21442, -5.06205)
+
+[node name="cutscene" type="Node" parent="."]
+script = ExtResource("3_00skq")
+length = 2048.0
+nextScene = "main_menu"
+gameplayScene = false
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.331
+anchor_bottom = 1.0
+offset_right = -0.312042
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.046
+anchor_right = 0.331
+anchor_bottom = 1.005
+offset_left = 0.439999
+offset_top = 0.191998
+offset_right = -0.312042
+offset_bottom = -0.23999
+text = "rrressolvv@#*89v)*S)V*(89
+WEV*#)V*(#vresolving volatility...
+V#@@#V#V3
+v3r
+v3
+3r
+<3
+volatile memory issue resolved
+finished exporting documents to USB
+root@haroldhost:/$echo 'I love you'
+I love you
+root@haroldhost:/$logout
+disconnected
+session ended
+"
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.963
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.0240479
+grow_horizontal = 2
+grow_vertical = 2
+text = "~END~         Game by Luke Vincent 2024"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.774
+anchor_top = 1.005
+anchor_right = 1.0
+anchor_bottom = 2.005
+offset_left = 0.351929
+offset_top = -3.23999
+offset_bottom = -0.240112
+script = ExtResource("5_v1uno")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.338
+anchor_top = 0.025
+anchor_right = 0.76
+anchor_bottom = 0.5
+offset_left = -0.376038
+offset_top = -0.200001
+offset_right = 0.479919
+stream = ExtResource("4_5jtet")
+autoplay = true
+expand = true
+loop = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hkyle")
+
+[node name="music_player" parent="." instance=ExtResource("4_u4fb3")]
+song = ExtResource("5_nq65i")
+
+[node name="UnlockAchievement" parent="." instance=ExtResource("8_o62vo")]
+achievmentNameInAPI = "ending2"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.999854, -0.0170684, 0, 0.0170684, -0.999854, 0, 0, 0)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.945972, -0.324248, 0, 0.324248, 0.945972, 0, 0, 0)

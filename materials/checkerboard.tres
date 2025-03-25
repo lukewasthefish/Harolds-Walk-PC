@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b67g3pbw65ibi"]
+
+[ext_resource type="Texture2D" uid="uid://u5x1ew2dfd6y" path="res://textures/Checker.png" id="1_rd1hi"]
+
+[resource]
+albedo_texture = ExtResource("1_rd1hi")
+roughness = 0.14

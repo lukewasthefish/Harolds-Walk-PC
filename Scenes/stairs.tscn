@@ -1,0 +1,60 @@
+[gd_scene load_steps=12 format=3 uid="uid://bgej6l00kopih"]
+
+[ext_resource type="PackedScene" uid="uid://bfhrca8wjistb" path="res://Scenes/default_world_environment.tscn" id="1_7diik"]
+[ext_resource type="PackedScene" uid="uid://cukdj4bceuug8" path="res://Scenes/stairs_geometry.tscn" id="2_dk7ke"]
+[ext_resource type="Texture2D" uid="uid://cetg5sxl4ci47" path="res://textures/hilly_terrain_01_1k.exr" id="2_h3ct5"]
+[ext_resource type="AudioStream" uid="uid://5buhmunw4lyi" path="res://audio/music/challenge_stage_04.ogg" id="4_p0a0b"]
+[ext_resource type="PackedScene" uid="uid://buoa3j0nv6gk6" path="res://Scenes/dash_panel.tscn" id="4_rn8uj"]
+[ext_resource type="PackedScene" uid="uid://s4hjw4ejsjjw" path="res://Scenes/LegEnemy.tscn" id="7_7crth"]
+[ext_resource type="PackedScene" uid="uid://or6kwbrrr2s5" path="res://Scenes/Donut.tscn" id="8_8w4yj"]
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="10_11kvl"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2iang"]
+panorama = ExtResource("2_h3ct5")
+
+[sub_resource type="Sky" id="Sky_tvqq6"]
+sky_material = SubResource("PanoramaSkyMaterial_2iang")
+
+[sub_resource type="Environment" id="Environment_2d5bx"]
+background_mode = 2
+sky = SubResource("Sky_tvqq6")
+ambient_light_source = 3
+fog_enabled = true
+fog_light_color = Color(0.633741, 0.441749, 1, 1)
+fog_sun_scatter = 0.5
+fog_density = 0.015
+fog_sky_affect = 0.28
+fog_height = -61.6
+fog_height_density = 0.167
+adjustment_enabled = true
+
+[node name="bridges" type="Node3D"]
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("1_7diik")]
+environment = SubResource("Environment_2d5bx")
+
+[node name="music_player" parent="." instance=ExtResource("10_11kvl")]
+song = ExtResource("4_p0a0b")
+
+[node name="stairs" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("2_dk7ke")]
+
+[node name="dashPanel" parent="." instance=ExtResource("4_rn8uj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9289, 67.9261, -333.93)
+
+[node name="dashPanel3" parent="." instance=ExtResource("4_rn8uj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.98912, 111.615, -334.295)
+
+[node name="dashPanel6" parent="." instance=ExtResource("4_rn8uj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.7947, 135.859, -192.773)
+
+[node name="LegEnemy5" parent="." instance=ExtResource("7_7crth")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.7122, 59.7749, -102.488)
+
+[node name="LegEnemy6" parent="." instance=ExtResource("7_7crth")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.824, 59.7749, -102.488)
+
+[node name="dashPanel4" parent="." instance=ExtResource("4_rn8uj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.36019, -16.4346, 35.6484)
+
+[node name="DonutPickup" parent="." instance=ExtResource("8_8w4yj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.3573, 96.907, -173.846)

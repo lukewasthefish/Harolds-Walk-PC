@@ -1,0 +1,6 @@
+[gd_scene load_steps=10 format=3 uid="uid://c25xtk8jgefkt"]
+
+[ext_resource type="PackedScene" uid="uid://djnotrdxwhxj0" path="res://Scenes/Portal.tscn" id="3_4eals"]
+[ext_resource type="PackedScene" uid="uid://ohjil5u56gdg" path="res://Scenes/CrownPickup.tscn" id="4_igbvp"]
+[ext_resource type="PackedScene" uid="uid://or6kwbrrr2s5" path="res://Scenes/Donut.tscn" id="5_pkhgr"]
+[ext_resource type="PackedScene" uid="uid://s4hjw4ejsjjw" path="res://Scenes/LegEnemy.tscn" id="6_gwj5r"]

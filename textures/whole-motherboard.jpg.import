@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://w1qpy6k8up8o"
+path.s3tc="res://.godot/imported/whole-motherboard.jpg-5870c01b7e0cd8813bb8e5a67cc175a1.s3tc.ctex"
+path.etc2="res://.godot/imported/whole-motherboard.jpg-5870c01b7e0cd8813bb8e5a67cc175a1.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://textures/whole-motherboard.jpg"
+dest_files=["res://.godot/imported/whole-motherboard.jpg-5870c01b7e0cd8813bb8e5a67cc175a1.s3tc.ctex", "res://.godot/imported/whole-motherboard.jpg-5870c01b7e0cd8813bb8e5a67cc175a1.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

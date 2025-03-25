@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmouwn70obuky"]
+
+[ext_resource type="PackedScene" uid="uid://dk3nojbny4ig1" path="res://Scenes/Trampoline.tscn" id="1_fgml3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2vw5b"]
+albedo_color = Color(1, 1, 0, 1)
+metallic_specular = 0.9
+roughness = 0.35
+
+[node name="YellowTrampoline" instance=ExtResource("1_fgml3")]
+
+[node name="Area3D" parent="." index="1"]
+force = 200.0
+
+[node name="CSGSphere3D" parent="." index="2"]
+material_override = SubResource("StandardMaterial3D_2vw5b")
+radius = 1.75019
+
+[editable path="icosphere"]

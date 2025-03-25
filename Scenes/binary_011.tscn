@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://dhiprvoxk2wqd"]
+
+[ext_resource type="PackedScene" uid="uid://bin5wwud8acgq" path="res://Scenes/binary_04(harold).tscn" id="1_ey0uy"]
+[ext_resource type="PackedScene" uid="uid://cht80xgpec2o6" path="res://Scenes/bsod_environment.tscn" id="2_n0uu4"]
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="3_nijfx"]
+[ext_resource type="AudioStream" uid="uid://bpr8gw1pt8uhk" path="res://audio/music/binaryTheme.ogg" id="4_bybaw"]
+[ext_resource type="PackedScene" uid="uid://bqbqjfox4mqqo" path="res://Scenes/PlayerStart.tscn" id="5_d0wnt"]
+[ext_resource type="PackedScene" uid="uid://ohjil5u56gdg" path="res://Scenes/CrownPickup.tscn" id="6_qw3oj"]
+[ext_resource type="PackedScene" uid="uid://bmouwn70obuky" path="res://Scenes/YellowTrampoline.tscn" id="7_al03r"]
+[ext_resource type="PackedScene" uid="uid://or6kwbrrr2s5" path="res://Scenes/Donut.tscn" id="8_82rte"]
+[ext_resource type="PackedScene" uid="uid://djnotrdxwhxj0" path="res://Scenes/Portal.tscn" id="8_lgc82"]
+[ext_resource type="PackedScene" uid="uid://buoa3j0nv6gk6" path="res://Scenes/dash_panel.tscn" id="9_sucfp"]
+[ext_resource type="PackedScene" uid="uid://s4hjw4ejsjjw" path="res://Scenes/LegEnemy.tscn" id="11_aycto"]
+[ext_resource type="PackedScene" uid="uid://dthaqic75rdiw" path="res://Scenes/RedTrampoline.tscn" id="12_yss0v"]
+
+[node name="Binary100" type="Node3D" groups=["Entity"]]
+
+[node name="binary_04(harold)" parent="." groups=["Entity"] instance=ExtResource("1_ey0uy")]
+
+[node name="BSODEnvironment" parent="." groups=["Entity"] instance=ExtResource("2_n0uu4")]
+
+[node name="music_player" parent="." groups=["Entity"] instance=ExtResource("3_nijfx")]
+song = ExtResource("4_bybaw")
+
+[node name="PlayerStart" parent="." groups=["Entity"] instance=ExtResource("5_d0wnt")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -162.834, 52.1237, 338.475)
+
+[node name="Portal" parent="." groups=["Entity"] instance=ExtResource("8_lgc82")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7177, -4.22935, 55.5989)
+levelName = "challenge_stage_7"
+
+[node name="YellowTrampoline" parent="." groups=["Entity"] instance=ExtResource("7_al03r")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -165.786, -7.46936, 314.294)
+
+[node name="Donut" parent="." groups=["Entity", "IgnoreCameraCollision"] instance=ExtResource("8_82rte")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -255.537, 201.168, 265.164)
+
+[node name="Donut2" parent="." groups=["Entity"] instance=ExtResource("8_82rte")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -260.323, 199.245, 208.528)
+
+[node name="Crown" parent="." groups=["Entity"] instance=ExtResource("6_qw3oj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -456.635, 200.369, 264.724)
+
+[node name="Crown2" parent="." groups=["Entity"] instance=ExtResource("6_qw3oj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -537.631, 15.7148, 292.155)
+
+[node name="YellowTrampoline2" parent="." groups=["Entity"] instance=ExtResource("7_al03r")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -497.415, 152.697, 293.709)
+
+[node name="YellowTrampoline3" parent="." groups=["Entity"] instance=ExtResource("7_al03r")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -530.582, 11.9704, 293.709)
+
+[node name="dashPanel" parent="." groups=["Entity"] instance=ExtResource("9_sucfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -429.289, 246.15, 261.067)
+
+[node name="Crown3" parent="." groups=["Entity"] instance=ExtResource("6_qw3oj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -320.333, 198.516, 357.881)
+
+[node name="LegEnemy" parent="." instance=ExtResource("11_aycto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -318.233, 198.517, 354.053)
+
+[node name="LegEnemy2" parent="." instance=ExtResource("11_aycto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -336.229, 210.215, 247.957)
+
+[node name="LegEnemy3" parent="." instance=ExtResource("11_aycto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -355.14, 188.746, 132.259)
+
+[node name="dashPanel2" parent="." groups=["Entity"] instance=ExtResource("9_sucfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -345.242, 197.512, 166.393)
+
+[node name="Trampoline2" parent="." groups=["Entity"] instance=ExtResource("12_yss0v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -337.26, 194.478, 156.646)
+
+[node name="Donut3" parent="." instance=ExtResource("8_82rte")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -287.977, 199.667, 239.574)
+
+[node name="Donut4" parent="." instance=ExtResource("8_82rte")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -307.317, 196.668, 246.184)
+
+[node name="Donut5" parent="." instance=ExtResource("8_82rte")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -324.126, 204.661, 246.901)
+
+[node name="Donut6" parent="." instance=ExtResource("8_82rte")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -415.815, 216.183, 225.835)
+
+[node name="Donut7" parent="." instance=ExtResource("8_82rte")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -406.78, 217.969, 294.467)
+
+[node name="Trampoline3" parent="." instance=ExtResource("12_yss0v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -213.638, 153.058, 266.052)
+
+[node name="Trampoline4" parent="." instance=ExtResource("12_yss0v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -226.985, 175.276, 269.916)

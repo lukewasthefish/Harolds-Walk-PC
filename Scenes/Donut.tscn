@@ -1,0 +1,80 @@
+[gd_scene load_steps=13 format=3 uid="uid://or6kwbrrr2s5"]
+
+[ext_resource type="PackedScene" uid="uid://c13xwwr4wi2r6" path="res://blend/donut.blend" id="1_0lfhh"]
+[ext_resource type="Script" uid="uid://crukgwxs2mmiv" path="res://scripts/Rotate.cs" id="2_k5amt"]
+[ext_resource type="Texture2D" uid="uid://bdfe4v7c52par" path="res://textures/donutIcon.png" id="3_cw0k4"]
+[ext_resource type="Script" uid="uid://b54mpakq2cume" path="res://scripts/DonutPickup.cs" id="3_d8cm5"]
+
+[sub_resource type="Gradient" id="Gradient_ydyhd"]
+offsets = PackedFloat32Array(0, 0.0638298, 0.702128, 1)
+colors = PackedColorArray(1, 0, 1, 1, 0.349768, 8.47583e-05, 0.350667, 1, 0.818437, 0.47401, 0.813666, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jb8u4"]
+gradient = SubResource("Gradient_ydyhd")
+
+[sub_resource type="Curve" id="Curve_wvb5f"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_pai2m"]
+curve = SubResource("Curve_wvb5f")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ex035"]
+angle_min = -360.0
+angle_max = 360.0
+direction = Vector3(0, 0, 0)
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+radial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.45
+scale_curve = SubResource("CurveTexture_pai2m")
+color_ramp = SubResource("GradientTexture1D_jb8u4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1atti"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_gnq7o"]
+material = SubResource("StandardMaterial3D_1atti")
+radial_segments = 8
+rings = 4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_apukh"]
+radius = 0.965557
+
+[node name="DonutPickup" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.830656, 0)
+emitting = false
+amount = 16
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_ex035")
+draw_pass_1 = SubResource("SphereMesh_gnq7o")
+
+[node name="Donut" type="Area3D" parent="." node_paths=PackedStringArray("particles3D")]
+script = ExtResource("3_d8cm5")
+particles3D = NodePath("../GPUParticles3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Donut"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_apukh")
+
+[node name="Donut" type="Node3D" parent="Donut"]
+script = ExtResource("2_k5amt")
+rotateAmmount = Vector3(0, 7, 0)
+
+[node name="donut" parent="Donut/Donut" instance=ExtResource("1_0lfhh")]
+script = ExtResource("2_k5amt")
+
+[node name="Sprite3D" type="Sprite3D" parent="Donut"]
+transform = Transform3D(15.092, 0, 0, 0, -6.59694e-07, 30.8, 0, -15.092, -1.34631e-06, 0, 1000, 0)
+layers = 4
+texture = ExtResource("3_cw0k4")
+
+[connection signal="area_entered" from="Donut" to="Donut" method="_on_area_entered"]

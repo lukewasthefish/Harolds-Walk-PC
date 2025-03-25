@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdmkpkeqd52hm"]
+
+[ext_resource type="Script" uid="uid://bo37sspdkye8j" path="res://scripts/LevelLoadTrigger.cs" id="1_iyusf"]
+[ext_resource type="Script" uid="uid://mi1bhwja58k2" path="res://scripts/HideOnReady.cs" id="2_tqupw"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dnkm1"]
+height = 13.6273
+radius = 17.905
+
+[node name="TunnelLevelLoadTrigger" type="Area3D"]
+script = ExtResource("1_iyusf")
+levelName = "gas_station"
+flashColor = Color(0, 0, 0, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dnkm1")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+radius = 18.1289
+height = 13.5542
+sides = 64
+script = ExtResource("2_tqupw")

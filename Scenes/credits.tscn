@@ -1,0 +1,182 @@
+[gd_scene load_steps=14 format=3 uid="uid://bix04amw7m7bt"]
+
+[ext_resource type="PackedScene" uid="uid://vsydv4x4krq6" path="res://blend/MainMenu.blend" id="1_858f1"]
+[ext_resource type="Texture2D" uid="uid://cetg5sxl4ci47" path="res://textures/hilly_terrain_01_1k.exr" id="2_eug71"]
+[ext_resource type="Script" uid="uid://bxtagon32gnts" path="res://scripts/RotateSky.cs" id="3_qwg5p"]
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="4_h5jov"]
+[ext_resource type="AudioStream" uid="uid://dl4210g1klyso" path="res://audio/music/LevelSelect1.ogg" id="5_oq62v"]
+[ext_resource type="Theme" uid="uid://d2d431orn77jx" path="res://Theme.tres" id="6_ekemw"]
+[ext_resource type="Script" uid="uid://hu1tnxqhmw2c" path="res://scripts/EnsureMenuFocus.cs" id="7_iuiw0"]
+[ext_resource type="Script" uid="uid://b80pd6qouusem" path="res://scripts/UIBindings.cs" id="8_p4e65"]
+[ext_resource type="FontFile" uid="uid://yj5tcy4l6apm" path="res://fonts/KIN668.TTF" id="9_pcnj4"]
+[ext_resource type="Script" uid="uid://to5h0f0hqjso" path="res://scripts/CreditsMenu.cs" id="10_4uesx"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_r2e4m"]
+panorama = ExtResource("2_eug71")
+
+[sub_resource type="Sky" id="Sky_a3sxp"]
+sky_material = SubResource("PanoramaSkyMaterial_r2e4m")
+
+[sub_resource type="Environment" id="Environment_klgip"]
+background_mode = 2
+sky = SubResource("Sky_a3sxp")
+ambient_light_source = 2
+ambient_light_color = Color(0.282353, 0.278431, 0.298039, 1)
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 0.025
+fog_sky_affect = 0.0
+
+[node name="about_menu" instance=ExtResource("1_858f1")]
+transform = Transform3D(9.63388, 0, 0, 0, 9.63388, 0, 0, 0, 9.63388, 0, 0, 0)
+
+[node name="Cube__15_" parent="." index="0"]
+transform = Transform3D(0.0372472, -0.00349142, 0.000318509, 0.0180811, 0.0327389, -0.000158758, -0.0256584, 0.0180022, 0.00035049, -16.1518, 8.16661, 28.3034)
+
+[node name="Button__2_" parent="." index="1"]
+transform = Transform3D(0.392397, 0, 0, 0, 1, 0, 0, 0, 1, -3332.45, 100.467, 5398.95)
+visible = false
+
+[node name="Button__3_" parent="." index="2"]
+transform = Transform3D(0.392393, 0, 0, 0, 1, 0, 0, 0, 1, -11432.4, 100.467, 5398.95)
+visible = false
+
+[node name="Cube__5_" parent="." index="3"]
+transform = Transform3D(0.0888231, 0, 0, 0, -3.43058e-09, -0.0052764, 0, 0.0784825, -2.30639e-10, 1.39896, -0.0627918, -15.0446)
+
+[node name="Cube__12_" parent="." index="4"]
+transform = Transform3D(0.0888231, 0, 0, 0, -3.43058e-09, -0.0052764, 0, 0.0784825, -2.30639e-10, 1.39896, -0.0627918, 17.6074)
+
+[node name="Cube__6_" parent="." index="5"]
+transform = Transform3D(0.0888231, 0, 0, 0, -3.43058e-09, -0.0052764, 0, 0.0784825, -2.30639e-10, 1.39896, -0.0627918, 1.20039)
+
+[node name="Cube__9_" parent="." index="6"]
+transform = Transform3D(0.0888231, 0, 0, 0, -3.43058e-09, -0.0052764, 0, 0.0784825, -2.30639e-10, 10.4353, -0.0627918, 9.3544)
+
+[node name="Cube__11_" parent="." index="7"]
+transform = Transform3D(0.0888231, 0, 0, 0, -3.43058e-09, -0.0052764, 0, 0.0784825, -2.30639e-10, 1.39896, -0.0627918, 9.3544)
+
+[node name="Cube__14_" parent="." index="8"]
+transform = Transform3D(0.0888231, 0, 0, 0, -3.43058e-09, -0.0052764, 0, 0.0784825, -2.30639e-10, 10.4353, -0.0627918, 17.6074)
+
+[node name="Directional_Light__1_" parent="." index="9"]
+transform = Transform3D(-0.40313, -0.70104, -0.588243, 9.70583e-08, -0.642788, 0.766044, -0.915143, 0.308815, 0.259127, 1.39896, 29.6375, -16.2146)
+light_color = Color(0.977132, 0.361541, 0.32118, 1)
+light_energy = 1.0
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 3.98
+shadow_opacity = 0.89
+shadow_blur = 8.45
+
+[node name="Cube__3_" parent="." index="10"]
+transform = Transform3D(0.0888231, 0, 0, 0, -3.43058e-09, -0.0052764, 0, 0.0784825, -2.30639e-10, 10.4353, -0.0627918, -15.0446)
+
+[node name="Cube__7_" parent="." index="11"]
+transform = Transform3D(0.0888231, 0, 0, 0, -3.43058e-09, -0.0052764, 0, 0.0784825, -2.30639e-10, -7.57404, -0.0627918, 1.20039)
+
+[node name="Cube__4_" parent="." index="12"]
+transform = Transform3D(0.0888231, 0, 0, 0, -3.43058e-09, -0.0052764, 0, 0.0784825, -2.30639e-10, -7.57404, -0.0627918, -15.0446)
+
+[node name="Cube" parent="." index="13"]
+transform = Transform3D(0.0888231, 0, 0, 0, -3.43058e-09, -0.0052764, 0, 0.0784825, -2.30639e-10, 1.39896, -0.0627918, -6.9716)
+
+[node name="Cube__17_" parent="." index="14"]
+transform = Transform3D(0.0381579, 0.0231166, -0.000995406, -0.0038487, 0.0522577, 0.000734673, 0.0425051, -0.0160207, 0.000960124, -20.2198, 7.92801, -12.4306)
+
+[node name="Cube__2_" parent="." index="15"]
+transform = Transform3D(0.0888231, 0, 0, 0, -3.43058e-09, -0.0052764, 0, 0.0784825, -2.30639e-10, 10.4353, -0.0627918, -6.9716)
+
+[node name="Cube__16_" parent="." index="16"]
+transform = Transform3D(0.0381579, 0.0193151, -0.000995406, -0.0038487, 0.043664, 0.000734673, 0.0425051, -0.0133861, 0.000960124, 14.8083, 7.33071, 26.5934)
+
+[node name="Cube__10_" parent="." index="17"]
+transform = Transform3D(0.0888231, 0, 0, 0, -3.43058e-09, -0.0052764, 0, 0.0784825, -2.30639e-10, -7.57404, -0.0627918, 9.3544)
+
+[node name="Cube__1_" parent="." index="18"]
+transform = Transform3D(0.0888231, 0, 0, 0, -3.43058e-09, -0.0052764, 0, 0.0784825, -2.30639e-10, -7.57404, -0.0627918, -6.9716)
+
+[node name="Cube__8_" parent="." index="19"]
+transform = Transform3D(0.0888231, 0, 0, 0, -3.43058e-09, -0.0052764, 0, 0.0784825, -2.30639e-10, 10.4353, -0.0627918, 1.20039)
+
+[node name="Directional_Light__2_" parent="." index="20"]
+transform = Transform3D(-0.450308, 0.169708, 0.876597, 0.152548, 0.981959, -0.111742, -0.879745, 0.0834048, -0.468073, 1.63657, 29.6375, -16.3516)
+light_energy = 1.4
+
+[node name="Cube__13_" parent="." index="21"]
+transform = Transform3D(0.0888231, 0, 0, 0, -3.43058e-09, -0.0052764, 0, 0.0784825, -2.30639e-10, -7.57404, -0.0627918, 17.6074)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="22"]
+environment = SubResource("Environment_klgip")
+script = ExtResource("3_qwg5p")
+rotationSpeed = 0.06
+
+[node name="Camera3D" type="Camera3D" parent="." index="23"]
+transform = Transform3D(-0.0817557, 2.18918e-09, 0.0639572, -4.00885e-16, 0.1038, -3.55296e-09, -0.0639572, -2.7984e-09, -0.0817557, 2.08358, -29.5226, -2.35861)
+
+[node name="music_player" parent="." index="24" instance=ExtResource("4_h5jov")]
+song = ExtResource("5_oq62v")
+
+[node name="Control" type="Control" parent="." index="25"]
+process_mode = 3
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.982
+offset_bottom = 11.6639
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_ekemw")
+
+[node name="EnsureMenuFocus" type="Node" parent="Control" index="0" node_paths=PackedStringArray("defaultFocus")]
+script = ExtResource("7_iuiw0")
+defaultFocus = NodePath("../Button")
+
+[node name="UIBindings" type="Node" parent="Control" index="1"]
+script = ExtResource("8_p4e65")
+
+[node name="Label" type="Label" parent="Control" index="2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.24
+anchor_top = 0.039
+anchor_right = 0.685
+anchor_bottom = 0.079
+offset_left = 0.519989
+offset_top = -0.272001
+offset_right = -0.120056
+offset_bottom = -0.192001
+text = "Credits"
+
+[node name="Button" type="Button" parent="Control" index="3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.376736
+anchor_top = 0.941358
+anchor_right = 0.532986
+anchor_bottom = 0.981482
+text = "OK"
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control" index="4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.161
+anchor_top = 0.102
+anchor_right = 0.931
+anchor_bottom = 0.917
+offset_left = -0.472015
+offset_top = -0.095993
+offset_right = -0.512085
+offset_bottom = -0.215942
+horizontal_scroll_mode = 0
+
+[node name="Label3" type="Label" parent="Control/ScrollContainer" index="0"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_pcnj4")
+text = "Game and music by Luke Vincent.
+
+Special thanks to the players,
+and to those who contribute to game dev documentation and forum posts online."
+script = ExtResource("10_4uesx")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Control/Button" to="Control/UIBindings" method="ReturnToMainMenu"]

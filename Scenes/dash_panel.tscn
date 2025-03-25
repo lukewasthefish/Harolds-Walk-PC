@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://buoa3j0nv6gk6"]
+
+[ext_resource type="PackedScene" uid="uid://dpl2gfrqsknjd" path="res://blend/dashPanel.blend" id="1_flnux"]
+[ext_resource type="Script" uid="uid://cq41xqef2qdvl" path="res://scripts/dashPanel.cs" id="2_wlr1p"]
+[ext_resource type="Texture2D" uid="uid://tcqxd6ch3lji" path="res://textures/orangealphagradient.png" id="3_lhhkw"]
+[ext_resource type="AudioStream" uid="uid://dlihnug4sox2n" path="res://audio/sfx/dashPanel.ogg" id="3_s1ovr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_w70wg"]
+radius = 2.73643
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cx8c1"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("3_lhhkw")
+
+[node name="dashPanel" instance=ExtResource("1_flnux")]
+script = ExtResource("2_wlr1p")
+sound = ExtResource("3_s1ovr")
+
+[node name="Area3D" type="Area3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.88543, 0)
+shape = SubResource("SphereShape3D_w70wg")
+
+[node name="lightcircle" parent="." index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_cx8c1")
+
+[connection signal="area_entered" from="Area3D" to="." method="BoostPlayer"]

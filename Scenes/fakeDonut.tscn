@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnvenw7idcc0l"]
+
+[ext_resource type="Script" uid="uid://dlu17pl1l3er6" path="res://scripts/fakePickup.cs" id="1_fwbml"]
+[ext_resource type="Script" uid="uid://crukgwxs2mmiv" path="res://scripts/Rotate.cs" id="2_1kmgn"]
+[ext_resource type="PackedScene" uid="uid://c13xwwr4wi2r6" path="res://blend/donut.blend" id="3_slk0d"]
+[ext_resource type="Material" uid="uid://dajlh56s2n2l1" path="res://Scenes/fakePickup.tres" id="4_35hye"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_apukh"]
+radius = 0.824222
+
+[node name="fakeDonut" type="Area3D"]
+script = ExtResource("1_fwbml")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_apukh")
+
+[node name="Donut" type="Node3D" parent="."]
+script = ExtResource("2_1kmgn")
+rotateAmmount = Vector3(0, 7, 0)
+
+[node name="donut" parent="Donut" instance=ExtResource("3_slk0d")]
+script = ExtResource("2_1kmgn")
+
+[node name="Torus" parent="Donut/donut" index="0"]
+surface_material_override/0 = ExtResource("4_35hye")
+surface_material_override/1 = ExtResource("4_35hye")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+
+[editable path="Donut/donut"]

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bql86ds8ycr1t"]
+
+[ext_resource type="PackedScene" uid="uid://bac4tefhbeapj" path="res://blend/behind_desk_cutscene_geometry.blend" id="1_y3c14"]
+
+[node name="behind_desk_cutscene_geometry" instance=ExtResource("1_y3c14")]

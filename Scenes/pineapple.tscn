@@ -1,0 +1,130 @@
+[gd_scene load_steps=17 format=3 uid="uid://j0iu1i2qdhtf"]
+
+[ext_resource type="PackedScene" uid="uid://brvvsefnvagyv" path="res://Scenes/pineapple_geometry.tscn" id="1_l5wi6"]
+[ext_resource type="PackedScene" uid="uid://bqbqjfox4mqqo" path="res://Scenes/PlayerStart.tscn" id="3_fnrpw"]
+[ext_resource type="PackedScene" uid="uid://dthaqic75rdiw" path="res://Scenes/RedTrampoline.tscn" id="4_71ib7"]
+[ext_resource type="Texture2D" uid="uid://cetg5sxl4ci47" path="res://textures/hilly_terrain_01_1k.exr" id="4_jusn6"]
+[ext_resource type="Script" uid="uid://bxtagon32gnts" path="res://scripts/RotateSky.cs" id="5_wo6ms"]
+[ext_resource type="PackedScene" uid="uid://s4hjw4ejsjjw" path="res://Scenes/LegEnemy.tscn" id="6_d1uka"]
+[ext_resource type="PackedScene" uid="uid://beudtdd22jfrv" path="res://Scenes/PinkTrampoline.tscn" id="7_oo7xf"]
+[ext_resource type="PackedScene" uid="uid://or6kwbrrr2s5" path="res://Scenes/Donut.tscn" id="8_l050y"]
+[ext_resource type="PackedScene" uid="uid://djnotrdxwhxj0" path="res://Scenes/Portal.tscn" id="9_rjmdg"]
+[ext_resource type="PackedScene" uid="uid://ohjil5u56gdg" path="res://Scenes/CrownPickup.tscn" id="10_xj5h0"]
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="11_lau5v"]
+[ext_resource type="AudioStream" uid="uid://b6mfbr0apsxwt" path="res://audio/music/This associate.ogg" id="12_a0uf6"]
+[ext_resource type="PackedScene" uid="uid://ecau6y2eawar" path="res://Scenes/Portal_red.tscn" id="13_lakd3"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_a4kgl"]
+panorama = ExtResource("4_jusn6")
+
+[sub_resource type="Sky" id="Sky_tvqq6"]
+sky_material = SubResource("PanoramaSkyMaterial_a4kgl")
+
+[sub_resource type="Environment" id="Environment_efwiq"]
+background_mode = 2
+sky = SubResource("Sky_tvqq6")
+ambient_light_source = 3
+fog_enabled = true
+fog_light_color = Color(0.913725, 0.956863, 0.968627, 1)
+fog_sun_scatter = 0.5
+fog_density = 0.005
+fog_sky_affect = 0.145
+fog_height = -22.45
+fog_height_density = 0.1445
+adjustment_enabled = true
+
+[node name="pineapple" type="Node3D"]
+
+[node name="pineapple_geometry" parent="." instance=ExtResource("1_l5wi6")]
+
+[node name="PlayerStart" parent="." instance=ExtResource("3_fnrpw")]
+transform = Transform3D(1, 0, -1.7683e-07, 0, 1, 0, 1.7683e-07, 0, 1, 3.3852, -21.0811, -153.538)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_efwiq")
+script = ExtResource("5_wo6ms")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-0.269768, 0.721464, -0.637743, -0.675306, 0.330375, 0.659404, 0.68643, 0.608558, 0.398084, 26.0799, 73.6233, 164.653)
+light_color = Color(0.811765, 0.792157, 0.623529, 1)
+shadow_enabled = true
+
+[node name="Donut" parent="." instance=ExtResource("8_l050y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.69657, -15.2556, -59.84)
+
+[node name="Donut2" parent="." instance=ExtResource("8_l050y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.69657, -13.2556, -59.84)
+
+[node name="Donut3" parent="." instance=ExtResource("8_l050y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.69657, -11.2556, -59.84)
+
+[node name="Portal" parent="." instance=ExtResource("9_rjmdg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.93397, 22.6244, 111.031)
+levelName = "desert"
+
+[node name="CrownPickup" parent="." instance=ExtResource("10_xj5h0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.4956, 19.6244, 100.841)
+
+[node name="CrownPickup2" parent="." instance=ExtResource("10_xj5h0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.63009, 50.2242, 104.681)
+
+[node name="CrownPickup3" parent="." instance=ExtResource("10_xj5h0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.92702, -19.3811, 79.8701)
+
+[node name="Donut4" parent="." instance=ExtResource("8_l050y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65471, -21.0811, -89.728)
+
+[node name="Donut5" parent="." instance=ExtResource("8_l050y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1535, 19.6244, 110.615)
+
+[node name="Donut6" parent="." instance=ExtResource("8_l050y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9211, 19.6244, 110.703)
+
+[node name="music_player" parent="." instance=ExtResource("11_lau5v")]
+song = ExtResource("12_a0uf6")
+
+[node name="LegEnemy" parent="." instance=ExtResource("6_d1uka")]
+transform = Transform3D(-0.999986, 0, 0.00528825, 0, 1, 0, -0.00528825, 0, -0.999986, -3.9397, -21.0811, -90.9645)
+
+[node name="LegEnemy2" parent="." instance=ExtResource("6_d1uka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0307, -21.0811, -89.9348)
+
+[node name="LegEnemy3" parent="." instance=ExtResource("6_d1uka")]
+transform = Transform3D(-0.999986, 0, 0.00528825, 0, 1, 0, -0.00528825, 0, -0.999986, 4.82041, -21.0811, -79.4279)
+
+[node name="LegEnemy4" parent="." instance=ExtResource("6_d1uka")]
+transform = Transform3D(-0.999986, 0, 0.00528825, 0, 1, 0, -0.00528825, 0, -0.999986, -6.38547, -19.3811, 79.2742)
+
+[node name="LegEnemy5" parent="." instance=ExtResource("6_d1uka")]
+transform = Transform3D(-0.999986, 0, 0.00528825, 0, 1, 0, -0.00528825, 0, -0.999986, 15.4975, -19.3811, 78.5912)
+
+[node name="Trampoline2" parent="." instance=ExtResource("4_71ib7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9299, 19.6244, 117.689)
+
+[node name="Trampoline4" parent="." instance=ExtResource("4_71ib7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.62909, -19.3811, 61.9194)
+
+[node name="Trampoline3" parent="." instance=ExtResource("7_oo7xf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.43106, -21.0811, -60.0254)
+
+[node name="Portal_red" parent="." instance=ExtResource("13_lakd3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.91658, -26.4272, 140.588)
+levelName = "binary_11"
+
+[node name="Donut7" parent="." instance=ExtResource("8_l050y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.73542, -21.0811, -120.797)
+
+[node name="Donut8" parent="." instance=ExtResource("8_l050y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.6838, -21.3089, -7.10528)
+
+[node name="Donut9" parent="." instance=ExtResource("8_l050y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2628, -21.3089, -7.31098)
+
+[node name="Donut10" parent="." instance=ExtResource("8_l050y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.69042, -20.8363, 50.8841)
+
+[node name="Donut11" parent="." instance=ExtResource("8_l050y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.18032, -19.3811, 83.7291)
+
+[node name="Donut12" parent="." instance=ExtResource("8_l050y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.67927, -19.3811, 75.6123)

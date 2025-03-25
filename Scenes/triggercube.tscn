@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://b60t2frijyg7f"]
+
+[ext_resource type="PackedScene" uid="uid://bt51jnkxmo0ps" path="res://blend/triggercube.blend" id="1_26i1p"]
+[ext_resource type="Script" uid="uid://b3lyeuxb5udbs" path="res://scripts/TriggerCube.cs" id="2_i4ebi"]
+[ext_resource type="Material" uid="uid://ca4k7qcgad4wg" path="res://materials/triggercube.tres" id="3_a7xrk"]
+[ext_resource type="AudioStream" uid="uid://dplnatb53n4yw" path="res://audio/sfx/puzzleCube1.ogg" id="4_fa8ut"]
+[ext_resource type="Script" uid="uid://crukgwxs2mmiv" path="res://scripts/Rotate.cs" id="5_6gs7c"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_adwlj"]
+radius = 1.34235
+
+[node name="triggercube" instance=ExtResource("1_26i1p")]
+script = ExtResource("2_i4ebi")
+triggerCubeMaterial = ExtResource("3_a7xrk")
+sound = ExtResource("4_fa8ut")
+
+[node name="Cube" parent="." index="0"]
+surface_material_override/1 = ExtResource("3_a7xrk")
+script = ExtResource("5_6gs7c")
+rotateAmmount = Vector3(0, 7, 0)
+
+[node name="Area3D" type="Area3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+shape = SubResource("SphereShape3D_adwlj")
+
+[connection signal="area_entered" from="Area3D" to="." method="Trigger"]

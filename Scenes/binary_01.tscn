@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://di7rg6vl4k8bb"]
+
+[ext_resource type="PackedScene" uid="uid://bs8rh2qg5wlr1" path="res://Scenes/binary_01_geometry.tscn" id="1_sjlox"]
+[ext_resource type="PackedScene" uid="uid://cht80xgpec2o6" path="res://Scenes/bsod_environment.tscn" id="2_5uh3d"]
+[ext_resource type="PackedScene" uid="uid://djnotrdxwhxj0" path="res://Scenes/Portal.tscn" id="3_y15f2"]
+[ext_resource type="PackedScene" uid="uid://bqbqjfox4mqqo" path="res://Scenes/PlayerStart.tscn" id="4_63bhx"]
+[ext_resource type="PackedScene" uid="uid://ohjil5u56gdg" path="res://Scenes/CrownPickup.tscn" id="5_n23sl"]
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="6_fp6yx"]
+[ext_resource type="AudioStream" uid="uid://bpr8gw1pt8uhk" path="res://audio/music/binaryTheme.ogg" id="7_50im4"]
+[ext_resource type="PackedScene" uid="uid://or6kwbrrr2s5" path="res://Scenes/Donut.tscn" id="8_ygnhk"]
+
+[node name="Binary01" type="Node3D" groups=["IgnoreCameraCollision"]]
+
+[node name="binary_01_geometry" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("1_sjlox")]
+
+[node name="BSODEnvironment" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("2_5uh3d")]
+
+[node name="PlayerStart" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("4_63bhx")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 33.7268, 6.46203, 35.977)
+
+[node name="Portal" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("3_y15f2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.2722, 22.1927, 38.151)
+levelName = "pineapple"
+
+[node name="Crown" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("5_n23sl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5615, 9.89147, 64.5243)
+
+[node name="Crown2" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("5_n23sl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3079, 13.0988, 124.466)
+
+[node name="Crown3" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("5_n23sl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.5212, 25.1447, 65.0414)
+
+[node name="music_player" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("6_fp6yx")]
+song = ExtResource("7_50im4")
+
+[node name="Donut" parent="." instance=ExtResource("8_ygnhk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.5638, 8.21455, 67.5839)
+
+[node name="Donut2" parent="." instance=ExtResource("8_ygnhk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1399, 10.8866, 83.1629)
+
+[node name="Donut3" parent="." instance=ExtResource("8_ygnhk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.79475, 11.5093, 96.008)
+
+[node name="Donut4" parent="." instance=ExtResource("8_ygnhk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.3497, 21.9128, 57.6137)
+
+[node name="Donut5" parent="." instance=ExtResource("8_ygnhk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.1003, 17.533, 93.4259)

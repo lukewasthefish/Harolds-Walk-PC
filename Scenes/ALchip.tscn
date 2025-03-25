@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://da2vju4tsmyi7"]
+
+[ext_resource type="PackedScene" uid="uid://vk2duli7p3l3" path="res://blend/ALchip.blend" id="1_yxf2l"]
+[ext_resource type="Script" uid="uid://crukgwxs2mmiv" path="res://scripts/Rotate.cs" id="2_nx0st"]
+[ext_resource type="Script" uid="uid://bo37sspdkye8j" path="res://scripts/LevelLoadTrigger.cs" id="3_id0gb"]
+[ext_resource type="AudioStream" uid="uid://cpxxofgbcmxpm" path="res://audio/sfx/crown.ogg" id="4_nkkqe"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_umvr0"]
+radius = 1.3595
+
+[node name="ALchip" instance=ExtResource("1_yxf2l")]
+script = ExtResource("2_nx0st")
+rotateAmmount = Vector3(0, 2, 0)
+
+[node name="Area3D" type="Area3D" parent="." index="1"]
+script = ExtResource("3_id0gb")
+levelName = "character_select"
+flashColor = Color(0, 0.939358, 0.97248, 1)
+sound = ExtResource("4_nkkqe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+shape = SubResource("SphereShape3D_umvr0")

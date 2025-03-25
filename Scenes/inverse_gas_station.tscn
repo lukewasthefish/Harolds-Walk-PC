@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://drekh001dshba"]
+
+[ext_resource type="PackedScene" uid="uid://dlircw3qhlosi" path="res://Scenes/inverse_gasstation_geometry.tscn" id="1_11wmn"]
+[ext_resource type="PackedScene" uid="uid://s4hjw4ejsjjw" path="res://Scenes/LegEnemy.tscn" id="3_fkwch"]
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="4_1mb5x"]
+[ext_resource type="PackedScene" uid="uid://bfhrca8wjistb" path="res://Scenes/default_world_environment.tscn" id="5_ghm85"]
+[ext_resource type="AudioStream" uid="uid://fyu5lwfghpj0" path="res://audio/music/LevelThemeA2.ogg" id="5_k1863"]
+
+[node name="InverseGasStation" type="Node3D"]
+
+[node name="inverse_gasstation" parent="." instance=ExtResource("1_11wmn")]
+transform = Transform3D(-1, 8.74228e-08, 0, 8.74228e-08, 1, 8.74228e-08, 7.64274e-15, 8.74228e-08, -1, 0, 0, 0)
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("5_ghm85")]
+
+[node name="sun" parent="WorldEnvironment" index="0"]
+transform = Transform3D(0.935475, -0.0263363, 0.35241, 0.198198, -0.786521, -0.584896, 0.292582, 0.617002, -0.730551, 0, 0, 0)
+
+[node name="LegEnemy" parent="." instance=ExtResource("3_fkwch")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.6598, -2.64189, 32.0795)
+
+[node name="LegEnemy2" parent="." instance=ExtResource("3_fkwch")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.4132, -2.64189, 27.7806)
+
+[node name="music_player" parent="." instance=ExtResource("4_1mb5x")]
+song = ExtResource("5_k1863")
+
+[editable path="WorldEnvironment"]

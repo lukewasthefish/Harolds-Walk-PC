@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2yp1oorffj5j"]
+
+[ext_resource type="Script" uid="uid://rptak8wbijeu" path="res://scripts/MusicPlayer.cs" id="1_lnq8a"]
+
+[node name="music_player" type="Node"]
+process_mode = 3
+script = ExtResource("1_lnq8a")

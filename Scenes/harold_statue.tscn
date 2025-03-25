@@ -1,0 +1,169 @@
+[gd_scene load_steps=18 format=3 uid="uid://b6ahx3w2wmwte"]
+
+[ext_resource type="PackedScene" uid="uid://cgmyhuspoy2u7" path="res://Scenes/harold_statue_geometry.tscn" id="2_6vnvv"]
+[ext_resource type="Texture2D" uid="uid://cetg5sxl4ci47" path="res://textures/hilly_terrain_01_1k.exr" id="3_pqatd"]
+[ext_resource type="Script" uid="uid://bxtagon32gnts" path="res://scripts/RotateSky.cs" id="4_25w5q"]
+[ext_resource type="PackedScene" uid="uid://djnotrdxwhxj0" path="res://Scenes/Portal.tscn" id="5_l5jh0"]
+[ext_resource type="Script" uid="uid://daaxo6eq12tei" path="res://scripts/CameraModeArea.cs" id="6_vg2nu"]
+[ext_resource type="Script" uid="uid://crukgwxs2mmiv" path="res://scripts/Rotate.cs" id="7_qlgi7"]
+[ext_resource type="PackedScene" uid="uid://or6kwbrrr2s5" path="res://Scenes/Donut.tscn" id="8_brt5f"]
+[ext_resource type="PackedScene" uid="uid://bqbqjfox4mqqo" path="res://Scenes/PlayerStart.tscn" id="9_n1xgm"]
+[ext_resource type="PackedScene" uid="uid://ohjil5u56gdg" path="res://Scenes/CrownPickup.tscn" id="9_u5t3p"]
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="10_6pq5u"]
+[ext_resource type="AudioStream" uid="uid://itpdpedba4o6" path="res://audio/music/LevelThemeC.ogg" id="11_3fv0r"]
+[ext_resource type="PackedScene" uid="uid://ecau6y2eawar" path="res://Scenes/Portal_red.tscn" id="12_ava6q"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2iang"]
+panorama = ExtResource("3_pqatd")
+
+[sub_resource type="Sky" id="Sky_rmb10"]
+sky_material = SubResource("PanoramaSkyMaterial_2iang")
+
+[sub_resource type="Environment" id="Environment_ojav5"]
+background_mode = 2
+sky = SubResource("Sky_rmb10")
+ambient_light_source = 3
+fog_enabled = true
+fog_light_color = Color(0.913725, 0.956863, 0.968627, 1)
+fog_sun_scatter = 0.5
+fog_density = 0.002
+fog_sky_affect = 0.215
+fog_height = -34.75
+fog_height_density = 0.101
+adjustment_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vrnik"]
+size = Vector3(1.77839, 104.764, 60.4648)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7yvn5"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 1, 1, 0.164706)
+
+[node name="harold_statue" type="Node3D"]
+
+[node name="harold_statue" parent="." instance=ExtResource("2_6vnvv")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ojav5")
+script = ExtResource("4_25w5q")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.0852451, 0.986029, 0.143108, -0.914534, 0.0204307, 0.403992, 0.395424, -0.165315, 0.903499, 26.0799, 73.6233, 164.653)
+light_color = Color(0.811765, 0.792157, 0.623529, 1)
+shadow_enabled = true
+
+[node name="Portal" parent="." instance=ExtResource("5_l5jh0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.30421, -34.416, -242.174)
+levelName = "gas_station"
+
+[node name="Area3D(2Dplatforming)" type="Area3D" parent="."]
+script = ExtResource("6_vg2nu")
+cameraMode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D(2Dplatforming)"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.00915, -0.475454, -47.1414)
+shape = SubResource("BoxShape3D_vrnik")
+
+[node name="PlayerStart" parent="." instance=ExtResource("9_n1xgm")]
+transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, 97.9149, 10.317, 62.9827)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2246, 8.23866, 21.9356)
+script = ExtResource("7_qlgi7")
+rotateAmmount = Vector3(0, 3, 0)
+
+[node name="Donut" parent="Node3D" instance=ExtResource("8_brt5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="Donut2" parent="Node3D" instance=ExtResource("8_brt5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Donut3" parent="Node3D" instance=ExtResource("8_brt5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="Donut4" parent="Node3D" instance=ExtResource("8_brt5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="Node3D3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.81493, -20.4665, -98.7105)
+script = ExtResource("7_qlgi7")
+rotateAmmount = Vector3(0, 1.4, 0)
+
+[node name="Donut" parent="Node3D3" instance=ExtResource("8_brt5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.2464)
+
+[node name="Donut2" parent="Node3D3" instance=ExtResource("8_brt5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.91416)
+
+[node name="CrownPickup" parent="Node3D3" instance=ExtResource("9_u5t3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16.3339)
+
+[node name="Node3D2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6065, 8.23866, 17.8446)
+script = ExtResource("7_qlgi7")
+rotateAmmount = Vector3(0, 3, 0)
+
+[node name="Donut" parent="Node3D2" instance=ExtResource("8_brt5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="Donut2" parent="Node3D2" instance=ExtResource("8_brt5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Donut3" parent="Node3D2" instance=ExtResource("8_brt5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="Donut4" parent="Node3D2" instance=ExtResource("8_brt5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="CrownPickup" parent="." instance=ExtResource("9_u5t3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.03023, -17.6621, -42.2777)
+
+[node name="CrownPickup2" parent="." instance=ExtResource("9_u5t3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83705, -18.7914, -239.219)
+
+[node name="Donut" parent="." instance=ExtResource("8_brt5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5573, -35.4889, -173.11)
+
+[node name="Donut2" parent="." instance=ExtResource("8_brt5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.42703, -35.4889, -173.11)
+
+[node name="Donut3" parent="." instance=ExtResource("8_brt5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.89248, -35.4889, -173.11)
+
+[node name="music_player" parent="." instance=ExtResource("10_6pq5u")]
+song = ExtResource("11_3fv0r")
+
+[node name="glass" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.27689, 3.02225, -45.9152)
+material_override = SubResource("StandardMaterial3D_7yvn5")
+use_collision = true
+size = Vector3(1, 108.411, 57.7667)
+
+[node name="glass2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8444, 5.67393, -45.9127)
+material_override = SubResource("StandardMaterial3D_7yvn5")
+use_collision = true
+size = Vector3(1, 113.714, 57.7667)
+
+[node name="Portal_red" parent="." instance=ExtResource("12_ava6q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.94338, -32.3243, -119.925)
+levelName = "pink_world"
+
+[node name="Donut4" parent="." instance=ExtResource("8_brt5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.61128, -20.2658, -127.753)
+
+[node name="Donut5" parent="." instance=ExtResource("8_brt5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.7918, 10.5845, 9.62708)
+
+[node name="Donut6" parent="." instance=ExtResource("8_brt5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.3781, 9.9382, 24.61)
+
+[node name="Donut7" parent="." instance=ExtResource("8_brt5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.18407, 14.846, -69.8231)
+
+[node name="Donut8" parent="." instance=ExtResource("8_brt5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.19647, 14.846, -72.7264)
+
+[connection signal="area_entered" from="Area3D(2Dplatforming)" to="Area3D(2Dplatforming)" method="UpdateCameraMode"]
+[connection signal="area_exited" from="Area3D(2Dplatforming)" to="Area3D(2Dplatforming)" method="ResetCameraMode"]

@@ -1,0 +1,214 @@
+[gd_scene load_steps=21 format=3 uid="uid://dsgx01egc8hjk"]
+
+[ext_resource type="PackedScene" uid="uid://cgv7xnv20pqrc" path="res://Scenes/escape_geometry.tscn" id="2_rscqd"]
+[ext_resource type="PackedScene" uid="uid://bqbqjfox4mqqo" path="res://Scenes/PlayerStart.tscn" id="3_4vr3a"]
+[ext_resource type="Script" uid="uid://daaxo6eq12tei" path="res://scripts/CameraModeArea.cs" id="4_op2t3"]
+[ext_resource type="Script" uid="uid://dounossv0ogn1" path="res://CameraFollowAtOffset.cs" id="4_wv8c0"]
+[ext_resource type="PackedScene" uid="uid://ohjil5u56gdg" path="res://Scenes/CrownPickup.tscn" id="5_fibfm"]
+[ext_resource type="PackedScene" uid="uid://or6kwbrrr2s5" path="res://Scenes/Donut.tscn" id="6_w6myw"]
+[ext_resource type="PackedScene" uid="uid://h5b2xqbo0lx" path="res://Scenes/dead_prisoner.tscn" id="7_v4jcd"]
+[ext_resource type="PackedScene" uid="uid://s4hjw4ejsjjw" path="res://Scenes/LegEnemy.tscn" id="8_tu1fe"]
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="9_snn5e"]
+[ext_resource type="AudioStream" uid="uid://c5tyk8xxocvn5" path="res://audio/music/DistantRoom.ogg" id="10_0t6co"]
+[ext_resource type="PackedScene" uid="uid://djnotrdxwhxj0" path="res://Scenes/Portal.tscn" id="11_4ulrr"]
+[ext_resource type="PackedScene" uid="uid://ecau6y2eawar" path="res://Scenes/Portal_red.tscn" id="12_b4d6m"]
+[ext_resource type="PackedScene" uid="uid://beudtdd22jfrv" path="res://Scenes/PinkTrampoline.tscn" id="13_xr48y"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ss7dw"]
+resource_local_to_scene = true
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_81vx6"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4g3qi"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_81vx6")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rqaki"]
+size = Vector3(2.30774, 9.94606, 23.8256)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_077if"]
+size = Vector3(46.9778, 106.849, 23.8256)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g31yb"]
+size = Vector3(20.1028, 144.185, 29.0651)
+
+[sub_resource type="Environment" id="Environment_s1qt8"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(0.190712, 0.635146, 0.789975, 1)
+ambient_light_energy = 0.5
+fog_enabled = true
+fog_density = 0.005
+fog_height = -10.95
+fog_height_density = 0.0575
+
+[node name="Escape" type="Node3D"]
+
+[node name="screen" type="CSGMesh3D" parent="."]
+transform = Transform3D(-6.32346, 1.40477, 4.54445e-07, -6.40662e-07, -2.41551e-07, -5.36357, -1.60748, -5.52604, 3.49973e-07, 40.4874, 66.8453, -141.745)
+mesh = SubResource("PlaneMesh_ss7dw")
+material = SubResource("StandardMaterial3D_4g3qi")
+
+[node name="screen2" type="CSGMesh3D" parent="."]
+transform = Transform3D(-25.0695, 34.2898, -21.7313, 0.382666, -25.9965, -36.5962, -47.3106, -18.3802, 11.2192, -99.6644, 57.2703, -57.1934)
+mesh = SubResource("PlaneMesh_ss7dw")
+material = SubResource("StandardMaterial3D_4g3qi")
+
+[node name="screen3" type="CSGMesh3D" parent="."]
+transform = Transform3D(-39.9888, 27.6394, 13.445, -17.9206, 2.94944, -41.3845, -30.768, -37.6405, 6.62983, -197.427, -15.8869, 108.492)
+mesh = SubResource("PlaneMesh_ss7dw")
+material = SubResource("StandardMaterial3D_4g3qi")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(-0.985414, 0, -0.170175, 0, 1, 0, 0.170175, 0, -0.985414, 40.2353, 64.851, -162.838)
+script = ExtResource("4_wv8c0")
+offset = Vector3(0, 7, -20)
+lookAtTarget = false
+lerp = false
+findPlayerAtReady = true
+
+[node name="escape_geometry" parent="." instance=ExtResource("2_rscqd")]
+
+[node name="PlayerStart" parent="." instance=ExtResource("3_4vr3a")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 49.8484, 58.5416, -149.604)
+
+[node name="Area3D(2Dplatforming)3" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.107, 43.6344, -246.067)
+script = ExtResource("4_op2t3")
+cameraMode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D(2Dplatforming)3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.82403, 2.10471, -0.45015)
+shape = SubResource("BoxShape3D_rqaki")
+
+[node name="Area3D(2Dplatforming)" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -183.56)
+script = ExtResource("4_op2t3")
+cameraMode = 1
+returnToNormalOnPlayerExit = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D(2Dplatforming)"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1607, 20.5147, -69.8133)
+shape = SubResource("BoxShape3D_077if")
+
+[node name="Area3D(2Dplatforming)2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50203, -9.17518, 90.1707)
+script = ExtResource("4_op2t3")
+cameraMode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D(2Dplatforming)2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.331758, 65.7733, -14.5428)
+shape = SubResource("BoxShape3D_g31yb")
+
+[node name="Area3D(2Dplatforming)4" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50203, -9.17518, 26.8447)
+script = ExtResource("4_op2t3")
+cameraMode = 1
+returnToNormalOnPlayerExit = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D(2Dplatforming)4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.331758, 65.7733, -14.5428)
+shape = SubResource("BoxShape3D_g31yb")
+
+[node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_s1qt8")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.0567, 45.2305, -206.598)
+light_color = Color(0.754593, 0.87312, 0.575132, 1)
+light_energy = 11.0
+omni_range = 35.0
+script = ExtResource("4_wv8c0")
+offset = Vector3(0, 3, 0)
+lookAtTarget = false
+lerp = false
+findPlayerAtReady = true
+
+[node name="Crown" parent="." instance=ExtResource("5_fibfm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.0622, 70.5083, -133.978)
+
+[node name="Crown2" parent="." instance=ExtResource("5_fibfm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.7328, 30.4456, -278.05)
+
+[node name="Crown3" parent="." instance=ExtResource("5_fibfm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48534, -16.7826, -222.011)
+
+[node name="Donut" parent="." instance=ExtResource("6_w6myw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3638, 71.7295, -141.957)
+
+[node name="Donut2" parent="." instance=ExtResource("6_w6myw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.8053, 71.7274, -132.525)
+
+[node name="Donut3" parent="." instance=ExtResource("6_w6myw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.701, 71.7287, -137.424)
+
+[node name="Donut4" parent="." instance=ExtResource("6_w6myw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.76046, -16.776, -202.752)
+
+[node name="deadPrisoner" parent="." instance=ExtResource("7_v4jcd")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 44.1163, 43.232, -179.396)
+
+[node name="LegEnemy" parent="." instance=ExtResource("8_tu1fe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.32003, -16.7792, -220.754)
+
+[node name="music_player" parent="." instance=ExtResource("9_snn5e")]
+song = ExtResource("10_0t6co")
+
+[node name="LegEnemy2" parent="." instance=ExtResource("8_tu1fe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.58651, -16.7802, -222.239)
+
+[node name="Portal" parent="." instance=ExtResource("11_4ulrr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.44121, -8.53759, 137.263)
+levelName = "escape_ending_cutscene"
+gameplayScene = false
+
+[node name="Portal_red" parent="." instance=ExtResource("12_b4d6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.9143, 46.4217, -131.24)
+levelName = "behind_desk_cutscene"
+gameplayScene = false
+
+[node name="Trampoline2" parent="." instance=ExtResource("13_xr48y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.86857, -19.2634, -21.5552)
+
+[node name="Donut5" parent="." instance=ExtResource("6_w6myw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.82459, -16.4394, -10.7654)
+
+[node name="Donut6" parent="." instance=ExtResource("6_w6myw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.61119, -17.8851, -77.6449)
+
+[node name="Donut7" parent="." instance=ExtResource("6_w6myw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.123917, -17.523, -61.832)
+
+[node name="Donut8" parent="." instance=ExtResource("6_w6myw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.01656, -11.8131, 78.9489)
+
+[node name="Donut9" parent="." instance=ExtResource("6_w6myw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1378, 59.5042, -148.695)
+
+[node name="Donut10" parent="." instance=ExtResource("6_w6myw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.1701, 43.2262, -196.32)
+
+[node name="Donut11" parent="." instance=ExtResource("6_w6myw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.8052, 43.2261, -196.751)
+
+[node name="Donut12" parent="." instance=ExtResource("6_w6myw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.9139, 43.2275, -192.562)
+
+[node name="Donut13" parent="." instance=ExtResource("6_w6myw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.52703, 23.1598, -266.155)
+
+[node name="Donut14" parent="." instance=ExtResource("6_w6myw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74337, -5.50347, 41.8928)
+
+[connection signal="area_entered" from="Area3D(2Dplatforming)3" to="Area3D(2Dplatforming)3" method="UpdateCameraMode"]
+[connection signal="area_exited" from="Area3D(2Dplatforming)3" to="Area3D(2Dplatforming)3" method="ResetCameraMode"]
+[connection signal="area_entered" from="Area3D(2Dplatforming)" to="Area3D(2Dplatforming)" method="UpdateCameraMode"]
+[connection signal="area_exited" from="Area3D(2Dplatforming)" to="Area3D(2Dplatforming)" method="ResetCameraMode"]
+[connection signal="area_entered" from="Area3D(2Dplatforming)2" to="Area3D(2Dplatforming)2" method="UpdateCameraMode"]
+[connection signal="area_exited" from="Area3D(2Dplatforming)2" to="Area3D(2Dplatforming)2" method="ResetCameraMode"]
+[connection signal="area_entered" from="Area3D(2Dplatforming)4" to="Area3D(2Dplatforming)4" method="UpdateCameraMode"]
+[connection signal="area_exited" from="Area3D(2Dplatforming)4" to="Area3D(2Dplatforming)4" method="ResetCameraMode"]

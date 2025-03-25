@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://uhfsfiyu8l4e"]
+
+[ext_resource type="PackedScene" uid="uid://cu0rtqw4n46rn" path="res://Scenes/cutscene_base.tscn" id="1_htvws"]
+
+[node name="original_end_cutscene" instance=ExtResource("1_htvws")]
+
+[node name="cutscene" parent="." index="0"]
+nextScene = "challenge_stage_1"

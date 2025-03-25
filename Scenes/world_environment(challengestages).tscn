@@ -1,0 +1,72 @@
+[gd_scene load_steps=13 format=3 uid="uid://wbkwsd6tfe44"]
+
+[ext_resource type="Script" uid="uid://dounossv0ogn1" path="res://CameraFollowAtOffset.cs" id="1_5xqty"]
+[ext_resource type="Script" uid="uid://crukgwxs2mmiv" path="res://scripts/Rotate.cs" id="1_qgmls"]
+[ext_resource type="Texture2D" uid="uid://be0doyq2db33d" path="res://textures/spacesky2.png" id="1_rx4t5"]
+[ext_resource type="Script" uid="uid://bxtagon32gnts" path="res://scripts/RotateSky.cs" id="2_xftsb"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3emev"]
+panorama = ExtResource("1_rx4t5")
+
+[sub_resource type="Sky" id="Sky_xht0t"]
+sky_material = SubResource("PanoramaSkyMaterial_3emev")
+
+[sub_resource type="Environment" id="Environment_sg3uo"]
+background_mode = 2
+sky = SubResource("Sky_xht0t")
+ambient_light_source = 2
+ambient_light_color = Color(0.630125, 0.704171, 0.622736, 1)
+fog_enabled = true
+fog_light_color = Color(0.776944, 0.857551, 7.70092e-07, 1)
+fog_density = 0.005
+fog_sky_affect = 0.0
+
+[sub_resource type="Curve" id="Curve_f85fo"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.486678, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_u16y6"]
+curve = SubResource("Curve_f85fo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k5lxj"]
+emission_shape = 1
+emission_sphere_radius = 64.0
+gravity = Vector3(0, 4, 0)
+scale_min = 0.1
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_u16y6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7wpse"]
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_8sh27"]
+material = SubResource("StandardMaterial3D_7wpse")
+radial_segments = 5
+rings = 3
+
+[node name="WorldEnvironment(challengestages)" type="WorldEnvironment"]
+environment = SubResource("Environment_sg3uo")
+script = ExtResource("2_xftsb")
+rotationSpeed = 0.06
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, 0.308992, -0.393096, -0.25, 0.948456, 0.194758, 0.433013, -0.0703916, 0.898635, 0, 0, 0)
+light_color = Color(0.736011, 0.352774, 0.999993, 1)
+light_energy = 3.0
+directional_shadow_mode = 0
+script = ExtResource("1_qgmls")
+rotateAmmount = Vector3(0, 2, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 64
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_k5lxj")
+draw_pass_1 = SubResource("SphereMesh_8sh27")
+script = ExtResource("1_5xqty")
+offset = Vector3(0, 0, 0)
+lookAtTarget = false
+lerp = false
+findPlayerAtReady = true

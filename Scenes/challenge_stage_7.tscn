@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://bt66eqvp1edk6"]
+
+[ext_resource type="PackedScene" uid="uid://c3wrg750u2jvb" path="res://Scenes/challenge_stage_8_geometry.tscn" id="1_fqrj4"]
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="2_1wgty"]
+[ext_resource type="AudioStream" uid="uid://5buhmunw4lyi" path="res://audio/music/challenge_stage_04.ogg" id="2_rf1yd"]
+[ext_resource type="PackedScene" uid="uid://wbkwsd6tfe44" path="res://Scenes/world_environment(challengestages).tscn" id="4_aplcv"]
+[ext_resource type="PackedScene" uid="uid://bqbqjfox4mqqo" path="res://Scenes/PlayerStart.tscn" id="5_2lmni"]
+[ext_resource type="Script" uid="uid://dounossv0ogn1" path="res://CameraFollowAtOffset.cs" id="5_vuxsn"]
+[ext_resource type="Script" uid="uid://daaxo6eq12tei" path="res://scripts/CameraModeArea.cs" id="6_6yy4n"]
+[ext_resource type="PackedScene" uid="uid://buoa3j0nv6gk6" path="res://Scenes/dash_panel.tscn" id="7_ct42b"]
+[ext_resource type="PackedScene" uid="uid://ohjil5u56gdg" path="res://Scenes/CrownPickup.tscn" id="8_bw3mc"]
+[ext_resource type="PackedScene" uid="uid://dthaqic75rdiw" path="res://Scenes/RedTrampoline.tscn" id="9_elyvv"]
+[ext_resource type="PackedScene" uid="uid://djnotrdxwhxj0" path="res://Scenes/Portal.tscn" id="10_sldcs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1d004"]
+size = Vector3(41.4459, 135.135, 265.339)
+
+[node name="challenge_stage_7" type="Node3D"]
+
+[node name="challenge_stage_8_geometry" parent="." instance=ExtResource("1_fqrj4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 15.5631)
+
+[node name="music_player" parent="." instance=ExtResource("2_1wgty")]
+song = ExtResource("2_rf1yd")
+
+[node name="WorldEnvironment(challengestages)" parent="." instance=ExtResource("4_aplcv")]
+
+[node name="PlayerStart" parent="." instance=ExtResource("5_2lmni")]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -2.76605, 54.9873, 81.3246)
+visible = false
+
+[node name="Area3D(2Dplatforming)" type="Area3D" parent="."]
+script = ExtResource("6_6yy4n")
+cameraMode = 1
+distance2D = 22.0
+distanceUp2D = 5.0
+returnToNormalOnPlayerExit = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D(2Dplatforming)"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2895, 14.71, 55.2956)
+shape = SubResource("BoxShape3D_1d004")
+
+[node name="dashPanel" parent="." instance=ExtResource("7_ct42b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55129, 9.3987, 99.2489)
+
+[node name="dashPanel2" parent="." instance=ExtResource("7_ct42b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72434, 26, 22.4815)
+
+[node name="dashPanel3" parent="." instance=ExtResource("7_ct42b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.18573, 25.5126, 123.605)
+
+[node name="dashPanel4" parent="." instance=ExtResource("7_ct42b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.18573, 30.432, 221.533)
+
+[node name="dashPanel5" parent="." instance=ExtResource("7_ct42b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.18573, 30.432, 288.329)
+
+[node name="Crown" parent="." instance=ExtResource("8_bw3mc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.83037, 1.1185, 82.3169)
+
+[node name="Trampoline2" parent="." instance=ExtResource("9_elyvv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.5291, 40, 80.8044)
+
+[node name="Trampoline3" parent="." instance=ExtResource("9_elyvv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1133, 21.6919, -37.868)
+
+[node name="Crown2" parent="." instance=ExtResource("8_bw3mc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.81719, 30.6914, 335.04)
+
+[node name="Crown3" parent="." instance=ExtResource("8_bw3mc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7667, 60, -19.0722)
+
+[node name="Portal" parent="." instance=ExtResource("10_sldcs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.1923, 223.452, 79.8712)
+levelName = "challenge_stage_8"
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+light_energy = 14.0
+light_specular = 0.0
+spot_range = 57.881
+script = ExtResource("5_vuxsn")
+offset = Vector3(5, 1, 0)
+lerp = false
+findPlayerAtReady = true
+
+[connection signal="area_entered" from="Area3D(2Dplatforming)" to="Area3D(2Dplatforming)" method="UpdateCameraMode"]
+[connection signal="area_exited" from="Area3D(2Dplatforming)" to="Area3D(2Dplatforming)" method="ResetCameraMode"]

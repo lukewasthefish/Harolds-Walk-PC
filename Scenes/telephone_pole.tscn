@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://f75f3ptc0cxn"]
+
+[ext_resource type="PackedScene" uid="uid://crmcd4to41sgp" path="res://blend/TelephonePole.blend" id="1_3mj1a"]
+
+[node name="TelephonePole" instance=ExtResource("1_3mj1a")]

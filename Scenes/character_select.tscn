@@ -1,0 +1,49 @@
+[gd_scene load_steps=11 format=3 uid="uid://dbwqylcc2igtf"]
+
+[ext_resource type="PackedScene" uid="uid://0qfgi7ucphtl" path="res://Scenes/character_select_geometry.tscn" id="1_bawlp"]
+[ext_resource type="PackedScene" uid="uid://bfhrca8wjistb" path="res://Scenes/default_world_environment.tscn" id="1_xr3od"]
+[ext_resource type="Texture2D" uid="uid://cetg5sxl4ci47" path="res://textures/hilly_terrain_01_1k.exr" id="3_bed8d"]
+[ext_resource type="AudioStream" uid="uid://c5tyk8xxocvn5" path="res://audio/music/DistantRoom.ogg" id="4_6ts4v"]
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="4_f6tx2"]
+[ext_resource type="Script" uid="uid://daaxo6eq12tei" path="res://scripts/CameraModeArea.cs" id="6_jvage"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2iang"]
+panorama = ExtResource("3_bed8d")
+
+[sub_resource type="Sky" id="Sky_tvqq6"]
+sky_material = SubResource("PanoramaSkyMaterial_2iang")
+
+[sub_resource type="Environment" id="Environment_ugob0"]
+background_mode = 2
+sky = SubResource("Sky_tvqq6")
+ambient_light_source = 3
+fog_enabled = true
+fog_light_color = Color(0.676412, 0.8417, 0.893836, 1)
+fog_sun_scatter = 0.5
+fog_density = 0.007
+fog_sky_affect = 0.595
+adjustment_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_56mb7"]
+size = Vector3(116.348, 104.764, 175.167)
+
+[node name="character_select" type="Node3D"]
+
+[node name="character_select_geometry" parent="." instance=ExtResource("1_bawlp")]
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("1_xr3od")]
+environment = SubResource("Environment_ugob0")
+
+[node name="music_player" parent="." instance=ExtResource("4_f6tx2")]
+song = ExtResource("4_6ts4v")
+
+[node name="Area3D(2Dplatforming)" type="Area3D" parent="."]
+script = ExtResource("6_jvage")
+cameraMode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D(2Dplatforming)"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6156, -0.475454, 10.2097)
+shape = SubResource("BoxShape3D_56mb7")
+
+[connection signal="area_entered" from="Area3D(2Dplatforming)" to="Area3D(2Dplatforming)" method="UpdateCameraMode"]
+[connection signal="area_exited" from="Area3D(2Dplatforming)" to="Area3D(2Dplatforming)" method="ResetCameraMode"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://banqpch0kv500"]
+
+[ext_resource type="Script" uid="uid://dlu17pl1l3er6" path="res://scripts/fakePickup.cs" id="1_cw40m"]
+[ext_resource type="Script" uid="uid://crukgwxs2mmiv" path="res://scripts/Rotate.cs" id="2_fsinh"]
+[ext_resource type="PackedScene" uid="uid://ousdjrmj1ga4" path="res://blend/crownpickup.blend" id="3_3tvmf"]
+[ext_resource type="Material" uid="uid://dajlh56s2n2l1" path="res://Scenes/fakePickup.tres" id="4_2xt7l"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1ycop"]
+radius = 0.74176
+
+[node name="fakeCrown" type="Area3D"]
+script = ExtResource("1_cw40m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_1ycop")
+
+[node name="CrownPickupHierarchy" type="Node3D" parent="."]
+
+[node name="CrownPickup" type="Node3D" parent="CrownPickupHierarchy"]
+script = ExtResource("2_fsinh")
+rotateAmmount = Vector3(0, 7, 0)
+
+[node name="crownpickup" parent="CrownPickupHierarchy/CrownPickup" instance=ExtResource("3_3tvmf")]
+
+[node name="Torus" parent="CrownPickupHierarchy/CrownPickup/crownpickup" index="0"]
+surface_material_override/0 = ExtResource("4_2xt7l")
+surface_material_override/1 = ExtResource("4_2xt7l")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+
+[editable path="CrownPickupHierarchy/CrownPickup/crownpickup"]

@@ -1,0 +1,22 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://blojw58rto33u"]
+
+[sub_resource type="Curve" id="Curve_xl2m1"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.218284, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_jdemq"]
+curve = SubResource("Curve_xl2m1")
+
+[resource]
+emission_shape = 1
+emission_sphere_radius = 0.3
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 2.4
+initial_velocity_max = 2.4
+angle_min = -360.0
+angle_max = 360.0
+scale_curve = SubResource("CurveTexture_jdemq")
+color = Color(1, 1, 0, 1)
+turbulence_noise_strength = 8.36

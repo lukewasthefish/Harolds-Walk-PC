@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://boe6xyqp4cm5c"]
+
+[ext_resource type="PackedScene" uid="uid://rd7u67xc8sig" path="res://blend/sheep.blend" id="1_dak72"]
+[ext_resource type="Script" uid="uid://ctsd6ugeucdhg" path="res://scripts/Sheep.cs" id="2_06so2"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_k0s20"]
+radius = 2.19248
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_oyrju"]
+radius = 1.56891
+
+[node name="sheep" groups=["IgnoreCameraCollision"] instance=ExtResource("1_dak72")]
+
+[node name="Mball_024" parent="." index="0" groups=["IgnoreCameraCollision"]]
+transform = Transform3D(3.13916e-07, 0, 1, 0, 1, 0, -1, 0, 3.13916e-07, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="Mball_024" index="0"]
+transform = Transform3D(1, 0, 3.57628e-07, 0, 1, 0, -3.57628e-07, 0, 1, 0, 1.78203, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mball_024/Area3D" index="0"]
+shape = SubResource("SphereShape3D_k0s20")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." index="1" node_paths=PackedStringArray("model", "hitArea") groups=["IgnoreCameraCollision"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("2_06so2")
+model = NodePath("../Mball_024")
+hitArea = NodePath("../Mball_024/Area3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" index="0" groups=["IgnoreCameraCollision"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("SphereShape3D_oyrju")

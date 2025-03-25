@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bst5043hive0r"]
+
+[ext_resource type="Script" uid="uid://cclun1dy03myk" path="res://scripts/AchievementUnlockOnReady.cs" id="1_js1b4"]
+
+[node name="UnlockAchievement" type="Node"]
+script = ExtResource("1_js1b4")

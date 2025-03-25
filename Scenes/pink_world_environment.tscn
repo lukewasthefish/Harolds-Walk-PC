@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4mb2m1w87fcl"]
+
+[ext_resource type="Texture2D" uid="uid://bkv6s1sfhtu4a" path="res://textures/pinkSky.exr" id="1_4hbgc"]
+[ext_resource type="Script" uid="uid://bxtagon32gnts" path="res://scripts/RotateSky.cs" id="2_tt2fb"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3ndd5"]
+panorama = ExtResource("1_4hbgc")
+
+[sub_resource type="Sky" id="Sky_tvqq6"]
+sky_material = SubResource("PanoramaSkyMaterial_3ndd5")
+
+[sub_resource type="Environment" id="Environment_ld3lj"]
+background_mode = 2
+sky = SubResource("Sky_tvqq6")
+ambient_light_source = 3
+fog_enabled = true
+fog_light_color = Color(0.909479, 3.61943e-05, 0.65835, 1)
+fog_sun_scatter = 0.5
+fog_density = 0.02
+fog_sky_affect = 0.18
+adjustment_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource("Environment_ld3lj")
+script = ExtResource("2_tt2fb")
+
+[node name="sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.935475, -0.0657716, -0.347219, 0.198198, 0.911103, 0.361399, 0.292582, -0.406898, 0.865349, 0, 0, 0)
+light_color = Color(0.950103, 0.910964, 0.932104, 1)
+shadow_enabled = true
+directional_shadow_mode = 0

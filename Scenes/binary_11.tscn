@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://ca8hx53jicj6o"]
+
+[ext_resource type="PackedScene" uid="uid://cbvaox4jukrx7" path="res://Scenes/binary_11_geometry.tscn" id="1_e5e2n"]
+[ext_resource type="PackedScene" uid="uid://cht80xgpec2o6" path="res://Scenes/bsod_environment.tscn" id="2_2jnin"]
+[ext_resource type="PackedScene" uid="uid://bqbqjfox4mqqo" path="res://Scenes/PlayerStart.tscn" id="3_jjjtn"]
+[ext_resource type="PackedScene" uid="uid://djnotrdxwhxj0" path="res://Scenes/Portal.tscn" id="4_7ox8r"]
+[ext_resource type="PackedScene" uid="uid://ohjil5u56gdg" path="res://Scenes/CrownPickup.tscn" id="5_d073k"]
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="6_oov4a"]
+[ext_resource type="PackedScene" uid="uid://or6kwbrrr2s5" path="res://Scenes/Donut.tscn" id="7_2nva1"]
+[ext_resource type="AudioStream" uid="uid://bpr8gw1pt8uhk" path="res://audio/music/binaryTheme.ogg" id="7_3nmij"]
+[ext_resource type="PackedScene" uid="uid://dthaqic75rdiw" path="res://Scenes/RedTrampoline.tscn" id="9_b3b62"]
+[ext_resource type="PackedScene" uid="uid://bmouwn70obuky" path="res://Scenes/YellowTrampoline.tscn" id="10_2tjmg"]
+
+[node name="Binary11" type="Node3D" groups=["IgnoreCameraCollision"]]
+
+[node name="binary_02(virus)" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("1_e5e2n")]
+
+[node name="BSODEnvironment" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("2_2jnin")]
+
+[node name="music_player" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("6_oov4a")]
+song = ExtResource("7_3nmij")
+
+[node name="PlayerStart" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("3_jjjtn")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -78.381, 81.8054, -15.6619)
+
+[node name="Crown" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("5_d073k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198.553, -11.5878, 264.307)
+
+[node name="Crown2" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("5_d073k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.1535, -66.6391, 195.056)
+
+[node name="Crown3" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("5_d073k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140.495, -10.8974, 159.055)
+
+[node name="Donut" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("7_2nva1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.5798, -5.60459, 67.0807)
+
+[node name="Donut2" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("7_2nva1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0461, -5.60459, 66.2952)
+
+[node name="Donut3" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("7_2nva1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9873, -5.60459, 54.5904)
+
+[node name="Donut4" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("7_2nva1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.558, -5.60459, 83.2869)
+
+[node name="Donut5" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("7_2nva1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.6849, -5.60459, 152.756)
+
+[node name="Donut6" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("7_2nva1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.1118, -5.60459, 130.888)
+
+[node name="Donut7" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("7_2nva1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.3912, -5.60459, 136.023)
+
+[node name="Donut8" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("7_2nva1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.0618, -5.60459, 152.593)
+
+[node name="Portal" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("4_7ox8r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 312.155, -175.392, 286.108)
+levelName = "bridges"
+
+[node name="Trampoline2" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("9_b3b62")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 287.742, -144.763, 233.245)
+
+[node name="YellowTrampoline" parent="." instance=ExtResource("10_2tjmg")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 35.4436, -42.4443, 106.339)
+
+[node name="YellowTrampoline2" parent="." instance=ExtResource("10_2tjmg")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 33.1862, -42.4443, 174.933)

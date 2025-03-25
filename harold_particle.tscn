@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4efouvbrqo5g"]
+
+[ext_resource type="PackedScene" uid="uid://30tngcenxage" path="res://blend/HaroldParticle.blend" id="1_gxhvn"]
+[ext_resource type="ArrayMesh" uid="uid://bn3p8u27qo457" path="res://harold_particle.tres" id="2_nvdni"]
+
+[node name="HaroldParticle" instance=ExtResource("1_gxhvn")]
+
+[node name="pCube2" parent="." index="0"]
+mesh = ExtResource("2_nvdni")

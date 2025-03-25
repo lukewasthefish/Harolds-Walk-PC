@@ -1,0 +1,93 @@
+[gd_scene load_steps=11 format=3 uid="uid://bf8f65u5xyxgy"]
+
+[ext_resource type="PackedScene" uid="uid://cnax0arvohh2w" path="res://Scenes/afterparty_geometry.tscn" id="1_p3mm8"]
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="1_ubhc6"]
+[ext_resource type="Texture2D" uid="uid://ugkgnbcjcu4l" path="res://textures/interior1Sky.png" id="2_ctqrd"]
+[ext_resource type="AudioStream" uid="uid://dpxwih7slr60d" path="res://audio/music/outsideTheComputer.ogg" id="2_ffswq"]
+[ext_resource type="PackedScene" uid="uid://bmouwn70obuky" path="res://Scenes/YellowTrampoline.tscn" id="5_e6apx"]
+[ext_resource type="PackedScene" uid="uid://b60t2frijyg7f" path="res://Scenes/triggercube.tscn" id="5_ynpqe"]
+[ext_resource type="Script" uid="uid://di1yfqav3x14j" path="res://scripts/CopyObjectTransforms.cs" id="7_hthn0"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dflvf"]
+panorama = ExtResource("2_ctqrd")
+
+[sub_resource type="Sky" id="Sky_pekj6"]
+sky_material = SubResource("PanoramaSkyMaterial_dflvf")
+
+[sub_resource type="Environment" id="Environment_bi5cy"]
+background_mode = 2
+sky = SubResource("Sky_pekj6")
+sky_rotation = Vector3(0, 4.71239, 0)
+ambient_light_source = 3
+ambient_light_sky_contribution = 0.15
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 0.001
+
+[node name="afterparty2" type="Node3D"]
+
+[node name="music_player" parent="." instance=ExtResource("1_ubhc6")]
+song = ExtResource("2_ffswq")
+
+[node name="afterparty" parent="." instance=ExtResource("1_p3mm8")]
+
+[node name="YellowTrampoline10" parent="afterparty" instance=ExtResource("5_e6apx")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 128.766, 102.84, -2.12136)
+
+[node name="YellowTrampoline11" parent="afterparty" instance=ExtResource("5_e6apx")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 152.443, 237.705, -0.571027)
+
+[node name="YellowTrampoline12" parent="afterparty" instance=ExtResource("5_e6apx")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -198.321, 69.5383, -0.418756)
+
+[node name="YellowTrampoline13" parent="afterparty" instance=ExtResource("5_e6apx")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -177.904, 21.9723, 2.10258)
+
+[node name="triggercube4" parent="afterparty" node_paths=PackedStringArray("operationNode") instance=ExtResource("5_ynpqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -290.845, 392.08, 58.2058)
+operationNode = NodePath("..")
+
+[node name="triggercube8" parent="afterparty" node_paths=PackedStringArray("operationNode") instance=ExtResource("5_ynpqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154.273, 92.7395, 23.2115)
+operationNode = NodePath("..")
+
+[node name="triggercube9" parent="afterparty" node_paths=PackedStringArray("operationNode") instance=ExtResource("5_ynpqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 177.542, 509.226, 2.69682)
+operationNode = NodePath("..")
+
+[node name="triggercube10" parent="afterparty" node_paths=PackedStringArray("operationNode") instance=ExtResource("5_ynpqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -267.199, 36.692, 197.219)
+operationNode = NodePath("..")
+
+[node name="triggercube11" parent="afterparty" node_paths=PackedStringArray("operationNode") instance=ExtResource("5_ynpqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.2802, 36.692, 197.219)
+operationNode = NodePath("..")
+
+[node name="triggercube13" parent="afterparty" node_paths=PackedStringArray("operationNode") instance=ExtResource("5_ynpqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 165.955, 622.298, -0.508055)
+operationNode = NodePath("..")
+
+[node name="triggercube14" parent="afterparty" node_paths=PackedStringArray("operationNode") instance=ExtResource("5_ynpqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.9924, 456.813, 14.5246)
+operationNode = NodePath("..")
+
+[node name="triggercube12" parent="afterparty" node_paths=PackedStringArray("operationNode") instance=ExtResource("5_ynpqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 215.698, 36.692, 197.219)
+operationNode = NodePath("..")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bi5cy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.908435, 0.418026, 0, -0.418026, 0.908435, 0, 0, 0)
+light_color = Color(0.815686, 1, 0.788235, 1)
+light_energy = 2.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29.7757, 12.0794)
+light_color = Color(0.698039, 1, 1, 1)
+light_energy = 10.0
+spot_range = 124.794
+spot_angle = 72.1087
+script = ExtResource("7_hthn0")
+useCameraInstead = true

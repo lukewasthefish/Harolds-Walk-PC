@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://dj8sxok7iok47"]
+
+[ext_resource type="PackedScene" uid="uid://dc4x4dsf3hwm1" path="res://Scenes/binary_00_geometry.tscn" id="1_75ht4"]
+[ext_resource type="PackedScene" uid="uid://djnotrdxwhxj0" path="res://Scenes/Portal.tscn" id="2_3x0dv"]
+[ext_resource type="PackedScene" uid="uid://bqbqjfox4mqqo" path="res://Scenes/PlayerStart.tscn" id="3_4qeyw"]
+[ext_resource type="PackedScene" uid="uid://cht80xgpec2o6" path="res://Scenes/bsod_environment.tscn" id="3_watmg"]
+[ext_resource type="PackedScene" uid="uid://ohjil5u56gdg" path="res://Scenes/CrownPickup.tscn" id="4_y5s87"]
+[ext_resource type="PackedScene" uid="uid://or6kwbrrr2s5" path="res://Scenes/Donut.tscn" id="6_ha0l0"]
+
+[node name="Binary00" type="Node3D" groups=["IgnoreCameraCollision"]]
+
+[node name="virusText" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("1_75ht4")]
+
+[node name="BSODEnvironment" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("3_watmg")]
+
+[node name="Portal" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("2_3x0dv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.184, 34.8959, -115.215)
+levelName = "pineapple"
+
+[node name="PlayerStart" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("3_4qeyw")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 61.2444, 0.536935, -138.215)
+
+[node name="Crown" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("4_y5s87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 184, 20.1282, 0.215142)
+
+[node name="Crown2" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("4_y5s87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.9101, 53.857, 287)
+
+[node name="Crown3" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("4_y5s87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -246.694, 89.6337, 36.7193)
+
+[node name="Donut" parent="." instance=ExtResource("6_ha0l0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.3287, 0.324044, -110.496)
+
+[node name="Donut2" parent="." instance=ExtResource("6_ha0l0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 168.592, 36.3633, 169.942)
+
+[node name="Donut3" parent="." instance=ExtResource("6_ha0l0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.24001, 46.3689, 265.513)
+
+[node name="Donut4" parent="." instance=ExtResource("6_ha0l0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -185.892, 83.9522, 219.254)
+
+[node name="Donut5" parent="." instance=ExtResource("6_ha0l0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -188.154, 54.6505, -69.8364)
+
+[node name="Donut6" parent="." instance=ExtResource("6_ha0l0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.1, 36.5284, -105.724)

@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://qn8sq3i0i4xd"]
+
+[ext_resource type="Theme" uid="uid://d2d431orn77jx" path="res://Theme.tres" id="1_gxom4"]
+[ext_resource type="Texture2D" uid="uid://c1ol7jeuico51" path="res://textures/haroldtransparentrender.png" id="2_r1cv3"]
+
+[node name="LoadingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -10.0
+offset_right = 45.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gxom4")
+theme_override_font_sizes/font_size = 32
+text = "LOADING"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.407986
+anchor_top = -0.138889
+anchor_right = 1.19531
+anchor_bottom = 1.25154
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_r1cv3")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true

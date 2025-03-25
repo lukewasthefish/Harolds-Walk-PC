@@ -1,0 +1,45 @@
+[gd_scene load_steps=10 format=3 uid="uid://c0msco2vovi2"]
+
+[ext_resource type="PackedScene" uid="uid://cwcurym3hxuwp" path="res://Scenes/binary_03(is).tscn" id="1_lsnhf"]
+[ext_resource type="PackedScene" uid="uid://cht80xgpec2o6" path="res://Scenes/bsod_environment.tscn" id="2_oxau8"]
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="3_o61fo"]
+[ext_resource type="AudioStream" uid="uid://bpr8gw1pt8uhk" path="res://audio/music/binaryTheme.ogg" id="4_ixdeu"]
+[ext_resource type="PackedScene" uid="uid://bqbqjfox4mqqo" path="res://Scenes/PlayerStart.tscn" id="5_wqjey"]
+[ext_resource type="PackedScene" uid="uid://ohjil5u56gdg" path="res://Scenes/CrownPickup.tscn" id="6_5tskc"]
+[ext_resource type="PackedScene" uid="uid://djnotrdxwhxj0" path="res://Scenes/Portal.tscn" id="8_bxf4g"]
+[ext_resource type="PackedScene" uid="uid://bmouwn70obuky" path="res://Scenes/YellowTrampoline.tscn" id="8_uqhvn"]
+[ext_resource type="PackedScene" uid="uid://buoa3j0nv6gk6" path="res://Scenes/dash_panel.tscn" id="9_4m2ju"]
+
+[node name="Binary100" type="Node3D" groups=["IgnoreCameraCollision"]]
+
+[node name="binary_03(is)" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("1_lsnhf")]
+
+[node name="BSODEnvironment" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("2_oxau8")]
+
+[node name="music_player" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("3_o61fo")]
+song = ExtResource("4_ixdeu")
+
+[node name="PlayerStart" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("5_wqjey")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -162.834, 52.1237, 338.475)
+
+[node name="Crown" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("6_5tskc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.79, -8.18047, 97.3498)
+
+[node name="YellowTrampoline" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("8_uqhvn")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.78539, -29.6266, 143.861)
+
+[node name="Crown2" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("6_5tskc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.8167, 49.4719, 20.2349)
+
+[node name="Crown3" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("6_5tskc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.43303, -21.4124, 143.814)
+
+[node name="Portal" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("8_bxf4g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7177, -4.22935, 55.5989)
+levelName = "challenge_stage_3"
+
+[node name="dashPanel" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("9_4m2ju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.5446, 49.0148, 92.0509)
+
+[node name="dashPanel2" parent="." groups=["IgnoreCameraCollision"] instance=ExtResource("9_4m2ju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4883, 48.844, 136.691)

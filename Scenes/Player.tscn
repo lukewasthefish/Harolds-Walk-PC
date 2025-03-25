@@ -1,0 +1,290 @@
+[gd_scene load_steps=31 format=3 uid="uid://dh0uibymbwuvp"]
+
+[ext_resource type="Script" uid="uid://cd0q7aj0lmggq" path="res://scripts/playermovement.cs" id="1_btlwc"]
+[ext_resource type="AudioStream" uid="uid://ba77wx8tjnuve" path="res://audio/sfx/HaroldGrunt1.ogg" id="2_b5yff"]
+[ext_resource type="AudioStream" uid="uid://bpxbaysns6nq7" path="res://audio/sfx/HaroldGrunt2.ogg" id="3_j2oag"]
+[ext_resource type="PackedScene" uid="uid://c3aj7yvokywrq" path="res://blend/Harold.blend" id="3_ru63r"]
+[ext_resource type="AudioStream" uid="uid://r473w57a4c3j" path="res://audio/sfx/HaroldGrunt3.ogg" id="4_muble"]
+[ext_resource type="AudioStream" uid="uid://dkqd2r18w1q63" path="res://audio/sfx/HaroldGrunt4.ogg" id="5_1r5p3"]
+[ext_resource type="Texture2D" uid="uid://kym3tqkydx1m" path="res://textures/blobshadow.png" id="5_6a72w"]
+[ext_resource type="AudioStream" uid="uid://dr6ogi4ii0q4g" path="res://audio/sfx/HaroldGrunt7.ogg" id="6_02obg"]
+[ext_resource type="Script" uid="uid://tgyl35xx88cm" path="res://scripts/PlayerBlink.cs" id="6_8kyef"]
+[ext_resource type="AudioStream" uid="uid://c57drhgrf4oe0" path="res://audio/sfx/HaroldDie1.ogg" id="7_h4msb"]
+[ext_resource type="AudioStream" uid="uid://cjwc3qnkpnhde" path="res://audio/sfx/HaroldChomp1.ogg" id="7_ugvg7"]
+[ext_resource type="AudioStream" uid="uid://3qjxgqqhsjlp" path="res://audio/sfx/dash.ogg" id="8_fk877"]
+[ext_resource type="AudioStream" uid="uid://br4plwm0s6kri" path="res://audio/sfx/HaroldChomp2.ogg" id="8_iby3c"]
+[ext_resource type="AudioStream" uid="uid://3pebf6133fcm" path="res://audio/sfx/HaroldChomp3.ogg" id="9_doamk"]
+[ext_resource type="AudioStream" uid="uid://syfd1y4tkqcg" path="res://audio/sfx/HaroldChomp4.ogg" id="10_ayv24"]
+[ext_resource type="AudioStream" uid="uid://b6qrkkysa4non" path="res://audio/sfx/sparkle.ogg" id="13_ryfym"]
+[ext_resource type="ArrayMesh" uid="uid://bn3p8u27qo457" path="res://harold_particle.tres" id="16_4ycyc"]
+[ext_resource type="PackedScene" uid="uid://dofo2kugryxeu" path="res://blend/uma.blend" id="17_bdisu"]
+[ext_resource type="Texture2D" uid="uid://dyfph36eqoeg1" path="res://textures/playerMapArrow.png" id="18_8pjr8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ga8rp"]
+height = 1.7
+
+[sub_resource type="Gradient" id="Gradient_7oibb"]
+offsets = PackedFloat32Array(0, 0.476064, 0.558511, 0.787234, 1)
+colors = PackedColorArray(0.775241, 0, 0.251112, 1, 0.807843, 0.807843, 0, 1, 1, 0.552941, 0.254902, 1, 1, 0.579872, 0.239546, 0.939759, 1, 1, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ro3pr"]
+gradient = SubResource("Gradient_7oibb")
+
+[sub_resource type="CurveTexture" id="CurveTexture_6kxvq"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vstri"]
+gravity = Vector3(0, 0, 0)
+scale_min = 0.48
+scale_max = 0.55
+color_ramp = SubResource("GradientTexture1D_ro3pr")
+emission_curve = SubResource("CurveTexture_6kxvq")
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7rg5h"]
+gradient = SubResource("Gradient_7oibb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wmq1k"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+angular_velocity_max = 50.0
+gravity = Vector3(0, -1, 0)
+scale_min = 0.05
+scale_max = 0.2
+color_ramp = SubResource("GradientTexture1D_7rg5h")
+emission_curve = SubResource("CurveTexture_6kxvq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5y14x"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="PrismMesh" id="PrismMesh_y2a2e"]
+material = SubResource("StandardMaterial3D_5y14x")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_k577x"]
+radius = 1.17474
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g0tjh"]
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("shadow", "speedParticles", "superJumpParticles", "collisionShape3D", "haroldAnimationPlayer", "automatonLungAnimationPlayer", "playerModel", "playerSoundPlayer", "haroldVisuals", "umaVisuals") groups=["Entity", "Player"]]
+input_ray_pickable = false
+wall_min_slide_angle = 1.13446
+floor_constant_speed = true
+safe_margin = 0.05
+script = ExtResource("1_btlwc")
+shadow = NodePath("ShadowAnchor/Shadow")
+speedParticles = NodePath("GPUParticles3D")
+superJumpParticles = NodePath("GPUParticles3D2")
+collisionShape3D = NodePath("CollisionShape3D")
+haroldAnimationPlayer = NodePath("Harold/AnimationPlayer")
+automatonLungAnimationPlayer = NodePath("uma/AnimationPlayer")
+playerModel = NodePath("Harold")
+playerSoundPlayer = NodePath("AudioStreamPlayer")
+grunts = Array[AudioStream]([ExtResource("2_b5yff"), ExtResource("3_j2oag"), ExtResource("4_muble"), ExtResource("5_1r5p3"), ExtResource("6_02obg")])
+chomps = Array[AudioStream]([ExtResource("7_ugvg7"), ExtResource("8_iby3c"), ExtResource("9_doamk"), ExtResource("10_ayv24")])
+deathSound = ExtResource("7_h4msb")
+rollSound = ExtResource("8_fk877")
+sparkleSound = ExtResource("13_ryfym")
+haroldVisuals = NodePath("Harold")
+umaVisuals = NodePath("uma")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Entity", "Player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.867446, 0)
+shape = SubResource("CapsuleShape3D_ga8rp")
+
+[node name="ShadowAnchor" type="Node3D" parent="." groups=["Entity", "Player"]]
+
+[node name="Shadow" type="Decal" parent="ShadowAnchor" groups=["Entity", "Player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+top_level = true
+size = Vector3(2, 1.4, 2)
+texture_albedo = ExtResource("5_6a72w")
+upper_fade = 0.000360564
+lower_fade = 0.000136675
+cull_mask = 1048573
+
+[node name="PlayerBlink" type="Node3D" parent="." node_paths=PackedStringArray("eyelids") groups=["Entity", "Player"]]
+script = ExtResource("6_8kyef")
+eyelids = NodePath("../Harold/Armature/Skeleton3D/pCube2_003")
+
+[node name="player" type="Node3D" parent="." groups=["Entity", "Player"]]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." groups=["Player"]]
+transform = Transform3D(0.999999, 0, 0, 0, -4.37114e-08, -0.999999, 0, 0.999999, -4.37114e-08, 0, 0, 0)
+emitting = false
+lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_vstri")
+draw_pass_1 = ExtResource("16_4ycyc")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="." groups=["Player"]]
+transform = Transform3D(0.999999, 0, 0, 0, -4.37114e-08, -0.999999, 0, 0.999999, -4.37114e-08, 0, 0.744086, 0)
+emitting = false
+amount = 32
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.8
+process_material = SubResource("ParticleProcessMaterial_wmq1k")
+draw_pass_1 = SubResource("PrismMesh_y2a2e")
+
+[node name="Harold" parent="." groups=["Player"] instance=ExtResource("3_ru63r")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+
+[node name="Armature" parent="Harold" index="0" groups=["Player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, 0, 0)
+
+[node name="pCube2_001" parent="Harold/Armature" index="0" groups=["Player"]]
+
+[node name="pCube2_002" parent="Harold/Armature" index="1" groups=["Player"]]
+
+[node name="Skeleton3D" parent="Harold/Armature" index="2" groups=["Player"]]
+bones/0/position = Vector3(-1.42109e-14, 0.992575, -0.269857)
+bones/0/rotation = Quaternion(0.0559345, 1.19023e-07, 6.66788e-09, 0.998434)
+bones/1/position = Vector3(-1.99042e-14, 0.444328, 8.7405e-08)
+bones/1/rotation = Quaternion(-0.0416048, 0.705882, -0.0416048, 0.705882)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/position = Vector3(-1.96865e-09, 0.53326, 1.249e-14)
+bones/2/rotation = Quaternion(-0.0132772, -0.706982, -0.0132772, 0.706982)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/position = Vector3(1.50654e-14, 0.143076, -4.18621e-08)
+bones/3/rotation = Quaternion(-0.0724678, -1.19559e-07, -8.52746e-09, 0.997371)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/position = Vector3(-1.59586e-14, 0.678905, -1.19209e-07)
+bones/4/rotation = Quaternion(4.47035e-08, -7.00134e-15, 3.47653e-15, 1)
+bones/5/position = Vector3(5.57887e-15, 0.678904, 5.96045e-08)
+bones/5/rotation = Quaternion(1.37836e-07, -7.54604e-17, -7.5732e-16, 1)
+bones/6/position = Vector3(0.000483611, 0.450116, 0.277439)
+bones/6/rotation = Quaternion(-0.56838, 0.487828, 0.536234, -0.389128)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/position = Vector3(1.93176e-08, 0.283224, -6.4817e-09)
+bones/7/rotation = Quaternion(0.47171, 0.871345, -0.0844591, -0.105423)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/position = Vector3(6.41771e-08, 0.420389, 2.90959e-08)
+bones/8/rotation = Quaternion(-0.369379, 0.738503, -0.276141, 0.491852)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/position = Vector3(-6.32434e-08, 0.244014, 7.27056e-08)
+bones/9/rotation = Quaternion(-2.02015e-07, -3.72507e-07, 0.0752467, 0.997165)
+bones/9/scale = Vector3(1, 1, 1)
+bones/10/position = Vector3(2.37199e-08, 0.314488, -2.51289e-08)
+bones/10/rotation = Quaternion(1.14183e-06, 1.02985e-06, 6.42608e-08, 1)
+bones/11/position = Vector3(1.24543e-07, 0.314488, -1.28994e-08)
+bones/11/rotation = Quaternion(-3.72539e-07, -2.60257e-07, 1.21071e-08, 1)
+bones/12/position = Vector3(0.000483544, 0.450116, -0.400345)
+bones/12/rotation = Quaternion(-0.440582, -0.54466, 0.69176, 0.175217)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/position = Vector3(-9.61646e-08, 0.180069, 1.77371e-07)
+bones/13/rotation = Quaternion(-0.0604125, 0.717581, 0.307104, 0.622186)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/position = Vector3(3.25065e-08, 0.369526, 8.80224e-08)
+bones/14/rotation = Quaternion(-0.00457046, -0.0839888, 0.420327, 0.903466)
+bones/14/scale = Vector3(1, 1, 1)
+bones/15/position = Vector3(4.40337e-08, 0.29554, 1.16483e-07)
+bones/15/rotation = Quaternion(0.0438904, 0.705743, -0.0438912, 0.705743)
+bones/15/scale = Vector3(1, 1, 1)
+bones/16/position = Vector3(-1.0388e-08, 0.277834, 7.81398e-08)
+bones/16/rotation = Quaternion(1.01349e-07, -1.16607e-06, 1.07489e-06, 1)
+bones/17/position = Vector3(-1.03787e-07, 0.277834, 1.70117e-08)
+bones/17/rotation = Quaternion(1.609e-07, 3.00215e-07, -2.14533e-07, 1)
+bones/18/position = Vector3(0.314488, 0.992575, -0.269857)
+bones/18/rotation = Quaternion(0.992759, 1.14555e-07, 9.46769e-07, 0.12012)
+bones/19/position = Vector3(1.12735e-08, 0.144143, -2.1068e-08)
+bones/19/rotation = Quaternion(0.0284352, -9.53289e-07, 2.71179e-08, 0.999596)
+bones/20/position = Vector3(1.53713e-08, 0.282638, 4.66332e-10)
+bones/20/rotation = Quaternion(0.283135, -0.00239512, 0.0081127, 0.959043)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/position = Vector3(3.6575e-08, 0.577699, 4.64659e-11)
+bones/21/rotation = Quaternion(-0.0961399, -0.548243, 0.820599, -0.129631)
+bones/21/scale = Vector3(1, 1, 1)
+bones/22/position = Vector3(3.23007e-08, 0.446803, 8.52459e-09)
+bones/22/rotation = Quaternion(7.43264e-09, -2.50669e-08, -2.81708e-14, 1)
+bones/22/scale = Vector3(1, 1, 1)
+bones/23/position = Vector3(4.46988e-09, 0.446803, 1.10538e-09)
+bones/23/rotation = Quaternion(-3.33506e-08, -2.06097e-07, 5.96047e-08, 1)
+bones/23/scale = Vector3(1, 1, 1)
+bones/24/position = Vector3(-0.291898, 0.992576, -0.269857)
+bones/24/rotation = Quaternion(0.992759, 1.14555e-07, 9.46769e-07, 0.12012)
+bones/25/position = Vector3(-2.65741e-08, 0.144143, -3.68719e-08)
+bones/25/rotation = Quaternion(0.0284352, -8.1072e-06, 0.000254837, 0.999596)
+bones/26/position = Vector3(3.38977e-08, 0.282638, -1.73703e-08)
+bones/26/rotation = Quaternion(0.0823974, 0.037718, -0.0497631, 0.994641)
+bones/26/scale = Vector3(1, 1, 1)
+bones/27/position = Vector3(-5.34359e-09, 0.537284, 1.47715e-08)
+bones/27/rotation = Quaternion(-0.118164, 0.702558, -0.700464, -0.0424172)
+bones/28/position = Vector3(-8.39307e-09, 0.441615, -8.57685e-09)
+bones/28/rotation = Quaternion(-4.4779e-08, -1.35765e-07, 1.34111e-07, 1)
+bones/28/scale = Vector3(1, 1, 1)
+bones/29/position = Vector3(6.20482e-08, 0.441615, 4.36652e-09)
+bones/29/rotation = Quaternion(4.63958e-08, -2.73728e-07, -3.72529e-08, 1)
+bones/29/scale = Vector3(1, 1, 1)
+
+[node name="pCube2" parent="Harold/Armature/Skeleton3D" index="0" groups=["Player"]]
+layers = 2
+
+[node name="pCube2_003" parent="Harold/Armature/Skeleton3D" index="1" groups=["Player"]]
+visible = false
+layers = 2
+
+[node name="AnimationPlayer" parent="Harold" index="1" groups=["Player"]]
+
+[node name="uma" parent="." instance=ExtResource("17_bdisu")]
+visible = false
+
+[node name="Skeleton3D" parent="uma/Prefab_Mode_in_Context/UmaAnimatedOptimizedCharacterModel" index="0"]
+bones/0/position = Vector3(0.0743101, 0.827727, -0.204418)
+bones/0/rotation = Quaternion(0.660213, -0.00201879, -0.00106173, 0.751075)
+bones/0/scale = Vector3(1, 0.999961, 0.999961)
+bones/1/rotation = Quaternion(0.425706, 0.00505981, 0.0124554, 0.904762)
+bones/1/scale = Vector3(1, 1.00004, 1.00004)
+bones/2/rotation = Quaternion(0.099956, -4.1909e-09, 2.08558e-08, 0.994992)
+bones/2/scale = Vector3(1, 0.999958, 0.999958)
+bones/3/rotation = Quaternion(0.211414, -0.0141888, -0.0205819, 0.977077)
+bones/3/scale = Vector3(1, 1.00016, 1.00016)
+bones/4/rotation = Quaternion(-0.0373776, -1.99871e-05, -0.815569, 0.577451)
+bones/4/scale = Vector3(0.999983, 0.99999, 1.00001)
+bones/5/rotation = Quaternion(-0.0865263, 0.21173, -0.410046, 0.882919)
+bones/5/scale = Vector3(0.999992, 1.00006, 0.999953)
+bones/6/rotation = Quaternion(0.780264, -0.142581, -0.0150652, 0.608795)
+bones/6/scale = Vector3(1.00003, 0.999998, 0.99993)
+bones/7/rotation = Quaternion(-0.0199622, -0.000142972, -0.00319881, 0.999796)
+bones/7/scale = Vector3(1.00003, 1.00006, 1.00002)
+bones/8/rotation = Quaternion(-0.0373776, 2.00471e-05, 0.815569, 0.577452)
+bones/8/scale = Vector3(0.999983, 0.99999, 1.00001)
+bones/9/rotation = Quaternion(0.0205764, -0.049585, 0.545297, 0.836522)
+bones/9/scale = Vector3(1.00001, 0.99999, 0.999957)
+bones/10/rotation = Quaternion(0.81081, 0.0785109, 0.0242894, 0.579511)
+bones/10/scale = Vector3(1.00003, 1.00003, 0.999995)
+bones/11/rotation = Quaternion(-0.0199684, 0.000118928, 0.00318059, 0.999796)
+bones/11/scale = Vector3(0.999951, 0.999998, 1.00002)
+bones/13/position = Vector3(0.215832, 0.908507, -0.311236)
+bones/13/rotation = Quaternion(0.832523, -0.127268, -0.174717, 0.510081)
+bones/13/scale = Vector3(1.00003, 1.00004, 0.999955)
+bones/14/rotation = Quaternion(0.611269, -0.0113939, -0.21566, 0.761387)
+bones/14/scale = Vector3(0.999959, 1.00007, 0.999927)
+bones/15/rotation = Quaternion(-0.867914, 0.119421, 0.154045, 0.456873)
+bones/15/scale = Vector3(1.00001, 1.00003, 1.00004)
+bones/16/position = Vector3(-0.066231, 0.908506, -0.312523)
+bones/16/rotation = Quaternion(0.816343, 0.0424548, 0.101526, 0.566987)
+bones/16/scale = Vector3(0.999999, 0.999971, 0.99998)
+bones/17/rotation = Quaternion(0.633877, 0.0159426, 0.148607, 0.758856)
+bones/17/scale = Vector3(0.999954, 1.00003, 1.00003)
+bones/18/rotation = Quaternion(-0.328614, -0.0800486, 0.159757, 0.927406)
+bones/18/scale = Vector3(0.99995, 0.99993, 1.00007)
+
+[node name="BackPlateFlash" parent="uma/Prefab_Mode_in_Context/UmaAnimatedOptimizedCharacterModel/Skeleton3D" index="0"]
+transform = Transform3D(0.999646, -0.0261417, -0.00493617, 0.00195499, 0.257234, -0.966351, 0.0265295, 0.965999, 0.257194, 0.0505959, 0.481185, -1.59863)
+
+[node name="Area3D" type="Area3D" parent="." groups=["Player"]]
+
+[node name="CollisionShape3DWacky" type="CollisionShape3D" parent="Area3D" groups=["Player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08608, 0)
+shape = SubResource("SphereShape3D_k577x")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="."]
+shape = SubResource("SphereShape3D_g0tjh")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(11, 0, 0, 0, -4.80825e-07, 11, 0, -11, -4.80825e-07, 0, 1000, 9.44162)
+texture = ExtResource("18_8pjr8")
+
+[editable path="Harold"]
+[editable path="uma"]

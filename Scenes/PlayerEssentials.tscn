@@ -1,0 +1,288 @@
+[gd_scene load_steps=18 format=3 uid="uid://bl0gcmucw12s"]
+
+[ext_resource type="PackedScene" uid="uid://dh0uibymbwuvp" path="res://Scenes/Player.tscn" id="1_ssj8g"]
+[ext_resource type="Script" uid="uid://b185yellxkequ" path="res://scripts/PlayerCamera.cs" id="2_8fqb0"]
+[ext_resource type="Theme" uid="uid://d2d431orn77jx" path="res://Theme.tres" id="3_j1vlk"]
+[ext_resource type="Script" uid="uid://hu1tnxqhmw2c" path="res://scripts/EnsureMenuFocus.cs" id="4_2tleo"]
+[ext_resource type="Script" uid="uid://k1rp5gl0ap2j" path="res://scripts/LevelSelectIconCamera.cs" id="4_24rub"]
+[ext_resource type="Script" uid="uid://ce8rpnu6cpavt" path="res://scripts/PlayerUIManager.cs" id="4_echnm"]
+[ext_resource type="Script" uid="uid://wb4u07uvvdxy" path="res://scripts/PortalFlashEffect.cs" id="4_m0ea8"]
+[ext_resource type="Script" uid="uid://b80pd6qouusem" path="res://scripts/UIBindings.cs" id="5_rolxm"]
+[ext_resource type="Script" uid="uid://bqxtbck25vvii" path="res://scripts/PauseMenu.cs" id="7_20jcm"]
+[ext_resource type="Texture2D" uid="uid://cdejc4cjcfyir" path="res://textures/haroldFaceIconModern.png" id="8_2phmm"]
+[ext_resource type="Script" uid="uid://tsiqf0xo0fuj" path="res://scripts/MapCamera.cs" id="8_ygj5i"]
+[ext_resource type="Texture2D" uid="uid://bnccrgsuoed3u" path="res://textures/crownIcon.png" id="10_0cyvc"]
+[ext_resource type="FontFile" uid="uid://6wy1qp3lbfdk" path="res://fonts/Super Comic.ttf" id="11_hdgk2"]
+[ext_resource type="Texture2D" uid="uid://bdfe4v7c52par" path="res://textures/donutIcon.png" id="13_rtlik"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uuhyw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Environment" id="Environment_q64wp"]
+background_color = Color(0, 0, 0, 0)
+ambient_light_source = 2
+ambient_light_color = Color(0.82606, 0.82606, 0.82606, 1)
+reflected_light_source = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jdi5d"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.325441, 0.325441, 0.325441, 1)
+border_blend = true
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[node name="PlayerEssentials" type="Node3D"]
+
+[node name="player" parent="." node_paths=PackedStringArray("cameraNode") instance=ExtResource("1_ssj8g")]
+cameraNode = NodePath("../Camera3D")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+cull_mask = 1048571
+fov = 80.0
+script = ExtResource("2_8fqb0")
+
+[node name="Control" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_j1vlk")
+
+[node name="levelSelectIconScreenshotVisibilty" type="SubViewportContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.222
+anchor_bottom = 0.387
+offset_left = -0.255981
+offset_bottom = 5.22398
+
+[node name="levelSelectIconScreenshot" type="SubViewport" parent="Control/levelSelectIconScreenshotVisibilty"]
+handle_input_locally = false
+size = Vector2i(256, 256)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Control/levelSelectIconScreenshotVisibilty/levelSelectIconScreenshot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 90.6379, -83.6424)
+cull_mask = 1048573
+current = true
+fov = 80.0
+script = ExtResource("4_24rub")
+
+[node name="PlayerUIManager" type="Node" parent="Control" node_paths=PackedStringArray("crownCountLabel", "donutCountLabel", "hideParent", "timeAttackTimer", "levelIconScreenshotViewportVisibility", "levelIconScreenshotViewport", "levelSelectIconCamera")]
+process_mode = 3
+script = ExtResource("4_echnm")
+crownCountLabel = NodePath("../hideParent/CrownIcon/Label")
+donutCountLabel = NodePath("../hideParent/DonutIcon/Label")
+hideParent = NodePath("../hideParent")
+timeAttackTimer = NodePath("../TimerText")
+levelIconScreenshotViewportVisibility = NodePath("../levelSelectIconScreenshotVisibilty")
+levelIconScreenshotViewport = NodePath("../levelSelectIconScreenshotVisibilty/levelSelectIconScreenshot")
+levelSelectIconCamera = NodePath("../levelSelectIconScreenshotVisibilty/levelSelectIconScreenshot/Camera3D")
+
+[node name="EnsureMenuFocus" type="Node" parent="Control" node_paths=PackedStringArray("defaultFocus")]
+script = ExtResource("4_2tleo")
+defaultFocus = NodePath("../PauseMenu/RootButtonsContainer/Button")
+doButtonScaling = true
+
+[node name="UIBindings" type="Node" parent="Control"]
+script = ExtResource("5_rolxm")
+
+[node name="PortalFlashEffect" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uuhyw")
+script = ExtResource("4_m0ea8")
+
+[node name="TimerText" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_right = 80.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 24
+text = "
+00:00:000"
+
+[node name="hideParent" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 24.0
+offset_right = 2.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CrownIcon" type="TextureRect" parent="Control/hideParent"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0104167
+anchor_top = 0.0216049
+anchor_right = 0.0807292
+anchor_bottom = 0.146605
+offset_right = 6.10352e-05
+texture = ExtResource("10_0cyvc")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Control/hideParent/CrownIcon"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.1358
+anchor_top = 0.320988
+anchor_right = 1.63
+anchor_bottom = 0.568
+offset_right = -0.030014
+offset_bottom = -4.008
+theme_override_fonts/font = ExtResource("11_hdgk2")
+text = "0/0"
+metadata/_edit_use_anchors_ = true
+
+[node name="DonutIcon" type="TextureRect" parent="Control/hideParent"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0104167
+anchor_top = 0.146605
+anchor_right = 0.0572917
+anchor_bottom = 0.229938
+texture = ExtResource("13_rtlik")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Control/hideParent/DonutIcon"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.1358
+anchor_top = 0.320988
+anchor_right = 1.84
+anchor_bottom = 0.691
+offset_right = -11.37
+offset_bottom = -10.65
+theme_override_fonts/font = ExtResource("11_hdgk2")
+text = "0/0"
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Control/hideParent"]
+process_mode = 3
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.776042
+anchor_top = 0.595679
+anchor_right = 1.0
+anchor_bottom = 1.0
+stretch = true
+stretch_shrink = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="Control/hideParent/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(128, 131)
+render_target_update_mode = 4
+
+[node name="mapcamera" type="Node3D" parent="Control/hideParent/SubViewportContainer/SubViewport" node_paths=PackedStringArray("playerCursor", "camera", "target")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+script = ExtResource("8_ygj5i")
+playerCursor = NodePath("map_camera/Sprite3D")
+camera = NodePath("map_camera")
+target = NodePath("../../../../../player")
+offset = Vector3(0, 1500, 0)
+lookAtTarget = false
+lerp = false
+
+[node name="map_camera" type="Camera3D" parent="Control/hideParent/SubViewportContainer/SubViewport/mapcamera"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, -2000)
+environment = SubResource("Environment_q64wp")
+projection = 1
+size = 120.0
+
+[node name="Sprite3D" type="Sprite3D" parent="Control/hideParent/SubViewportContainer/SubViewport/mapcamera/map_camera"]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, -29.9694)
+texture = ExtResource("8_2phmm")
+
+[node name="Panel" type="Panel" parent="Control/hideParent"]
+layout_mode = 2
+anchor_left = 0.776
+anchor_top = 0.596
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0479736
+offset_top = -0.208008
+theme_override_styles/panel = SubResource("StyleBoxFlat_jdi5d")
+
+[node name="PauseMenu" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_20jcm")
+
+[node name="RootButtonsContainer" type="VBoxContainer" parent="Control/PauseMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.201389
+anchor_top = 0.205247
+anchor_right = 0.348
+anchor_bottom = 0.529
+offset_right = 0.103638
+offset_bottom = -18.792
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Control/PauseMenu/RootButtonsContainer"]
+layout_mode = 2
+text = "Resume"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button5" type="Button" parent="Control/PauseMenu/RootButtonsContainer"]
+layout_mode = 2
+text = "Save"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button2" type="Button" parent="Control/PauseMenu/RootButtonsContainer"]
+layout_mode = 2
+text = "Restart Level"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button3" type="Button" parent="Control/PauseMenu/RootButtonsContainer"]
+layout_mode = 2
+text = "Level Select"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button4" type="Button" parent="Control/PauseMenu/RootButtonsContainer"]
+layout_mode = 2
+text = "Main Menu"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Control/PauseMenu/RootButtonsContainer/Button" to="Control/PauseMenu" method="Resume"]
+[connection signal="pressed" from="Control/PauseMenu/RootButtonsContainer/Button5" to="Control/PauseMenu" method="Save"]
+[connection signal="pressed" from="Control/PauseMenu/RootButtonsContainer/Button2" to="Control/PauseMenu" method="RestartLevel"]
+[connection signal="pressed" from="Control/PauseMenu/RootButtonsContainer/Button3" to="Control/PauseMenu" method="LevelSelect"]
+[connection signal="pressed" from="Control/PauseMenu/RootButtonsContainer/Button4" to="Control/PauseMenu" method="MainMenu"]

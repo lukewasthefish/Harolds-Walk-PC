@@ -1,0 +1,119 @@
+[gd_scene load_steps=18 format=3 uid="uid://c5mo63onmqstv"]
+
+[ext_resource type="PackedScene" uid="uid://bm60rgy45bv42" path="res://Scenes/challenge_stage_7_geometry.tscn" id="1_1yefr"]
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="2_k4smg"]
+[ext_resource type="AudioStream" uid="uid://5buhmunw4lyi" path="res://audio/music/challenge_stage_04.ogg" id="3_y3ess"]
+[ext_resource type="PackedScene" uid="uid://wbkwsd6tfe44" path="res://Scenes/world_environment(challengestages).tscn" id="4_w777l"]
+[ext_resource type="Texture2D" uid="uid://be0doyq2db33d" path="res://textures/spacesky2.png" id="5_7ock5"]
+[ext_resource type="PackedScene" uid="uid://bqbqjfox4mqqo" path="res://Scenes/PlayerStart.tscn" id="5_dep2h"]
+[ext_resource type="PackedScene" uid="uid://cwggdkga1gk37" path="res://Scenes/octoplatform.tscn" id="6_hsepm"]
+[ext_resource type="PackedScene" uid="uid://bmouwn70obuky" path="res://Scenes/YellowTrampoline.tscn" id="8_hjie1"]
+[ext_resource type="PackedScene" uid="uid://buoa3j0nv6gk6" path="res://Scenes/dash_panel.tscn" id="9_riqqp"]
+[ext_resource type="PackedScene" uid="uid://ohjil5u56gdg" path="res://Scenes/CrownPickup.tscn" id="10_rpm0a"]
+[ext_resource type="PackedScene" uid="uid://djnotrdxwhxj0" path="res://Scenes/Portal.tscn" id="11_jgrxu"]
+[ext_resource type="PackedScene" uid="uid://or6kwbrrr2s5" path="res://Scenes/Donut.tscn" id="12_qwl8l"]
+[ext_resource type="PackedScene" uid="uid://bst5043hive0r" path="res://Scenes/unlock_achievement.tscn" id="13_4w50e"]
+[ext_resource type="PackedScene" uid="uid://boe6xyqp4cm5c" path="res://Scenes/sheep.tscn" id="14_4ijx0"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3emev"]
+panorama = ExtResource("5_7ock5")
+
+[sub_resource type="Sky" id="Sky_xht0t"]
+sky_material = SubResource("PanoramaSkyMaterial_3emev")
+
+[sub_resource type="Environment" id="Environment_c0t60"]
+background_mode = 2
+sky = SubResource("Sky_xht0t")
+ambient_light_source = 2
+ambient_light_color = Color(0.630125, 0.704171, 0.622736, 1)
+fog_light_color = Color(0.776944, 0.857551, 7.70092e-07, 1)
+fog_density = 0.005
+fog_sky_affect = 0.0
+
+[node name="challenge_stage_8" type="Node3D"]
+
+[node name="challenge_stage_7_geometry" parent="." instance=ExtResource("1_1yefr")]
+
+[node name="music_player" parent="." instance=ExtResource("2_k4smg")]
+song = ExtResource("3_y3ess")
+
+[node name="WorldEnvironment(challengestages)" parent="." instance=ExtResource("4_w777l")]
+environment = SubResource("Environment_c0t60")
+
+[node name="octoplatform" parent="." instance=ExtResource("6_hsepm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.716, -7.6688, 106.408)
+
+[node name="octoplatform5" parent="." instance=ExtResource("6_hsepm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.716, -7.6688, 114.408)
+
+[node name="octoplatform6" parent="." instance=ExtResource("6_hsepm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.716, -7.6688, 122.408)
+
+[node name="octoplatform7" parent="." instance=ExtResource("6_hsepm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.716, -7.6688, 130.408)
+
+[node name="octoplatform8" parent="." instance=ExtResource("6_hsepm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.716, -7.6688, 138.408)
+
+[node name="octoplatform2" parent="." instance=ExtResource("6_hsepm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.716, -7.6688, 98.408)
+
+[node name="octoplatform3" parent="." instance=ExtResource("6_hsepm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.716, -7.6688, 90.408)
+
+[node name="octoplatform4" parent="." instance=ExtResource("6_hsepm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.716, -7.6688, 82.408)
+
+[node name="PlayerStart" parent="." instance=ExtResource("5_dep2h")]
+transform = Transform3D(-1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, -10.421, -7.1688, 140.476)
+
+[node name="YellowTrampoline" parent="." instance=ExtResource("8_hjie1")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -10.8407, -7.1688, 82.3153)
+
+[node name="YellowTrampoline2" parent="." instance=ExtResource("8_hjie1")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 6.87733, -16.5822, -83.7335)
+
+[node name="YellowTrampoline3" parent="." instance=ExtResource("8_hjie1")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -10.4964, -30.3263, -15.0117)
+
+[node name="dashPanel" parent="." instance=ExtResource("9_riqqp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6592, -7.1688, 90.2352)
+
+[node name="Crown" parent="." instance=ExtResource("10_rpm0a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8057, 27.0568, -30.5233)
+
+[node name="Crown2" parent="." instance=ExtResource("10_rpm0a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2107, 27.3005, -31.26)
+
+[node name="Crown3" parent="." instance=ExtResource("10_rpm0a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.2893, -3.19081, -31.3781)
+
+[node name="Portal" parent="." instance=ExtResource("11_jgrxu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.977533, -2.26364, -31.5191)
+levelName = "challenge_stages_ending"
+gameplayScene = false
+
+[node name="Crown4" parent="." instance=ExtResource("10_rpm0a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0284, -9.02128, -83.5185)
+
+[node name="Crown5" parent="." instance=ExtResource("10_rpm0a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.81002, 56.8792, -58.6546)
+
+[node name="Donut" parent="." instance=ExtResource("12_qwl8l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.63916, 56.9754, -53.6102)
+
+[node name="Donut2" parent="." instance=ExtResource("12_qwl8l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.11522, 57.0965, -58.7371)
+
+[node name="UnlockAchievement" parent="." instance=ExtResource("13_4w50e")]
+achievmentNameInAPI = "no_death"
+requireZeroDeaths = true
+
+[node name="Donut3" parent="." instance=ExtResource("12_qwl8l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.53177, 56.8575, -62.8369)
+
+[node name="Donut4" parent="." instance=ExtResource("12_qwl8l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8476, 56.6493, -58.2069)
+
+[node name="sheep" parent="." instance=ExtResource("14_4ijx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5672, 55.3767, -65.144)

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://1uy2htoah5gl"]
+
+[ext_resource type="Texture2D" uid="uid://dbmxbfvylfwmj" path="res://blend/textures/Download-High-Quality-White-Marble-Texture.png" id="1_vhexr"]
+
+[resource]
+resource_name = "safetySpike"
+specular_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_vhexr")
+roughness = 0.5

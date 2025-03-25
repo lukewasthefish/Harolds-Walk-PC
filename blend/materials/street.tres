@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b8khbm41neovo"]
+
+[ext_resource type="Texture2D" uid="uid://dggl8ftcy5awl" path="res://blend/textures/asphalt.jpg" id="1_prdsk"]
+
+[resource]
+resource_name = "street"
+specular_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_prdsk")
+metallic_specular = 0.0
+roughness = 0.5

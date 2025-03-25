@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://qkn6dmu1u3t6"]
+
+[ext_resource type="PackedScene" uid="uid://c2yp1oorffj5j" path="res://Scenes/music_player.tscn" id="2_pdimi"]
+[ext_resource type="AudioStream" uid="uid://b8irbwnpman8t" path="res://audio/music/challenge_stage_02.ogg" id="3_anjk6"]
+[ext_resource type="PackedScene" uid="uid://wbkwsd6tfe44" path="res://Scenes/world_environment(challengestages).tscn" id="4_oepc5"]
+[ext_resource type="PackedScene" uid="uid://b7e0mk8pc7u4r" path="res://Scenes/challenge_stage_3_geometry.tscn" id="4_vvqip"]
+[ext_resource type="PackedScene" uid="uid://cwggdkga1gk37" path="res://Scenes/octoplatform.tscn" id="5_qkunh"]
+[ext_resource type="PackedScene" uid="uid://bqbqjfox4mqqo" path="res://Scenes/PlayerStart.tscn" id="5_rkuge"]
+[ext_resource type="PackedScene" uid="uid://djnotrdxwhxj0" path="res://Scenes/Portal.tscn" id="6_jbg8u"]
+[ext_resource type="PackedScene" uid="uid://ohjil5u56gdg" path="res://Scenes/CrownPickup.tscn" id="7_bnvdi"]
+[ext_resource type="PackedScene" uid="uid://or6kwbrrr2s5" path="res://Scenes/Donut.tscn" id="7_u6og6"]
+[ext_resource type="PackedScene" uid="uid://buoa3j0nv6gk6" path="res://Scenes/dash_panel.tscn" id="10_8cuw1"]
+
+[node name="challenge_stage_3" type="Node3D"]
+
+[node name="music_player" parent="." instance=ExtResource("2_pdimi")]
+song = ExtResource("3_anjk6")
+
+[node name="WorldEnvironment(challengestages)" parent="." instance=ExtResource("4_oepc5")]
+
+[node name="challenge_stage_3_geometry" parent="." instance=ExtResource("4_vvqip")]
+rotateAmmount = Vector3(0, 0, -0.5)
+
+[node name="challenge_stage_3_geometry2" parent="." instance=ExtResource("4_vvqip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 210)
+rotateAmmount = Vector3(0, 0, 1.4)
+
+[node name="octoplatform" parent="." instance=ExtResource("5_qkunh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0282278, -0.260754, -155.731)
+
+[node name="octoplatform3" parent="." instance=ExtResource("5_qkunh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0282278, -0.260754, -163.731)
+
+[node name="octoplatform4" parent="." instance=ExtResource("5_qkunh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0282278, -0.260754, -171.731)
+
+[node name="octoplatform2" parent="." instance=ExtResource("5_qkunh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0282278, -0.260754, 54.4976)
+
+[node name="octoplatform5" parent="." instance=ExtResource("5_qkunh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0282278, -0.260754, 272.873)
+
+[node name="Crown" parent="." instance=ExtResource("7_bnvdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0583649, 0.347665, -50.5832)
+
+[node name="Crown2" parent="." instance=ExtResource("7_bnvdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.127057, 0.893711, -6.46694)
+
+[node name="Crown3" parent="." instance=ExtResource("7_bnvdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000949025, 0.928972, -105.768)
+
+[node name="Donut" parent="." instance=ExtResource("7_u6og6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.324087, 4.65785, -58.0489)
+
+[node name="Donut2" parent="." instance=ExtResource("7_u6og6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.324087, 4.65785, -63.0489)
+
+[node name="Donut3" parent="." instance=ExtResource("7_u6og6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.324087, 4.65785, -43.0489)
+
+[node name="Donut4" parent="." instance=ExtResource("7_u6og6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.324087, 4.65785, -37.0489)
+
+[node name="PlayerStart" parent="." instance=ExtResource("5_rkuge")]
+transform = Transform3D(1, 0, -1.7683e-07, 0, 1, 0, 1.7683e-07, 0, 1, 0.0466751, 0.239246, -173.701)
+
+[node name="Portal" parent="." instance=ExtResource("6_jbg8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.132247, 2.95919, 273.229)
+levelName = "challenge_stage_4"
+
+[node name="dashPanel" parent="." instance=ExtResource("10_8cuw1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.035135, 0.239246, 54.6284)
