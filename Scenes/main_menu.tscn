@@ -130,8 +130,8 @@ theme = ExtResource("3_qsi6s")
 
 [node name="EnsureMenuFocus" type="Node" parent="Control" index="0" node_paths=PackedStringArray("defaultFocus")]
 script = ExtResource("3_b3aqt")
-defaultFocus = NodePath("../RootButtonsContainer/Button")
 doButtonScaling = true
+defaultFocus = NodePath("../RootButtonsContainer/Button")
 
 [node name="UIBindings" type="Node" parent="Control" index="1" node_paths=PackedStringArray("newGameErrorText")]
 script = ExtResource("7_1cau8")
@@ -205,6 +205,7 @@ anchor_top = 0.00617284
 anchor_right = 0.736111
 anchor_bottom = 0.518519
 offset_right = 3.05176e-05
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8c0wk")
 metadata/_edit_use_anchors_ = true
 
