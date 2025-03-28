@@ -13,9 +13,8 @@ radius = 0.44658
 [sub_resource type="SphereShape3D" id="SphereShape3D_om4b2"]
 radius = 0.949318
 
-[node name="LegEnemy" type="Node3D" groups=["Enemy", "Entity"]]
-
-[node name="LegEnemy" type="CharacterBody3D" parent="." node_paths=PackedStringArray("animationPlayer", "CollisionShape3D", "mesh", "acidFallParticles") groups=["Enemy", "Entity"]]
+[node name="LegEnemy" type="CharacterBody3D" node_paths=PackedStringArray("animationPlayer", "CollisionShape3D", "mesh", "acidFallParticles") groups=["Enemy", "Entity"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60617, 1.86744, -69.1348)
 top_level = true
 slide_on_ceiling = false
 wall_min_slide_angle = 0.959931
@@ -30,18 +29,18 @@ acidFallParticles = NodePath("GPUParticles3D")
 deathSound = ExtResource("3_qqro5")
 acidDeathSound = ExtResource("4_lps0i")
 
-[node name="CollisionShape3D(LEGENEMY)" type="CollisionShape3D" parent="LegEnemy" groups=["Enemy", "Entity"]]
+[node name="CollisionShape3D(LEGENEMY)" type="CollisionShape3D" parent="." groups=["Enemy", "Entity"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.361707)
 shape = SubResource("CapsuleShape3D_0mi7d")
 
-[node name="LegEnemy" type="Node3D" parent="LegEnemy" groups=["Enemy", "Entity"]]
+[node name="LegEnemy" type="Node3D" parent="." groups=["Enemy", "Entity"]]
 
-[node name="legenemy" parent="LegEnemy/LegEnemy" groups=["Enemy", "Entity"] instance=ExtResource("2_u2aog")]
+[node name="legenemy" parent="LegEnemy" groups=["Enemy", "Entity"] instance=ExtResource("2_u2aog")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
-[node name="Armature" parent="LegEnemy/LegEnemy/legenemy" index="0" groups=["Enemy", "Entity"]]
+[node name="Armature" parent="LegEnemy/legenemy" index="0" groups=["Enemy", "Entity"]]
 
-[node name="Skeleton3D" parent="LegEnemy/LegEnemy/legenemy/Armature" index="0" groups=["Enemy", "Entity"]]
+[node name="Skeleton3D" parent="LegEnemy/legenemy/Armature" index="0" groups=["Enemy", "Entity"]]
 bones/0/rotation = Quaternion(-0.113306, -0.760785, 0.0941354, 0.632066)
 bones/2/rotation = Quaternion(0.598328, 0.477256, 0.599902, -0.233129)
 bones/3/rotation = Quaternion(-0.403437, 0.223137, 0.137075, 0.876732)
@@ -54,18 +53,22 @@ bones/11/rotation = Quaternion(-0.0615291, -0.0584602, 0.91042, 0.404886)
 bones/12/rotation = Quaternion(0.0892302, 0.714036, 0.0362657, 0.693452)
 bones/14/rotation = Quaternion(0.0637615, -0.0634109, 0.784836, 0.613145)
 
-[node name="Main" parent="LegEnemy/LegEnemy/legenemy/Armature/Skeleton3D" index="0" groups=["Enemy", "Entity"]]
+[node name="Main" parent="LegEnemy/legenemy/Armature/Skeleton3D" index="0" groups=["Enemy", "Entity"]]
 
-[node name="AnimationPlayer" parent="LegEnemy/LegEnemy/legenemy" index="1" groups=["Enemy", "Entity"]]
+[node name="AnimationPlayer" parent="LegEnemy/legenemy" index="1" groups=["Enemy", "Entity"]]
 
-[node name="Area3D" type="Area3D" parent="LegEnemy" groups=["Enemy", "Entity"]]
+[node name="Area3D" type="Area3D" parent="." groups=["Enemy", "Entity"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LegEnemy/Area3D" groups=["Enemy", "Entity"]]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" groups=["Enemy", "Entity"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32066, -0.359905)
 shape = SubResource("SphereShape3D_om4b2")
 
-[node name="GPUParticles3D" parent="LegEnemy" instance=ExtResource("4_dcupi")]
+[node name="GPUParticles3D" parent="." instance=ExtResource("4_dcupi")]
 
-[connection signal="area_entered" from="LegEnemy/Area3D" to="LegEnemy" method="PlayerLandOnHead"]
+[node name="LegEnemy2" type="Node3D" parent="." groups=["Enemy", "Entity"]]
 
-[editable path="LegEnemy/LegEnemy/legenemy"]
+[node name="PreserveOriginalOffset" type="Node3D" parent="LegEnemy2"]
+
+[connection signal="area_entered" from="Area3D" to="." method="PlayerLandOnHead"]
+
+[editable path="LegEnemy/legenemy"]
