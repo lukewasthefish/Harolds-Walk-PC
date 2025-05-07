@@ -1,4 +1,5 @@
 .godot/
+.idea/
 .fake
 build/
 settings/*
