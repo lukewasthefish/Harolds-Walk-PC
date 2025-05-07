@@ -50,6 +50,9 @@ public partial class PlayerCamera : Camera3D
 	private float lerpSpeed3D = Mathf.Inf;
 	private float dest3Dlerpspeed = 100f;
 
+	private Vector2 mouseMovement = Vector2.Zero;
+	private bool mouseMovedThisFrame = false;
+
 	public override void _Ready()
 	{
 		initialRotateAxisSpeed = rotateAxisSpeed;
@@ -203,12 +206,27 @@ public partial class PlayerCamera : Camera3D
 		}
 	}
 
+	public override void _Input(InputEvent @event)
+	{
+		base._Input(@event);
+
+		if (@event is InputEventMouseMotion inputEventMouseMotion)
+		{
+			mouseMovement = inputEventMouseMotion.ScreenRelative;
+			mouseMovedThisFrame = true;
+		}
+	}
 
 	private void HandleInput(float delta)
 	{
 		Vector2 lookVector = Input.GetVector("look_left", "look_right", "look_up", "look_down");
 
-		Vector2 mouseMovement = Input.GetLastMouseVelocity();
+		if (!mouseMovedThisFrame)
+		{
+			mouseMovement = Vector2.Zero;
+		}
+
+		mouseMovedThisFrame = false;
 
 		float sensitivity = 1.4f / (float)GameManager.Instance.optionsManager.options["cameraRotateSpeedScale"];
 
@@ -217,13 +235,16 @@ public partial class PlayerCamera : Camera3D
 		float horizontalaxis = 0.0f;
 		float verticalaxis = 0.0f;
 
-		if(lookVector.Length() > 0.1f){
+		if(lookVector.Length() > 0.1f)
+		{
 			//TODO : Allow configuration of whether or not this is inverted on either axis
 			horizontalaxis = -lookVector.X * sensitivity * 2f;
 			verticalaxis = -lookVector.Y * sensitivity * 2f;	
-		} else if (mouseMovement.Length() > 0.2f){
-			horizontalaxis = -mouseMovement.X / divisionAmmount;
-			verticalaxis = -mouseMovement.Y / divisionAmmount;
+		}
+		else if (mouseMovement.Length() > 0.01f)
+		{
+			horizontalaxis = -mouseMovement.X * (sensitivity / Mathf.Pi);
+			verticalaxis = -mouseMovement.Y * (sensitivity / Mathf.Pi);
 		}
 
 		float maxVelocity = 30f;
